@@ -49,10 +49,6 @@ static INSN_REGPARM void thumbUnknownInsn(uint32_t opcode)
 #ifdef BKPT_SUPPORT
 static INSN_REGPARM void thumbBreakpoint(uint32_t opcode)
 {
-    reg[15].I -= 2;
-    armNextPC -= 2;
-    dbgSignal(5, opcode & 255);
-    clockTicks = -1;
 }
 #endif
 
@@ -1705,13 +1701,19 @@ static INSN_REGPARM void thumbC8(uint32_t opcode)
 static INSN_REGPARM void thumbD0(uint32_t opcode)
 {
     UPDATE_OLDREG;
-    clockTicks = codeTicksAccessSeq16(armNextPC) + 1;
+#ifndef USE_TWEAK_SPEEDHACK
+	clockTicks = codeTicksAccessSeq16(armNextPC) + 1;
+#endif
     if (Z_FLAG) {
         reg[15].I += ((int8_t)(opcode & 0xFF)) << 1;
         armNextPC = reg[15].I;
         reg[15].I += 2;
         THUMB_PREFETCH;
+#ifdef USE_TWEAK_SPEEDHACK
+		clockTicks = 30;
+#else
         clockTicks += codeTicksAccessSeq16(armNextPC) + codeTicksAccess16(armNextPC) + 2;
+#endif
         busPrefetchCount = 0;
     }
 }

@@ -16,6 +16,8 @@
 // along with this program; if not, write to the Free Software Foundation,
 // Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
+#ifndef NO_FILTERS
+
 #if (defined _MSC_VER)
 #define C_CORE
 #endif
@@ -685,3 +687,5 @@ void sdlStretch4x(uint8_t* srcPtr, uint32_t srcPitch, uint8_t* /* deltaPtr */, u
         dstPtr += dstPitch;
     }
 }
+
+#endif

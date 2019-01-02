@@ -66,14 +66,6 @@ Node* exprNodeIdentifier()
 
 bool exprNodeIdentifierResolve(Node* n, Function* f, CompileUnit* u)
 {
-    Object* o;
-    if (elfGetObject(n->name, f, u, &o)) {
-        n->type = o->type;
-        n->location = elfDecodeLocation(f, o->location, &n->locType);
-        return true;
-    } else {
-        printf("Object %s not found\n", n->name);
-    }
     return false;
 }
 
@@ -173,11 +165,7 @@ bool exprNodeDotResolve(Node* n, Function* f, CompileUnit* u)
                 if (strcmp(m->name, n->name) == 0) {
                     // found member
                     n->type = m->type;
-                    if (tt == TYPE_struct) {
-                        n->location = elfDecodeLocation(f, m->location, &n->locType,
-                            loc);
-                        n->objLocation = loc;
-                    } else {
+                    if (tt != TYPE_struct) {
                         n->location = loc;
                         n->locType = n->expression->locType;
                         n->objLocation = loc;
@@ -234,11 +222,7 @@ bool exprNodeArrowResolve(Node* n, Function* f, CompileUnit* u)
                 if (strcmp(m->name, n->name) == 0) {
                     // found member
                     n->type = m->type;
-                    if (tt == TYPE_struct) {
-                        n->location = elfDecodeLocation(f, m->location, &n->locType,
-                            loc);
-                        n->objLocation = loc;
-                    } else {
+                    if (tt != TYPE_struct) {
                         n->location = loc;
                         n->objLocation = loc;
                     }

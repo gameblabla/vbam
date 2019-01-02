@@ -1,15 +1,15 @@
-PRGNAME     = vbam.elf
+PRGNAME     = vbam-rs97.elf
 
 # define regarding OS, which compiler to use
-CC          = gcc
-CCP         = g++
-LD          = gcc
+CC          = /opt/rs97-toolchain/bin/mipsel-linux-gcc
+CCP         = /opt/rs97-toolchain/bin/mipsel-linux-g++
+LD          = /opt/rs97-toolchain/bin/mipsel-linux-gcc
 
 # change compilation / linking flag options
 CFLAGS		= -DSDL -DNO_FILTERS -DC_CORE -DNO_ASM -DNDEBUG -DNO_FFMPEG -DHAVE_NETINET_IN_H -DHAVE_ARPA_INET_H -DHAVE_ZLIB_H -DFINAL_VERSION -DNO_LINK -DNO_DEBUGGER -DLOW_END
-CFLAGS 		+= -DPACKAGE="" -I/usr/include/SDL -DSYSCONF_INSTALL_DIR=\"/switch\" -DPKGDATADIR=\"/switch/vbam\"
+CFLAGS 		+= -DPACKAGE="" -I/opt/rs97-toolchain/mipsel-buildroot-linux-musl/sysroot/usr/include/SDL -DSYSCONF_INSTALL_DIR=\"/switch\" -DPKGDATADIR=\"/switch/vbam\"
 CFLAGS		+= -DUSE_TWEAK_SPEEDHACK
-CFLAGS		+= -Ofast -fdata-sections -ffunction-sections
+CFLAGS		+= -Ofast -fdata-sections -ffunction-sections -mips32
 CFLAGS		+= -I./src/apu -I./src/art -I./src/gb -I./src/gba -I./src/sdl -I./src -I. -Isrc/common -I. -Ifex
 CXXFLAGS	= $(CFLAGS) -fpermissive
 

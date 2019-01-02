@@ -1,3 +1,8 @@
+Stripped down VBA-M port based on VBA-M Nx, itself based on VBA-M with some speed related changes.
+This is mostly for the RS-97 but it can also work with the GCW0.
+
+=======
+
 # Visual Boy Advance M NX
 
 **WIP**

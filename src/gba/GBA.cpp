@@ -3057,16 +3057,6 @@ void CPUUpdateRegister(uint32_t address, uint16_t value)
         cpuNextEvent = cpuTotalTicks;
         break;
 
-#ifndef NO_LINK
-    case COMM_SIOCNT:
-        StartLink(value);
-        break;
-
-    case COMM_SIODATA8:
-        UPDATE_REG(COMM_SIODATA8, value);
-        break;
-#endif
-
     case 0x130:
         P1 |= (value & 0x3FF);
         UPDATE_REG(0x130, P1);
@@ -3075,47 +3065,6 @@ void CPUUpdateRegister(uint32_t address, uint16_t value)
     case 0x132:
         UPDATE_REG(0x132, value & 0xC3FF);
         break;
-
-#ifndef NO_LINK
-    case COMM_RCNT:
-        StartGPLink(value);
-        break;
-
-    case COMM_JOYCNT: {
-        uint16_t cur = READ16LE(&ioMem[COMM_JOYCNT]);
-
-        if (value & JOYCNT_RESET)
-            cur &= ~JOYCNT_RESET;
-        if (value & JOYCNT_RECV_COMPLETE)
-            cur &= ~JOYCNT_RECV_COMPLETE;
-        if (value & JOYCNT_SEND_COMPLETE)
-            cur &= ~JOYCNT_SEND_COMPLETE;
-        if (value & JOYCNT_INT_ENABLE)
-            cur |= JOYCNT_INT_ENABLE;
-
-        UPDATE_REG(COMM_JOYCNT, cur);
-    } break;
-
-    case COMM_JOY_RECV_L:
-        UPDATE_REG(COMM_JOY_RECV_L, value);
-        break;
-    case COMM_JOY_RECV_H:
-        UPDATE_REG(COMM_JOY_RECV_H, value);
-        break;
-
-    case COMM_JOY_TRANS_L:
-        UPDATE_REG(COMM_JOY_TRANS_L, value);
-        UPDATE_REG(COMM_JOYSTAT, READ16LE(&ioMem[COMM_JOYSTAT]) | JOYSTAT_SEND);
-        break;
-    case COMM_JOY_TRANS_H:
-        UPDATE_REG(COMM_JOY_TRANS_H, value);
-        UPDATE_REG(COMM_JOYSTAT, READ16LE(&ioMem[COMM_JOYSTAT]) | JOYSTAT_SEND);
-        break;
-
-    case COMM_JOYSTAT:
-        UPDATE_REG(COMM_JOYSTAT, (READ16LE(&ioMem[COMM_JOYSTAT]) & 0x0a) | (value & ~0x0a));
-        break;
-#endif
 
     case 0x200:
         IE = value & 0x3FFF;
@@ -3129,7 +3078,18 @@ void CPUUpdateRegister(uint32_t address, uint16_t value)
         break;
     case 0x204: {
         memoryWait[0x0e] = memoryWaitSeq[0x0e] = gamepakRamWaitState[value & 3];
+        
+        /* Looks like speedhacks aren't working properly, it's recommended to disable it for now - Gameblabla */
+		#ifdef USE_TWEAK_SPEEDHACK
+            memoryWait[0x08] = memoryWait[0x09] = 3;
+            memoryWaitSeq[0x08] = memoryWaitSeq[0x09] = 1;
 
+            memoryWait[0x0a] = memoryWait[0x0b] = 3;
+            memoryWaitSeq[0x0a] = memoryWaitSeq[0x0b] = 1;
+
+            memoryWait[0x0c] = memoryWait[0x0d] = 3;
+            memoryWaitSeq[0x0c] = memoryWaitSeq[0x0d] = 1;
+		#else
         if (!speedHack) {
             memoryWait[0x08] = memoryWait[0x09] = gamepakWaitState[(value >> 2) & 3];
             memoryWaitSeq[0x08] = memoryWaitSeq[0x09] = gamepakWaitState0[(value >> 4) & 1];
@@ -3149,6 +3109,7 @@ void CPUUpdateRegister(uint32_t address, uint16_t value)
             memoryWait[0x0c] = memoryWait[0x0d] = 3;
             memoryWaitSeq[0x0c] = memoryWaitSeq[0x0d] = 1;
         }
+        #endif
 
         for (int i = 8; i < 15; i++) {
             memoryWait32[i] = memoryWait[i] + memoryWaitSeq[i] + 1;
@@ -3676,12 +3637,6 @@ void CPULoop(int ticks)
     // variable used by the CPU core
     cpuTotalTicks = 0;
 
-#ifndef NO_LINK
-// shuffle2: what's the purpose?
-//if(GetLinkMode() != LINK_DISCONNECTED)
-//cpuNextEvent = 1;
-#endif
-
     cpuBreakLoop = false;
     cpuNextEvent = CPUUpdateTicks();
     if (cpuNextEvent > ticks)
@@ -4105,11 +4060,6 @@ void CPULoop(int ticks)
 
             ticks -= clockTicks;
 
-#ifndef NO_LINK
-            if (GetLinkMode() != LINK_DISCONNECTED)
-                LinkUpdate(clockTicks);
-#endif
-
             cpuNextEvent = CPUUpdateTicks();
 
             if (cpuDmaTicksToUpdate > 0) {
@@ -4123,11 +4073,6 @@ void CPULoop(int ticks)
                 goto updateLoop;
             }
 
-#ifndef NO_LINK
-            // shuffle2: what's the purpose?
-            if (GetLinkMode() != LINK_DISCONNECTED || gba_joybus_active)
-                cpuNextEvent = 1;
-#endif
 
             if (IF && (IME & 1) && armIrqEnable) {
                 int res = IF & IE;
@@ -4184,10 +4129,6 @@ void CPULoop(int ticks)
                 break;
         }
     }
-#ifndef NO_LINK
-    if (GetLinkMode() != LINK_DISCONNECTED)
-        CheckLinkConnection();
-#endif
 }
 
 struct EmulatedSystem GBASystem = {

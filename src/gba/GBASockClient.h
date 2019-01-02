@@ -2,14 +2,12 @@
 
 #include "../common/Types.h"
 
-#include <SFML/Network.hpp>
-
 class GBASockClient {
 public:
-    GBASockClient(sf::IpAddress _server_addr);
+    //GBASockClient(sf::IpAddress _server_addr);
     ~GBASockClient();
 
-    bool Connect(sf::IpAddress server_addr);
+    //bool Connect(sf::IpAddress server_addr);
     void Send(std::vector<char> data);
     char ReceiveCmd(char* data_in, bool block);
     void ReceiveClock(bool block);
@@ -19,9 +17,9 @@ public:
     bool IsDisconnected();
 
 private:
-    sf::IpAddress server_addr;
+    /*sf::IpAddress server_addr;
     sf::TcpSocket client;
-    sf::TcpSocket clock_client;
+    sf::TcpSocket clock_client;*/
 
     int32_t clock_sync;
     bool is_disconnected;

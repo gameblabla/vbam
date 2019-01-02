@@ -266,6 +266,7 @@ void BIOS_CpuSet()
         source &= 0xFFFFFFFC;
         dest &= 0xFFFFFFFC;
         // fill ?
+        #ifndef USE_TWEAK_MEMFUNC
         if ((cnt >> 24) & 1) {
             uint32_t value = (source > 0x0EFFFFFF ? 0x1CAD1CAD : CPUReadMemory(source));
             while (count) {
@@ -273,7 +274,9 @@ void BIOS_CpuSet()
                 dest += 4;
                 count--;
             }
-        } else {
+        } else
+        #endif
+        {
             // copy
             while (count) {
                 CPUWriteMemory(dest, (source > 0x0EFFFFFF ? 0x1CAD1CAD : CPUReadMemory(source)));
@@ -284,6 +287,7 @@ void BIOS_CpuSet()
         }
     } else {
         // 16-bit fill?
+        #ifndef USE_TWEAK_MEMFUNC
         if ((cnt >> 24) & 1) {
             uint16_t value = (source > 0x0EFFFFFF ? 0x1CAD : CPUReadHalfWord(source));
             while (count) {
@@ -291,7 +295,9 @@ void BIOS_CpuSet()
                 dest += 2;
                 count--;
             }
-        } else {
+        } else
+        #endif
+        {
             // copy
             while (count) {
                 CPUWriteHalfWord(dest, (source > 0x0EFFFFFF ? 0x1CAD : CPUReadHalfWord(source)));

@@ -1,0 +1,2580 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 24.60      0.76     0.76   353364     0.00     0.00  rtcReadGame(gzFile_s*)
+ 18.12      1.32     0.56   600221     0.00     0.00  thumbExecute()
+ 15.86      1.81     0.49   353364     0.00     0.00  mode2RenderLine()
+  4.21      1.94     0.13                             CPULoop(int)
+  2.75      2.03     0.09  4905596     0.00     0.00  thumb88(unsigned int)
+  2.43      2.10     0.08  2697827     0.00     0.00  thumbBC(unsigned int)
+  2.27      2.17     0.07    25314     0.00     0.00  mode0RenderLine()
+  1.94      2.23     0.06  4506216     0.00     0.00  thumb68(unsigned int)
+  1.62      2.28     0.05    83380     0.00     0.00  armExecute()
+  1.62      2.33     0.05    25653     0.00     0.00  Gb_Noise::run(int, int)
+  1.46      2.38     0.05  2804877     0.00     0.00  thumb80(unsigned int)
+  1.29      2.42     0.04  1558405     0.00     0.00  thumbB5(unsigned int)
+  1.29      2.46     0.04    24800     0.00     0.00  flashDelayedWrite(unsigned int, unsigned char)
+  0.81      2.48     0.03  1925853     0.00     0.00  thumb5A(unsigned int)
+  0.65      2.50     0.02  4793133     0.00     0.00  thumb1C_0(unsigned int)
+  0.65      2.52     0.02  2519732     0.00     0.00  thumb46_1(unsigned int)
+  0.65      2.54     0.02  2351253     0.00     0.00  thumb47(unsigned int)
+  0.65      2.56     0.02   943928     0.00     0.00  thumb5E(unsigned int)
+  0.65      2.58     0.02   438315     0.00     0.00  CPUCheckDMA(int, int)
+  0.65      2.60     0.02                             arm270(unsigned int)
+  0.49      2.62     0.02  4214266     0.00     0.00  CPUReadMemory(unsigned int)
+  0.49      2.63     0.02  2603001     0.00     0.00  thumb28(unsigned int)
+  0.49      2.65     0.02  2334331     0.00     0.00  thumb40_0(unsigned int)
+  0.49      2.66     0.02  1101590     0.00     0.00  thumb48(unsigned int)
+  0.49      2.68     0.02   944894     0.00     0.00  thumb46_2(unsigned int)
+  0.49      2.69     0.02   686721     0.00     0.00  thumb23(unsigned int)
+  0.49      2.71     0.02   528978     0.00     0.00  thumb24(unsigned int)
+  0.49      2.72     0.02   215153     0.00     0.00  thumb08_10(unsigned int)
+  0.49      2.74     0.02   119602     0.00     0.00  thumb18_3(unsigned int)
+  0.32      2.75     0.01  2722370     0.00     0.00  CPUWriteMemory(unsigned int, unsigned int)
+  0.32      2.76     0.01  2339684     0.00     0.00  thumbD0(unsigned int)
+  0.32      2.77     0.01  1370627     0.00     0.00  arm080(unsigned int)
+  0.32      2.78     0.01  1248079     0.00     0.00  soundEvent(unsigned int, unsigned short)
+  0.32      2.79     0.01  1118631     0.00     0.00  thumbF4(unsigned int)
+  0.32      2.80     0.01   842537     0.00     0.00  CPUReadByte(unsigned int)
+  0.32      2.81     0.01   682061     0.00     0.00  thumb98(unsigned int)
+  0.32      2.82     0.01   637623     0.00     0.00  arm040(unsigned int)
+  0.32      2.83     0.01   637528     0.00     0.00  arm1FD(unsigned int)
+  0.32      2.84     0.01   569717     0.00     0.00  thumbDD(unsigned int)
+  0.32      2.85     0.01   554474     0.00     0.00  thumbDC(unsigned int)
+  0.32      2.86     0.01   550877     0.00     0.00  thumbE0(unsigned int)
+  0.32      2.87     0.01   479164     0.00     0.00  thumb1C_1(unsigned int)
+  0.32      2.88     0.01   469567     0.00     0.00  thumbB0(unsigned int)
+  0.32      2.89     0.01   400588     0.00     0.00  thumb31(unsigned int)
+  0.32      2.90     0.01   332517     0.00     0.00  thumb42_1(unsigned int)
+  0.32      2.91     0.01   285704     0.00     0.00  thumb00_01(unsigned int)
+  0.32      2.92     0.01   245206     0.00     0.00  thumbC8(unsigned int)
+  0.32      2.93     0.01    81506     0.00     0.00  thumb43_1(unsigned int)
+  0.32      2.94     0.01     4730     0.00     0.00  doDMA(unsigned int&, unsigned int&, unsigned int, unsigned int, unsigned int, int)
+  0.32      2.95     0.01        2     5.00     5.00  systemOnSoundShutdown()
+  0.32      2.96     0.01                             utilGBAFindSave(int)
+  0.32      2.97     0.01                             arm0DF(unsigned int)
+  0.32      2.98     0.01                             arm360(unsigned int)
+  0.32      2.99     0.01                             arm5B0(unsigned int)
+  0.16      2.99     0.01  1808762     0.00     0.00  thumbF8(unsigned int)
+  0.16      3.00     0.01  1081617     0.00     0.00  thumb21(unsigned int)
+  0.16      3.00     0.01   876249     0.00     0.00  thumb00_10(unsigned int)
+  0.16      3.01     0.01   778266     0.00     0.00  thumb22(unsigned int)
+  0.16      3.01     0.01   539348     0.00     0.00  thumb2B(unsigned int)
+  0.16      3.02     0.01   391001     0.00     0.00  thumb2C(unsigned int)
+  0.16      3.02     0.01   310320     0.00     0.00  thumbDB(unsigned int)
+  0.16      3.03     0.01   252733     0.00     0.00  thumb08_0E(unsigned int)
+  0.16      3.03     0.01   146512     0.00     0.00  thumb18_4(unsigned int)
+  0.16      3.04     0.01   139893     0.00     0.00  thumb37(unsigned int)
+  0.16      3.04     0.01    55213     0.00     0.00  thumb38(unsigned int)
+  0.16      3.05     0.01    18900     0.00     0.00  CPUSwitchMode(int, bool, bool)
+  0.16      3.05     0.01    12469     0.00     0.00  thumb27(unsigned int)
+  0.16      3.06     0.01    10990     0.00     0.00  thumb3F(unsigned int)
+  0.16      3.06     0.01     9451     0.00     0.00  CPUUpdateFlags()
+  0.16      3.07     0.01      148     0.03     0.03  thumb58(unsigned int)
+  0.16      3.07     0.01                             thumb00_0F(unsigned int)
+  0.16      3.08     0.01                             thumb08_0D(unsigned int)
+  0.16      3.08     0.01                             thumb08_0F(unsigned int)
+  0.16      3.09     0.01                             thumbUnknownInsn(unsigned int)
+  0.16      3.09     0.01                             thumb50(unsigned int)
+  0.00      3.09     0.00  4586877     0.00     0.00  codeTicksAccessSeq32(unsigned int)
+  0.00      3.09     0.00  2590626     0.00     0.00  arm009(unsigned int)
+  0.00      3.09     0.00  2402208     0.00     0.00  arm3C0(unsigned int)
+  0.00      3.09     0.00  2304579     0.00     0.00  thumbD1(unsigned int)
+  0.00      3.09     0.00  1764492     0.00     0.00  arm086(unsigned int)
+  0.00      3.09     0.00  1508678     0.00     0.00  rtcIsEnabled()
+  0.00      3.09     0.00  1315572     0.00     0.00  thumb00_02(unsigned int)
+  0.00      3.09     0.00  1147741     0.00     0.00  thumb43_0(unsigned int)
+  0.00      3.09     0.00  1113757     0.00     0.00  thumb18_1(unsigned int)
+  0.00      3.09     0.00  1084048     0.00     0.00  armA00(unsigned int)
+  0.00      3.09     0.00  1070607     0.00     0.00  thumb20(unsigned int)
+  0.00      3.09     0.00   882150     0.00     0.00  arm290(unsigned int)
+  0.00      3.09     0.00   858479     0.00     0.00  arm250(unsigned int)
+  0.00      3.09     0.00   816041     0.00     0.00  arm084(unsigned int)
+  0.00      3.09     0.00   816041     0.00     0.00  arm1B2(unsigned int)
+  0.00      3.09     0.00   728323     0.00     0.00  thumb42_2(unsigned int)
+  0.00      3.09     0.00   719086     0.00     0.00  thumb2A(unsigned int)
+  0.00      3.09     0.00   690131     0.00     0.00  thumbF0(unsigned int)
+  0.00      3.09     0.00   633317     0.00     0.00  arm050(unsigned int)
+  0.00      3.09     0.00   585149     0.00     0.00  thumb29(unsigned int)
+  0.00      3.09     0.00   569709     0.00     0.00  CPUUpdateRegister(unsigned int, unsigned short)
+  0.00      3.09     0.00   555314     0.00     0.00  thumb30(unsigned int)
+  0.00      3.09     0.00   542000     0.00     0.00  CPUCompareVCOUNT()
+  0.00      3.09     0.00   534549     0.00     0.00  CPUReadMemory(unsigned int)
+  0.00      3.09     0.00   517403     0.00     0.00  CPUWriteMemory(unsigned int, unsigned int)
+  0.00      3.09     0.00   505429     0.00     0.00  thumb90(unsigned int)
+  0.00      3.09     0.00   494018     0.00     0.00  thumb78(unsigned int)
+  0.00      3.09     0.00   473302     0.00     0.00  arm590(unsigned int)
+  0.00      3.09     0.00   459170     0.00     0.00  thumb2D(unsigned int)
+  0.00      3.09     0.00   448200     0.00     0.00  thumbC0(unsigned int)
+  0.00      3.09     0.00   447340     0.00     0.00  thumb60(unsigned int)
+  0.00      3.09     0.00   416009     0.00     0.00  soundTimerOverflow(int)
+  0.00      3.09     0.00   380743     0.00     0.00  thumb18_2(unsigned int)
+  0.00      3.09     0.00   354316     0.00     0.00  thumb18_0(unsigned int)
+  0.00      3.09     0.00   325788     0.00     0.00  thumbD3(unsigned int)
+  0.00      3.09     0.00   321405     0.00     0.00  thumb00_04(unsigned int)
+  0.00      3.09     0.00   254355     0.00     0.00  thumb00_03(unsigned int)
+  0.00      3.09     0.00   250053     0.00     0.00  thumb33(unsigned int)
+  0.00      3.09     0.00   248320     0.00     0.00  thumb42_3(unsigned int)
+  0.00      3.09     0.00   240252     0.00     0.00  arm580(unsigned int)
+  0.00      3.09     0.00   232970     0.00     0.00  thumb32(unsigned int)
+  0.00      3.09     0.00   220621     0.00     0.00  arm480(unsigned int)
+  0.00      3.09     0.00   214314     0.00     0.00  thumb70(unsigned int)
+  0.00      3.09     0.00   164108     0.00     0.00  thumb44_2(unsigned int)
+  0.00      3.09     0.00   147524     0.00     0.00  thumb42_0(unsigned int)
+  0.00      3.09     0.00   140611     0.00     0.00  thumbB4(unsigned int)
+  0.00      3.09     0.00   137926     0.00     0.00  thumb36(unsigned int)
+  0.00      3.09     0.00   136517     0.00     0.00  thumb40_1(unsigned int)
+  0.00      3.09     0.00   136336     0.00     0.00  thumb00_08(unsigned int)
+  0.00      3.09     0.00   134991     0.00     0.00  thumbDA(unsigned int)
+  0.00      3.09     0.00   130889     0.00     0.00  thumb2E(unsigned int)
+  0.00      3.09     0.00   128517     0.00     0.00  thumb10_08(unsigned int)
+  0.00      3.09     0.00   126366     0.00     0.00  thumb10_07(unsigned int)
+  0.00      3.09     0.00   122268     0.00     0.00  thumb10_10(unsigned int)
+  0.00      3.09     0.00   120655     0.00     0.00  thumb44_1(unsigned int)
+  0.00      3.09     0.00   120604     0.00     0.00  thumb25(unsigned int)
+  0.00      3.09     0.00   108446     0.00     0.00  thumb1A_2(unsigned int)
+  0.00      3.09     0.00   105836     0.00     0.00  thumb1E_1(unsigned int)
+  0.00      3.09     0.00   103359     0.00     0.00  thumbD9(unsigned int)
+  0.00      3.09     0.00   103343     0.00     0.00  thumb08_1C(unsigned int)
+  0.00      3.09     0.00   103343     0.00     0.00  thumb08_1F(unsigned int)
+  0.00      3.09     0.00   102852     0.00     0.00  thumb46_3(unsigned int)
+  0.00      3.09     0.00   102781     0.00     0.00  thumb08_02(unsigned int)
+  0.00      3.09     0.00   102735     0.00     0.00  thumb1C_3(unsigned int)
+  0.00      3.09     0.00    97666     0.00     0.00  thumb3A(unsigned int)
+  0.00      3.09     0.00    94796     0.00     0.00  arm1BD(unsigned int)
+  0.00      3.09     0.00    75438     0.00     0.00  dataTicksAccessSeq32(unsigned int)
+  0.00      3.09     0.00    74611     0.00     0.00  thumbD8(unsigned int)
+  0.00      3.09     0.00    71661     0.00     0.00  arm0DD(unsigned int)
+  0.00      3.09     0.00    56512     0.00     0.00  codeTicksAccess32(unsigned int)
+  0.00      3.09     0.00    51306     0.00     0.00  Gb_Square::run(int, int)
+  0.00      3.09     0.00    43044     0.00     0.00  thumb39(unsigned int)
+  0.00      3.09     0.00    42726     0.00     0.00  thumb3E(unsigned int)
+  0.00      3.09     0.00    42342     0.00     0.00  dataTicksAccess32(unsigned int)
+  0.00      3.09     0.00    40572     0.00     0.00  Gb_Osc::clock_length()
+  0.00      3.09     0.00    36923     0.00     0.00  thumb00_05(unsigned int)
+  0.00      3.09     0.00    36302     0.00     0.00  thumb10_05(unsigned int)
+  0.00      3.09     0.00    32241     0.00     0.00  thumb18_6(unsigned int)
+  0.00      3.09     0.00    25653     0.00     0.00  Gb_Wave::run(int, int)
+  0.00      3.09     0.00    24312     0.00     0.00  CPUReadHalfWord(unsigned int)
+  0.00      3.09     0.00    24240     0.00     0.00  CPUWriteHalfWord(unsigned int, unsigned short)
+  0.00      3.09     0.00    22811     0.00     0.00  CPUWriteByte(unsigned int, unsigned char)
+  0.00      3.09     0.00    22190     0.00     0.00  thumb00_18(unsigned int)
+  0.00      3.09     0.00    21586     0.00     0.00  arm3A0(unsigned int)
+  0.00      3.09     0.00    21228     0.00     0.00  arm280(unsigned int)
+  0.00      3.09     0.00    21173     0.00     0.00  arm920(unsigned int)
+  0.00      3.09     0.00    21169     0.00     0.00  arm8B0(unsigned int)
+  0.00      3.09     0.00    21078     0.00     0.00  arm121(unsigned int)
+  0.00      3.09     0.00    19712     0.00     0.00  CPUReadByte(unsigned int)
+  0.00      3.09     0.00    19312     0.00     0.00  thumb43_2(unsigned int)
+  0.00      3.09     0.00    18938     0.00     0.00  thumb43_3(unsigned int)
+  0.00      3.09     0.00    18794     0.00     0.00  thumb34(unsigned int)
+  0.00      3.09     0.00    17133     0.00     0.00  thumb56(unsigned int)
+  0.00      3.09     0.00    15196     0.00     0.00  thumb1A_6(unsigned int)
+  0.00      3.09     0.00    15186     0.00     0.00  arm5D0(unsigned int)
+  0.00      3.09     0.00    15091     0.00     0.00  thumb08_08(unsigned int)
+  0.00      3.09     0.00    15072     0.00     0.00  arm1A0(unsigned int)
+  0.00      3.09     0.00    14200     0.00     0.00  thumb00_13(unsigned int)
+  0.00      3.09     0.00    14182     0.00     0.00  CPUWriteHalfWord(unsigned int, unsigned short)
+  0.00      3.09     0.00    14179     0.00     0.00  CPUUpdateCPSR()
+  0.00      3.09     0.00    14175     0.00     0.00  CPUSwitchMode(int, bool)
+  0.00      3.09     0.00    13583     0.00     0.00  thumb35(unsigned int)
+  0.00      3.09     0.00    12387     0.00     0.00  thumb1A_1(unsigned int)
+  0.00      3.09     0.00    11915     0.00     0.00  arm210(unsigned int)
+  0.00      3.09     0.00    11899     0.00     0.00  arm5C0(unsigned int)
+  0.00      3.09     0.00    11886     0.00     0.00  Blip_Buffer::end_frame(int)
+  0.00      3.09     0.00    11820     0.00     0.00  arm1CB(unsigned int)
+  0.00      3.09     0.00    11479     0.00     0.00  CPUReadMemory(unsigned int)
+  0.00      3.09     0.00    10912     0.00     0.00  arm19D(unsigned int)
+  0.00      3.09     0.00    10518     0.00     0.00  arm310(unsigned int)
+  0.00      3.09     0.00    10093     0.00     0.00  arm1DD(unsigned int)
+  0.00      3.09     0.00     9451     0.00     0.00  arm120(unsigned int)
+  0.00      3.09     0.00     8625     0.00     0.00  thumb1A_5(unsigned int)
+  0.00      3.09     0.00     8448     0.00     0.00  thumbD2(unsigned int)
+  0.00      3.09     0.00     8216     0.00     0.00  thumb08_04(unsigned int)
+  0.00      3.09     0.00     7605     0.00     0.00  Gb_Env::clock_envelope()
+  0.00      3.09     0.00     7197     0.00     0.00  thumb26(unsigned int)
+  0.00      3.09     0.00     7096     0.00     0.00  thumb00_12(unsigned int)
+  0.00      3.09     0.00     7093     0.00     0.00  thumb08_01(unsigned int)
+  0.00      3.09     0.00     7089     0.00     0.00  arm380(unsigned int)
+  0.00      3.09     0.00     7085     0.00     0.00  CPUReadHalfWord(unsigned int)
+  0.00      3.09     0.00     7068     0.00     0.00  thumb08_18(unsigned int)
+  0.00      3.09     0.00     6907     0.00     0.00  thumbA0(unsigned int)
+  0.00      3.09     0.00     6860     0.00     0.00  Blip_Buffer::remove_samples(long)
+  0.00      3.09     0.00     6682     0.00     0.00  thumb10_0E(unsigned int)
+  0.00      3.09     0.00     6335     0.00     0.00  Stereo_Buffer::samples_avail() const
+  0.00      3.09     0.00     6316     0.00     0.00  CPUSoftwareInterrupt(int)
+  0.00      3.09     0.00     6316     0.00     0.00  thumbDF(unsigned int)
+  0.00      3.09     0.00     6133     0.00     0.00  thumb18_5(unsigned int)
+  0.00      3.09     0.00     5815     0.00     0.00  arm350(unsigned int)
+  0.00      3.09     0.00     5611     0.00     0.00  thumbD5(unsigned int)
+  0.00      3.09     0.00     5456     0.00     0.00  arm1A4(unsigned int)
+  0.00      3.09     0.00     5456     0.00     0.00  arm4C0(unsigned int)
+  0.00      3.09     0.00     5456     0.00     0.00  arm7C0(unsigned int)
+  0.00      3.09     0.00     5456     0.00     0.00  thumb3D(unsigned int)
+  0.00      3.09     0.00     5367     0.00     0.01  Gb_Apu::run_until_(int)
+  0.00      3.09     0.00     5071     0.00     0.00  Gb_Sweep_Square::clock_sweep()
+  0.00      3.09     0.00     4734     0.00     0.00  CPUUpdateRender()
+  0.00      3.09     0.00     4731     0.00     0.00  arm240(unsigned int)
+  0.00      3.09     0.00     4728     0.00     0.00  arm100(unsigned int)
+  0.00      3.09     0.00     4725     0.00     0.00  arm140(unsigned int)
+  0.00      3.09     0.00     4724     0.00     0.00  arm160(unsigned int)
+  0.00      3.09     0.00     4721     0.00     0.00  arm010(unsigned int)
+  0.00      3.09     0.00     4721     0.00     0.00  arm15B(unsigned int)
+  0.00      3.09     0.00     4721     0.00     0.00  armB00(unsigned int)
+  0.00      3.09     0.00     3988     0.00     0.00  thumb10_06(unsigned int)
+  0.00      3.09     0.00     3978     0.00     0.00  thumbA8(unsigned int)
+  0.00      3.09     0.00     3962     0.00     0.01  psoundTickfn()
+  0.00      3.09     0.00     3962     0.00     0.00  flush_samples(Multi_Buffer*)
+  0.00      3.09     0.00     3962     0.00     0.00  Stereo_Buffer::end_frame(int)
+  0.00      3.09     0.00     3962     0.00     0.01  Gb_Apu::end_frame(int)
+  0.00      3.09     0.00     3922     0.00     0.00  BIOS_BgAffineSet()
+  0.00      3.09     0.00     3922     0.00     0.00  thumb1E_2(unsigned int)
+  0.00      3.09     0.00     3877     0.00     0.00  thumb1A_4(unsigned int)
+  0.00      3.09     0.00     3797     0.00     0.00  thumb1A_0(unsigned int)
+  0.00      3.09     0.00     3796     0.00     0.00  thumbBD(unsigned int)
+  0.00      3.09     0.00     3794     0.00     0.00  thumb10_03(unsigned int)
+  0.00      3.09     0.00     3788     0.00     0.00  Gb_Apu::write_register(int, unsigned int, int)
+  0.00      3.09     0.00     3741     0.00     0.00  soundEvent(unsigned int, unsigned char)
+  0.00      3.09     0.00     3327     0.00     0.00  arm090(unsigned int)
+  0.00      3.09     0.00     3211     0.00     0.00  Gb_Apu::write_osc(int, int, int, int)
+  0.00      3.09     0.00     2998     0.00     0.00  arm260(unsigned int)
+  0.00      3.09     0.00     2454     0.00     0.00  thumb3C(unsigned int)
+  0.00      3.09     0.00     2426     0.00     0.00  thumb10_04(unsigned int)
+  0.00      3.09     0.00     2373     0.00     0.00  systemOnWriteDataToSoundBuffer(unsigned short const*, int)
+  0.00      3.09     0.00     2373     0.00     0.00  thumb08_03(unsigned int)
+  0.00      3.09     0.00     2373     0.00     0.00  Stereo_Buffer::read_samples(short*, long)
+  0.00      3.09     0.00     2373     0.00     0.00  SoundSDL::write(unsigned short*, int)
+  0.00      3.09     0.00     2372     0.00     0.00  Stereo_Mixer::mix_stereo(short*, int)
+  0.00      3.09     0.00     2367     0.00     0.00  systemFrame()
+  0.00      3.09     0.00     2367     0.00     0.00  inputReadJoypad(int)
+  0.00      3.09     0.00     2367     0.00     0.00  systemDrawScreen()
+  0.00      3.09     0.00     2367     0.00     0.00  systemReadJoypad(int)
+  0.00      3.09     0.00     2367     0.00     0.00  systemReadJoypads()
+  0.00      3.09     0.00     2367     0.00     0.00  systemPauseOnFrame()
+  0.00      3.09     0.00     2367     0.00     0.00  inputUpdateMotionSensor()
+  0.00      3.09     0.00     2367     0.00     0.00  systemUpdateMotionSensor()
+  0.00      3.09     0.00     2364     0.00     0.00  arm000(unsigned int)
+  0.00      3.09     0.00     2364     0.00     0.00  arm002(unsigned int)
+  0.00      3.09     0.00     2364     0.00     0.00  arm1C0(unsigned int)
+  0.00      3.09     0.00     2364     0.00     0.00  arm1DB(unsigned int)
+  0.00      3.09     0.00     2364     0.00     0.00  arm510(unsigned int)
+  0.00      3.09     0.00     2362     0.00     0.00  arm020(unsigned int)
+  0.00      3.09     0.00     2362     0.00     0.00  arm14B(unsigned int)
+  0.00      3.09     0.00     2361     0.00     0.00  arm200(unsigned int)
+  0.00      3.09     0.00     2361     0.00     0.00  arm550(unsigned int)
+  0.00      3.09     0.00     2361     0.00     0.00  arm790(unsigned int)
+  0.00      3.09     0.00     2360     0.00     0.00  arm1B0(unsigned int)
+  0.00      3.09     0.00     2360     0.00     0.00  arm810(unsigned int)
+  0.00      3.09     0.00     2360     0.00     0.00  thumb45_1(unsigned int)
+  0.00      3.09     0.00     2209     0.00     0.00  Gb_Env::write_register(int, int, int, int)
+  0.00      3.09     0.00     2101     0.00     0.00  thumb1A_7(unsigned int)
+  0.00      3.09     0.00     2038     0.00     0.00  thumb10_18(unsigned int)
+  0.00      3.09     0.00     1928     0.00     0.00  thumb08_05(unsigned int)
+  0.00      3.09     0.00     1814     0.00     0.00  arm089(unsigned int)
+  0.00      3.09     0.00     1814     0.00     0.00  thumb40_3(unsigned int)
+  0.00      3.09     0.00     1417     0.00     0.00  thumb08_19(unsigned int)
+  0.00      3.09     0.00     1248     0.00     0.00  FileExists(char const*)
+  0.00      3.09     0.00     1182     0.00     0.00  thumb41_0(unsigned int)
+  0.00      3.09     0.00      738     0.00     0.00  thumb3B(unsigned int)
+  0.00      3.09     0.00      532     0.00     0.00  thumb00_07(unsigned int)
+  0.00      3.09     0.00      520     0.00     0.00  Gb_Apu::apply_stereo()
+  0.00      3.09     0.00      448     0.00     0.00  thumb10_02(unsigned int)
+  0.00      3.09     0.00      392     0.00     0.00  thumb00_06(unsigned int)
+  0.00      3.09     0.00      312     0.00     0.00  FindConfigFile(char const*)
+  0.00      3.09     0.00      236     0.00     0.00  system10Frames(int)
+  0.00      3.09     0.00      192     0.00     0.00  arm1A7(unsigned int)
+  0.00      3.09     0.00      155     0.00     0.00  LoadConfigFile()
+  0.00      3.09     0.00      151     0.00     0.00  thumb2F(unsigned int)
+  0.00      3.09     0.00      144     0.00     0.00  Gb_Wave::access(unsigned int) const
+  0.00      3.09     0.00       96     0.00     0.00  arm1A2(unsigned int)
+  0.00      3.09     0.00       91     0.00     0.00  iniparser_getstring
+  0.00      3.09     0.00       64     0.00     0.00  ReadPref(char const*, int)
+  0.00      3.09     0.00       64     0.00     0.00  iniparser_getint
+  0.00      3.09     0.00       40     0.00     0.00  systemGetClock()
+  0.00      3.09     0.00       39     0.00     0.00  systemShowSpeed(int)
+  0.00      3.09     0.00       32     0.00     0.00  Gb_Osc::reset()
+  0.00      3.09     0.00       31     0.00     0.00  thumb08_0B(unsigned int)
+  0.00      3.09     0.00       25     0.00     0.00  Blip_Synth_::volume_unit(double)
+  0.00      3.09     0.00       24     0.00     0.00  Gb_Apu::silence_osc(Gb_Osc&)
+  0.00      3.09     0.00       23     0.00     0.00  BIOS_CpuSet()
+  0.00      3.09     0.00       19     0.00     0.00  thumb00_0B(unsigned int)
+  0.00      3.09     0.00       18     0.00     0.00  Gba_Pcm::apply_control(int)
+  0.00      3.09     0.00       16     0.00     0.00  blargg_vector_::clear()
+  0.00      3.09     0.00       11     0.00     0.00  ReadPrefHex(char const*)
+  0.00      3.09     0.00       10     0.00     0.00  thumb1C_6(unsigned int)
+  0.00      3.09     0.00        8     0.00     0.00  thumb00_1C(unsigned int)
+  0.00      3.09     0.00        8     0.00     0.00  thumb1C_4(unsigned int)
+  0.00      3.09     0.00        8     0.00     0.00  Gb_Apu::reset_regs()
+  0.00      3.09     0.00        7     0.00     0.00  thumb00_0C(unsigned int)
+  0.00      3.09     0.00        6     0.00     0.00  interp_rate()
+  0.00      3.09     0.00        6     0.00     0.00  BIOS_CpuFastSet()
+  0.00      3.09     0.00        6     0.00     0.00  CPUUpdateRenderBuffers(bool)
+  0.00      3.09     0.00        5     0.00     0.00  thumb00_09(unsigned int)
+  0.00      3.09     0.00        5     0.00     0.00  Blip_Synth_::treble_eq(blip_eq_t const&)
+  0.00      3.09     0.00        5     0.00     0.00  blip_eq_t::generate(float*, int) const
+  0.00      3.09     0.00        4     0.00     0.00  applyTimer()
+  0.00      3.09     0.00        4     0.00     0.00  BIOS_LZ77UnCompVram()
+  0.00      3.09     0.00        4     0.00     0.00  thumb00_0E(unsigned int)
+  0.00      3.09     0.00        4     0.00     0.00  thumb00_11(unsigned int)
+  0.00      3.09     0.00        4     0.00     0.00  thumb1A_3(unsigned int)
+  0.00      3.09     0.00        4     0.00     0.00  Data_Reader::read(void*, int)
+  0.00      3.09     0.00        4     0.00     0.00  Gba_Pcm_Fifo::write_control(int)
+  0.00      3.09     0.00        4     0.00     0.00  blargg_vector_::init()
+  0.00      3.09     0.00        4     0.00     0.00  Binary_Extractor::close_v()
+  0.00      3.09     0.00        4     0.00     0.00  Gb_Apu::set_output(Blip_Buffer*, Blip_Buffer*, Blip_Buffer*, int)
+  0.00      3.09     0.00        4     0.00     0.00  fex_identify_extension
+  0.00      3.09     0.00        3     0.00     0.00  applyPatch(char const*, unsigned char**, int*)
+  0.00      3.09     0.00        3     0.00     0.00  Blip_Buffer::set_sample_rate(long, int)
+  0.00      3.09     0.00        3     0.00     0.00  Blip_Buffer::clear(int)
+  0.00      3.09     0.00        3     0.00     0.00  Blip_Buffer::Blip_Buffer()
+  0.00      3.09     0.00        3     0.00     0.00  Blip_Buffer::~Blip_Buffer()
+  0.00      3.09     0.00        3     0.00     0.00  Std_File_Reader::open(char const*)
+  0.00      3.09     0.00        3     0.00     0.00  Std_File_Reader::read_v(void*, int)
+  0.00      3.09     0.00        3     0.00     0.00  Std_File_Reader::Std_File_Reader()
+  0.00      3.09     0.00        3     0.00     0.00  fex_t::set_name(char const*, wchar_t const*)
+  0.00      3.09     0.00        3     0.00     0.00  Gb_Apu::reset(Gb_Apu::mode_t, bool)
+  0.00      3.09     0.00        3     0.00     0.00  Gb_Apu::volume(double)
+  0.00      3.09     0.00        3     0.00     0.00  Blip_Buffer::clock_rate_factor(long) const
+  0.00      3.09     0.00        2     0.00     0.00  ReadPrefHex(char const*, int)
+  0.00      3.09     0.00        2     0.00     0.00  agbPrintEnable(bool)
+  0.00      3.09     0.00        2     0.00     0.00  utilStripDoubleExtension(char const*, char*)
+  0.00      3.09     0.00        2     0.00     0.00  rtcEnable(bool)
+  0.00      3.09     0.00        2     0.00     0.00  new_binary()
+  0.00      3.09     0.00        2     0.00     0.00  thumb00_0A(unsigned int)
+  0.00      3.09     0.00        2     0.00     0.00  thumb08_06(unsigned int)
+  0.00      3.09     0.00        2     0.00     0.00  thumb08_07(unsigned int)
+  0.00      3.09     0.00        2     0.00     0.00  thumb10_01(unsigned int)
+  0.00      3.09     0.00        2     0.00     0.00  Blip_Synth_::Blip_Synth_(short*, int)
+  0.00      3.09     0.00        2     0.00     0.00  blargg_vector_::resize_(unsigned long, unsigned long)
+  0.00      3.09     0.00        2     0.00     0.00  Std_File_Reader::~Std_File_Reader()
+  0.00      3.09     0.00        2     0.00     0.00  Binary_Extractor::open_path_v()
+  0.00      3.09     0.00        2     0.00     0.00  Binary_Extractor::~Binary_Extractor()
+  0.00      3.09     0.00        2     0.00     0.00  fex_t::open(char const*)
+  0.00      3.09     0.00        2     0.00     0.00  fex_t::stat()
+  0.00      3.09     0.00        2     0.00     0.00  fex_t::close()
+  0.00      3.09     0.00        2     0.00     0.00  fex_t::fex_t(fex_type_t_ const*)
+  0.00      3.09     0.00        2     0.00     0.00  fex_t::~fex_t()
+  0.00      3.09     0.00        2     0.00     0.00  SoundSDL::init(long)
+  0.00      3.09     0.00        2     0.00     0.00  SoundSDL::resume()
+  0.00      3.09     0.00        2     0.00     0.00  fex_close
+  0.00      3.09     0.00        2     0.00     0.00  fex_done
+  0.00      3.09     0.00        2     0.00     0.00  fex_identify_header
+  0.00      3.09     0.00        2     0.00     0.00  fex_name
+  0.00      3.09     0.00        2     0.00     0.00  fex_open
+  0.00      3.09     0.00        1     0.00     0.00  _GLOBAL__sub_I_debugger
+  0.00      3.09     0.00        1     0.00     0.00  _GLOBAL__sub_I_dexp_result
+  0.00      3.09     0.00        1     0.00     0.00  _GLOBAL__sub_I_inBios
+  0.00      3.09     0.00        1     0.00     0.00  _GLOBAL__sub_I_remotePort
+  0.00      3.09     0.00        1     0.00     0.00  _GLOBAL__sub_I_soundDriver
+  0.00      3.09     0.00        1     0.00     0.00  eepromInit()
+  0.00      3.09     0.00        1     0.00     0.00  flashReset()
+  0.00      3.09     0.00        1     0.00     0.00  soundPause()
+  0.00      3.09     0.00        1     0.00     0.00  soundReset()
+  0.00      3.09     0.00        1     0.00     0.00  SetSaveType(int)
+  0.00      3.09     0.00        1     0.00     0.00  sdlFindFile(char const*)
+  0.00      3.09     0.00        1     0.00     0.00  soundResume()
+  0.00      3.09     0.00        1     0.00     0.00  flashSetSize(int)
+  0.00      3.09     0.00        1     0.00    10.00  soundShutdown()
+  0.00      3.09     0.00        1     0.00     0.00  systemMessage(int, char const*, ...)
+  0.00      3.09     0.00        1     0.00     0.00  ReadPrefString(char const*, char const*)
+  0.00      3.09     0.00        1     0.00     0.00  ValidateConfig()
+  0.00      3.09     0.00        1     0.00     0.00  soundSetEnable(int)
+  0.00      3.09     0.00        1     0.00     0.00  soundSetVolume(float)
+  0.00      3.09     0.00        1     0.00     0.00  utilIsGBAImage(char const*)
+  0.00      3.09     0.00        1     0.00     0.00  rtcEnableRumble(bool)
+  0.00      3.09     0.00        1     0.00    10.00  systemSoundInit()
+  0.00      3.09     0.00        1     0.00     0.00  CPUReadBatteryFile(char const*)
+  0.00      3.09     0.00        1     0.00     0.00  CheckEReaderRegion()
+  0.00      3.09     0.00        1     0.00     0.00  soundGetSampleRate()
+  0.00      3.09     0.00        1     0.00     0.00  soundSetSampleRate(long)
+  0.00      3.09     0.00        1     0.00     0.00  CPUWriteBatteryFile(char const*)
+  0.00      3.09     0.00        1     0.00     0.00  systemScreenMessage(char const*)
+  0.00      3.09     0.00        1     0.00     0.00  gbSoundSetDeclicking(bool)
+  0.00      3.09     0.00        1     0.00     0.00  BIOS_RegisterRamReset(unsigned int)
+  0.00      3.09     0.00        1     0.00     0.00  rtcReset()
+  0.00      3.09     0.00        1     0.00     0.00  utilLoad(char const*, bool (*)(char const*), unsigned char*, int&)
+  0.00      3.09     0.00        1     0.00     0.00  flashInit()
+  0.00      3.09     0.00        1     0.00     0.00  thumb08_0C(unsigned int)
+  0.00      3.09     0.00        1     0.00     0.07  CPUWriteByte(unsigned int, unsigned char)
+  0.00      3.09     0.00        1     0.00     0.00  apply_muting()
+  0.00      3.09     0.00        1     0.00     0.00  remake_stereo_buffer()
+  0.00      3.09     0.00        1     0.00     0.00  File_Reader::seek(int)
+  0.00      3.09     0.00        1     0.00     0.00  Stereo_Buffer::clock_rate(long)
+  0.00      3.09     0.00        1     0.00     0.00  Stereo_Buffer::set_sample_rate(long, int)
+  0.00      3.09     0.00        1     0.00     0.00  Stereo_Buffer::clear()
+  0.00      3.09     0.00        1     0.00     0.00  Stereo_Buffer::Stereo_Buffer()
+  0.00      3.09     0.00        1     0.00     0.00  Stereo_Buffer::~Stereo_Buffer()
+  0.00      3.09     0.00        1     0.00     0.00  Std_File_Reader::~Std_File_Reader()
+  0.00      3.09     0.00        1     0.00     0.00  Binary_Extractor::stat_v()
+  0.00      3.09     0.00        1     0.00     0.00  Binary_Extractor::extract_v(void*, int)
+  0.00      3.09     0.00        1     0.00     0.00  Array<unsigned short>::Array(unsigned long)
+  0.00      3.09     0.00        1     0.00     0.00  fex_t::open_arc_file(bool)
+  0.00      3.09     0.00        1     0.00     0.00  fex_t::read_v(void*, int)
+  0.00      3.09     0.00        1     0.00     0.00  fex_t::set_info(int, unsigned int, unsigned int)
+  0.00      3.09     0.00        1     0.00     0.00  Gb_Apu::Gb_Apu()
+  0.00      3.09     0.00        1     0.00     0.00  SoundSDL::pause()
+  0.00      3.09     0.00        1     0.00     0.00  SoundSDL::reset()
+  0.00      3.09     0.00        1     0.00     0.00  SoundSDL::SoundSDL()
+  0.00      3.09     0.00        1     0.00     0.00  SoundSDL::~SoundSDL()
+  0.00      3.09     0.00        1     0.00     0.00  fex_read
+  0.00      3.09     0.00        1     0.00     0.00  fex_size
+  0.00      3.09     0.00        1     0.00     0.00  fex_stat
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 2 byte(s) for 0.32% of 3.09 seconds
+
+index % time    self  children    called     name
+                                                 <spontaneous>
+[1]     96.9    0.13    2.86                 CPULoop(int) [1]
+                0.56    0.77  600221/600221      thumbExecute() [2]
+                0.49    0.76  353364/353364      mode2RenderLine() [3]
+                0.07    0.04   25314/25314       mode0RenderLine() [5]
+                0.05    0.05   83380/83380       armExecute() [6]
+                0.00    0.04    3962/3962        psoundTickfn() [16]
+                0.01    0.00  416009/1218358     soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.01  416009/416009      soundTimerOverflow(int) [35]
+                0.01    0.00  381045/1218358     CPUCheckDMA(int, int) <cycle 1> [18]
+                0.00    0.00    2364/18900       CPUSwitchMode(int, bool, bool) [78]
+                0.00    0.00 1508678/1508678     rtcIsEnabled() [199]
+                0.00    0.00  542000/542000      CPUCompareVCOUNT() [214]
+                0.00    0.00    2367/2367        systemFrame() [341]
+                0.00    0.00    2367/2367        systemReadJoypads() [345]
+                0.00    0.00    2367/2367        inputUpdateMotionSensor() [347]
+                0.00    0.00    2367/2367        systemUpdateMotionSensor() [348]
+                0.00    0.00    2367/2367        systemPauseOnFrame() [346]
+                0.00    0.00    2367/2367        inputReadJoypad(int) [342]
+                0.00    0.00    2367/2367        systemReadJoypad(int) [344]
+                0.00    0.00    2367/2367        systemDrawScreen() [343]
+                0.00    0.00     236/236         system10Frames(int) [375]
+                0.00    0.00      39/40          systemGetClock() [382]
+                0.00    0.00      39/39          systemShowSpeed(int) [383]
+                0.00    0.00       4/4           applyTimer() [404]
+-----------------------------------------------
+                0.56    0.77  600221/600221      CPULoop(int) [1]
+[2]     43.0    0.56    0.77  600221         thumbExecute() [2]
+                0.08    0.01 2697827/2697827     thumbBC(unsigned int) [7]
+                0.09    0.00 4905596/4905596     thumb88(unsigned int) [8]
+                0.06    0.00 4506216/4506216     thumb68(unsigned int) [9]
+                0.04    0.01 1558405/1558405     thumbB5(unsigned int) [12]
+                0.05    0.00 2804877/2804877     thumb80(unsigned int) [13]
+                0.03    0.00 1925853/1925853     thumb5A(unsigned int) [19]
+                0.02    0.00 4793133/4793133     thumb1C_0(unsigned int) [20]
+                0.02    0.00 2519732/2519732     thumb46_1(unsigned int) [21]
+                0.02    0.00 2351253/2351253     thumb47(unsigned int) [22]
+                0.02    0.00  943928/943928      thumb5E(unsigned int) [23]
+                0.02    0.00 2603001/2603001     thumb28(unsigned int) [27]
+                0.02    0.00 2334331/2334331     thumb40_0(unsigned int) [28]
+                0.02    0.00 1101590/1101590     thumb48(unsigned int) [29]
+                0.02    0.00  944894/944894      thumb46_2(unsigned int) [30]
+                0.02    0.00  686721/686721      thumb23(unsigned int) [31]
+                0.02    0.00  528978/528978      thumb24(unsigned int) [32]
+                0.02    0.00  215153/215153      thumb08_10(unsigned int) [33]
+                0.02    0.00  119602/119602      thumb18_3(unsigned int) [34]
+                0.00    0.01  214314/214314      thumb70(unsigned int) [38]
+                0.01    0.00  245206/245206      thumbC8(unsigned int) [39]
+                0.01    0.00 2339684/2339684     thumbD0(unsigned int) [42]
+                0.01    0.00 1118631/1118631     thumbF4(unsigned int) [44]
+                0.01    0.00  682061/682061      thumb98(unsigned int) [45]
+                0.01    0.00  569717/569717      thumbDD(unsigned int) [47]
+                0.01    0.00  554474/554474      thumbDC(unsigned int) [48]
+                0.01    0.00  550877/550877      thumbE0(unsigned int) [49]
+                0.01    0.00  479164/479164      thumb1C_1(unsigned int) [50]
+                0.01    0.00  469567/469567      thumbB0(unsigned int) [51]
+                0.01    0.00  400588/400588      thumb31(unsigned int) [52]
+                0.01    0.00  332517/332517      thumb42_1(unsigned int) [53]
+                0.01    0.00  285704/285704      thumb00_01(unsigned int) [54]
+                0.01    0.00   81506/81506       thumb43_1(unsigned int) [55]
+                0.01    0.00 1808762/1808762     thumbF8(unsigned int) [67]
+                0.01    0.00 1081617/1081617     thumb21(unsigned int) [68]
+                0.01    0.00  876249/876249      thumb00_10(unsigned int) [69]
+                0.01    0.00  778266/778266      thumb22(unsigned int) [70]
+                0.01    0.00  539348/539348      thumb2B(unsigned int) [71]
+                0.01    0.00  391001/391001      thumb2C(unsigned int) [72]
+                0.01    0.00  310320/310320      thumbDB(unsigned int) [73]
+                0.01    0.00  252733/252733      thumb08_0E(unsigned int) [74]
+                0.01    0.00  146512/146512      thumb18_4(unsigned int) [75]
+                0.01    0.00  139893/139893      thumb37(unsigned int) [76]
+                0.01    0.00   55213/55213       thumb38(unsigned int) [77]
+                0.01    0.00   12469/12469       thumb27(unsigned int) [79]
+                0.01    0.00   10990/10990       thumb3F(unsigned int) [80]
+                0.01    0.00     148/148         thumb58(unsigned int) [82]
+                0.00    0.00  448200/448200      thumbC0(unsigned int) [88]
+                0.00    0.00  140611/140611      thumbB4(unsigned int) [90]
+                0.00    0.00    6316/6316        CPUSoftwareInterrupt(int) [93]
+                0.00    0.00  447340/447340      thumb60(unsigned int) [95]
+                0.00    0.00    3796/3796        thumbBD(unsigned int) [102]
+                0.00    0.00 2304579/2304579     thumbD1(unsigned int) [197]
+                0.00    0.00 1315572/1315572     thumb00_02(unsigned int) [200]
+                0.00    0.00 1147741/1147741     thumb43_0(unsigned int) [201]
+                0.00    0.00 1113757/1113757     thumb18_1(unsigned int) [202]
+                0.00    0.00 1070607/1070607     thumb20(unsigned int) [204]
+                0.00    0.00  728323/728323      thumb42_2(unsigned int) [208]
+                0.00    0.00  719086/719086      thumb2A(unsigned int) [209]
+                0.00    0.00  690131/690131      thumbF0(unsigned int) [210]
+                0.00    0.00  585149/585149      thumb29(unsigned int) [212]
+                0.00    0.00  555314/555314      thumb30(unsigned int) [213]
+                0.00    0.00  505429/505429      thumb90(unsigned int) [217]
+                0.00    0.00  494018/494018      thumb78(unsigned int) [218]
+                0.00    0.00  459170/459170      thumb2D(unsigned int) [220]
+                0.00    0.00  380743/380743      thumb18_2(unsigned int) [221]
+                0.00    0.00  354316/354316      thumb18_0(unsigned int) [222]
+                0.00    0.00  325788/325788      thumbD3(unsigned int) [223]
+                0.00    0.00  321405/321405      thumb00_04(unsigned int) [224]
+                0.00    0.00  254355/254355      thumb00_03(unsigned int) [225]
+                0.00    0.00  250053/250053      thumb33(unsigned int) [226]
+                0.00    0.00  248320/248320      thumb42_3(unsigned int) [227]
+                0.00    0.00  232970/232970      thumb32(unsigned int) [229]
+                0.00    0.00  164108/164108      thumb44_2(unsigned int) [231]
+                0.00    0.00  147524/147524      thumb42_0(unsigned int) [232]
+                0.00    0.00  137926/137926      thumb36(unsigned int) [233]
+                0.00    0.00  136517/136517      thumb40_1(unsigned int) [234]
+                0.00    0.00  136336/136336      thumb00_08(unsigned int) [235]
+                0.00    0.00  134991/134991      thumbDA(unsigned int) [236]
+                0.00    0.00  130889/130889      thumb2E(unsigned int) [237]
+                0.00    0.00  128517/128517      thumb10_08(unsigned int) [238]
+                0.00    0.00  126366/126366      thumb10_07(unsigned int) [239]
+                0.00    0.00  122268/122268      thumb10_10(unsigned int) [240]
+                0.00    0.00  120655/120655      thumb44_1(unsigned int) [241]
+                0.00    0.00  120604/120604      thumb25(unsigned int) [242]
+                0.00    0.00  108446/108446      thumb1A_2(unsigned int) [243]
+                0.00    0.00  105836/105836      thumb1E_1(unsigned int) [244]
+                0.00    0.00  103359/103359      thumbD9(unsigned int) [245]
+                0.00    0.00  103343/103343      thumb08_1C(unsigned int) [246]
+                0.00    0.00  103343/103343      thumb08_1F(unsigned int) [247]
+                0.00    0.00  102852/102852      thumb46_3(unsigned int) [248]
+                0.00    0.00  102781/102781      thumb08_02(unsigned int) [249]
+                0.00    0.00  102735/102735      thumb1C_3(unsigned int) [250]
+                0.00    0.00   97666/97666       thumb3A(unsigned int) [251]
+                0.00    0.00   74611/74611       thumbD8(unsigned int) [253]
+                0.00    0.00   43044/43044       thumb39(unsigned int) [256]
+                0.00    0.00   42726/42726       thumb3E(unsigned int) [257]
+                0.00    0.00   36923/36923       thumb00_05(unsigned int) [260]
+                0.00    0.00   36302/36302       thumb10_05(unsigned int) [261]
+                0.00    0.00   32241/32241       thumb18_6(unsigned int) [262]
+                0.00    0.00   22190/22190       thumb00_18(unsigned int) [267]
+                0.00    0.00   19312/19312       thumb43_2(unsigned int) [274]
+                0.00    0.00   18938/18938       thumb43_3(unsigned int) [275]
+                0.00    0.00   18794/18794       thumb34(unsigned int) [276]
+                0.00    0.00   17133/17133       thumb56(unsigned int) [277]
+                0.00    0.00   15196/15196       thumb1A_6(unsigned int) [278]
+                0.00    0.00   15091/15091       thumb08_08(unsigned int) [279]
+                0.00    0.00   14200/14200       thumb00_13(unsigned int) [281]
+                0.00    0.00   13583/13583       thumb35(unsigned int) [285]
+                0.00    0.00   12387/12387       thumb1A_1(unsigned int) [286]
+                0.00    0.00    8625/8625        thumb1A_5(unsigned int) [291]
+                0.00    0.00    8448/8448        thumbD2(unsigned int) [292]
+                0.00    0.00    8216/8216        thumb08_04(unsigned int) [293]
+                0.00    0.00    7197/7197        thumb26(unsigned int) [295]
+                0.00    0.00    7096/7096        thumb00_12(unsigned int) [296]
+                0.00    0.00    7093/7093        thumb08_01(unsigned int) [297]
+                0.00    0.00    7068/7068        thumb08_18(unsigned int) [300]
+                0.00    0.00    6907/6907        thumbA0(unsigned int) [301]
+                0.00    0.00    6682/6682        thumb10_0E(unsigned int) [303]
+                0.00    0.00    6316/6316        thumbDF(unsigned int) [305]
+                0.00    0.00    6133/6133        thumb18_5(unsigned int) [306]
+                0.00    0.00    5611/5611        thumbD5(unsigned int) [308]
+                0.00    0.00    5456/5456        thumb3D(unsigned int) [312]
+                0.00    0.00    3988/3988        thumb10_06(unsigned int) [322]
+                0.00    0.00    3978/3978        thumbA8(unsigned int) [323]
+                0.00    0.00    3922/3922        BIOS_BgAffineSet() [326]
+                0.00    0.00    3922/3922        thumb1E_2(unsigned int) [327]
+                0.00    0.00    3877/3877        thumb1A_4(unsigned int) [328]
+                0.00    0.00    3797/3797        thumb1A_0(unsigned int) [329]
+                0.00    0.00    3794/3794        thumb10_03(unsigned int) [330]
+                0.00    0.00    2454/2454        thumb3C(unsigned int) [334]
+                0.00    0.00    2426/2426        thumb10_04(unsigned int) [335]
+                0.00    0.00    2373/2373        thumb08_03(unsigned int) [337]
+                0.00    0.00    2360/2360        thumb45_1(unsigned int) [359]
+                0.00    0.00    2101/2101        thumb1A_7(unsigned int) [361]
+                0.00    0.00    2038/2038        thumb10_18(unsigned int) [362]
+                0.00    0.00    1928/1928        thumb08_05(unsigned int) [363]
+                0.00    0.00    1814/1814        thumb40_3(unsigned int) [365]
+                0.00    0.00    1417/1417        thumb08_19(unsigned int) [366]
+                0.00    0.00    1182/1182        thumb41_0(unsigned int) [368]
+                0.00    0.00     738/738         thumb3B(unsigned int) [369]
+                0.00    0.00     532/532         thumb00_07(unsigned int) [370]
+                0.00    0.00     448/448         thumb10_02(unsigned int) [372]
+                0.00    0.00     392/392         thumb00_06(unsigned int) [373]
+                0.00    0.00     151/151         thumb2F(unsigned int) [378]
+                0.00    0.00      31/31          thumb08_0B(unsigned int) [385]
+                0.00    0.00      23/23          BIOS_CpuSet() [388]
+                0.00    0.00      19/19          thumb00_0B(unsigned int) [389]
+                0.00    0.00      10/10          thumb1C_6(unsigned int) [393]
+                0.00    0.00       8/8           thumb1C_4(unsigned int) [395]
+                0.00    0.00       8/8           thumb00_1C(unsigned int) [394]
+                0.00    0.00       7/7           thumb00_0C(unsigned int) [397]
+                0.00    0.00       6/6           BIOS_CpuFastSet() [399]
+                0.00    0.00       5/5           thumb00_09(unsigned int) [401]
+                0.00    0.00       4/4           BIOS_LZ77UnCompVram() [405]
+                0.00    0.00       4/4           thumb1A_3(unsigned int) [408]
+                0.00    0.00       4/4           thumb00_0E(unsigned int) [406]
+                0.00    0.00       4/4           thumb00_11(unsigned int) [407]
+                0.00    0.00       2/2           thumb00_0A(unsigned int) [431]
+                0.00    0.00       2/2           thumb08_07(unsigned int) [433]
+                0.00    0.00       2/2           thumb08_06(unsigned int) [432]
+                0.00    0.00       2/2           thumb10_01(unsigned int) [434]
+                0.00    0.00       1/1           thumb08_0C(unsigned int) [476]
+-----------------------------------------------
+                0.49    0.76  353364/353364      CPULoop(int) [1]
+[3]     40.5    0.49    0.76  353364         mode2RenderLine() [3]
+                0.76    0.00  353364/353364      rtcReadGame(gzFile_s*) [4]
+-----------------------------------------------
+                0.76    0.00  353364/353364      mode2RenderLine() [3]
+[4]     24.6    0.76    0.00  353364         rtcReadGame(gzFile_s*) [4]
+-----------------------------------------------
+                0.07    0.04   25314/25314       CPULoop(int) [1]
+[5]      3.6    0.07    0.04   25314         mode0RenderLine() [5]
+                0.04    0.00   24800/24800       flashDelayedWrite(unsigned int, unsigned char) [15]
+-----------------------------------------------
+                0.05    0.05   83380/83380       CPULoop(int) [1]
+[6]      3.2    0.05    0.05   83380         armExecute() [6]
+                0.01    0.01  637528/637528      arm1FD(unsigned int) [25]
+                0.01    0.00 1370627/1370627     arm080(unsigned int) [43]
+                0.01    0.00  637623/637623      arm040(unsigned int) [46]
+                0.00    0.01    9451/9451        arm120(unsigned int) [66]
+                0.00    0.00   94796/94796       arm1BD(unsigned int) [89]
+                0.00    0.00   71661/71661       arm0DD(unsigned int) [91]
+                0.00    0.00  858479/858479      arm250(unsigned int) [92]
+                0.00    0.00    2360/2360        arm810(unsigned int) [94]
+                0.00    0.00   15186/15186       arm5D0(unsigned int) [96]
+                0.00    0.00   10912/10912       arm19D(unsigned int) [97]
+                0.00    0.00   10093/10093       arm1DD(unsigned int) [98]
+                0.00    0.00    2361/2361        arm550(unsigned int) [101]
+                0.00    0.00   11820/11820       arm1CB(unsigned int) [105]
+                0.00    0.00   11899/11899       arm5C0(unsigned int) [106]
+                0.00    0.00 2590626/2590626     arm009(unsigned int) [195]
+                0.00    0.00 2402208/2402208     arm3C0(unsigned int) [196]
+                0.00    0.00 2168372/4586877     codeTicksAccessSeq32(unsigned int) [194]
+                0.00    0.00 1764492/1764492     arm086(unsigned int) [198]
+                0.00    0.00 1084048/1084048     armA00(unsigned int) [203]
+                0.00    0.00  882150/882150      arm290(unsigned int) [205]
+                0.00    0.00  816041/816041      arm1B2(unsigned int) [207]
+                0.00    0.00  816041/816041      arm084(unsigned int) [206]
+                0.00    0.00  633317/633317      arm050(unsigned int) [211]
+                0.00    0.00  473302/473302      arm590(unsigned int) [219]
+                0.00    0.00  240252/240252      arm580(unsigned int) [228]
+                0.00    0.00  220621/220621      arm480(unsigned int) [230]
+                0.00    0.00   21586/21586       arm3A0(unsigned int) [268]
+                0.00    0.00   21228/21228       arm280(unsigned int) [269]
+                0.00    0.00   21173/21173       arm920(unsigned int) [270]
+                0.00    0.00   21169/21169       arm8B0(unsigned int) [271]
+                0.00    0.00   21078/21078       arm121(unsigned int) [272]
+                0.00    0.00   15072/15072       arm1A0(unsigned int) [280]
+                0.00    0.00   11915/11915       arm210(unsigned int) [287]
+                0.00    0.00   10518/10518       arm310(unsigned int) [290]
+                0.00    0.00    7089/7089        arm380(unsigned int) [298]
+                0.00    0.00    5815/5815        arm350(unsigned int) [307]
+                0.00    0.00    5456/5456        arm4C0(unsigned int) [310]
+                0.00    0.00    5456/5456        arm7C0(unsigned int) [311]
+                0.00    0.00    5456/5456        arm1A4(unsigned int) [309]
+                0.00    0.00    4731/4731        arm240(unsigned int) [315]
+                0.00    0.00    4728/4728        arm100(unsigned int) [316]
+                0.00    0.00    4725/4725        arm140(unsigned int) [317]
+                0.00    0.00    4724/4724        arm160(unsigned int) [318]
+                0.00    0.00    4721/4721        arm010(unsigned int) [319]
+                0.00    0.00    4721/4721        arm15B(unsigned int) [320]
+                0.00    0.00    4721/4721        armB00(unsigned int) [321]
+                0.00    0.00    3327/3327        arm090(unsigned int) [331]
+                0.00    0.00    2998/2998        arm260(unsigned int) [333]
+                0.00    0.00    2364/2364        arm000(unsigned int) [349]
+                0.00    0.00    2364/2364        arm1C0(unsigned int) [351]
+                0.00    0.00    2364/2364        arm002(unsigned int) [350]
+                0.00    0.00    2364/2364        arm1DB(unsigned int) [352]
+                0.00    0.00    2364/2364        arm510(unsigned int) [353]
+                0.00    0.00    2362/2362        arm14B(unsigned int) [355]
+                0.00    0.00    2362/2362        arm020(unsigned int) [354]
+                0.00    0.00    2361/2361        arm200(unsigned int) [356]
+                0.00    0.00    2361/2361        arm790(unsigned int) [357]
+                0.00    0.00    2360/2360        arm1B0(unsigned int) [358]
+                0.00    0.00    1814/1814        arm089(unsigned int) [364]
+                0.00    0.00     192/192         arm1A7(unsigned int) [376]
+                0.00    0.00      96/96          arm1A2(unsigned int) [380]
+-----------------------------------------------
+                0.08    0.01 2697827/2697827     thumbExecute() [2]
+[7]      2.9    0.08    0.01 2697827         thumbBC(unsigned int) [7]
+                0.01    0.00 3961460/4214266     CPUReadMemory(unsigned int) [26]
+-----------------------------------------------
+                0.09    0.00 4905596/4905596     thumbExecute() [2]
+[8]      2.8    0.09    0.00 4905596         thumb88(unsigned int) [8]
+-----------------------------------------------
+                0.06    0.00 4506216/4506216     thumbExecute() [2]
+[9]      1.9    0.06    0.00 4506216         thumb68(unsigned int) [9]
+-----------------------------------------------
+                0.05    0.00   25653/25653       Gb_Apu::run_until_(int) [11]
+[10]     1.6    0.05    0.00   25653         Gb_Noise::run(int, int) [10]
+-----------------------------------------------
+                0.00    0.01    1405/5367        Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.04    3962/5367        Gb_Apu::end_frame(int) [17]
+[11]     1.6    0.00    0.05    5367         Gb_Apu::run_until_(int) [11]
+                0.05    0.00   25653/25653       Gb_Noise::run(int, int) [10]
+                0.00    0.00   51306/51306       Gb_Square::run(int, int) [255]
+                0.00    0.00   40572/40572       Gb_Osc::clock_length() [259]
+                0.00    0.00   25653/25653       Gb_Wave::run(int, int) [263]
+                0.00    0.00    7605/7605        Gb_Env::clock_envelope() [294]
+                0.00    0.00    5071/5071        Gb_Sweep_Square::clock_sweep() [313]
+-----------------------------------------------
+                0.04    0.01 1558405/1558405     thumbExecute() [2]
+[12]     1.5    0.04    0.01 1558405         thumbB5(unsigned int) [12]
+                0.01    0.00 1975367/2722370     CPUWriteMemory(unsigned int, unsigned int) [41]
+-----------------------------------------------
+                0.05    0.00 2804877/2804877     thumbExecute() [2]
+[13]     1.5    0.05    0.00 2804877         thumb80(unsigned int) [13]
+                0.00    0.00     536/1218358     CPUCheckDMA(int, int) <cycle 1> [18]
+                0.00    0.00       3/3741        soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.00   83901/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00       1/1218358     soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.00    2365/4734        CPUUpdateRender() [314]
+                0.00    0.00       4/6           CPUUpdateRenderBuffers(bool) [400]
+                0.00    0.00       2/6           interp_rate() [398]
+                0.00    0.00       1/3           Gb_Apu::volume(double) [424]
+-----------------------------------------------
+[14]     1.3    0.03    0.01 1218358+468036  <cycle 1 as a whole> [14]
+                0.02    0.01  438315             CPUCheckDMA(int, int) <cycle 1> [18]
+                0.01    0.00 1248079             soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+-----------------------------------------------
+                0.04    0.00   24800/24800       mode0RenderLine() [5]
+[15]     1.3    0.04    0.00   24800         flashDelayedWrite(unsigned int, unsigned char) [15]
+-----------------------------------------------
+                0.00    0.04    3962/3962        CPULoop(int) [1]
+[16]     1.2    0.00    0.04    3962         psoundTickfn() [16]
+                0.00    0.04    3962/3962        Gb_Apu::end_frame(int) [17]
+                0.00    0.00    3962/3962        Stereo_Buffer::end_frame(int) [325]
+                0.00    0.00    3962/3962        flush_samples(Multi_Buffer*) [324]
+-----------------------------------------------
+                0.00    0.04    3962/3962        psoundTickfn() [16]
+[17]     1.2    0.00    0.04    3962         Gb_Apu::end_frame(int) [17]
+                0.00    0.04    3962/5367        Gb_Apu::run_until_(int) [11]
+-----------------------------------------------
+                               52004             soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.00     536/1218358     thumb80(unsigned int) [13]
+                0.00    0.00    4730/1218358     thumb60(unsigned int) [95]
+                0.01    0.00  381045/1218358     CPULoop(int) [1]
+[18]     1.0    0.02    0.01  438315         CPUCheckDMA(int, int) <cycle 1> [18]
+                0.01    0.00    4730/4730        doDMA(unsigned int&, unsigned int&, unsigned int, unsigned int, unsigned int, int) [56]
+                0.00    0.00  416032/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+                              416032             soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+-----------------------------------------------
+                0.03    0.00 1925853/1925853     thumbExecute() [2]
+[19]     0.8    0.03    0.00 1925853         thumb5A(unsigned int) [19]
+-----------------------------------------------
+                0.02    0.00 4793133/4793133     thumbExecute() [2]
+[20]     0.6    0.02    0.00 4793133         thumb1C_0(unsigned int) [20]
+-----------------------------------------------
+                0.02    0.00 2519732/2519732     thumbExecute() [2]
+[21]     0.6    0.02    0.00 2519732         thumb46_1(unsigned int) [21]
+-----------------------------------------------
+                0.02    0.00 2351253/2351253     thumbExecute() [2]
+[22]     0.6    0.02    0.00 2351253         thumb47(unsigned int) [22]
+-----------------------------------------------
+                0.02    0.00  943928/943928      thumbExecute() [2]
+[23]     0.6    0.02    0.00  943928         thumb5E(unsigned int) [23]
+-----------------------------------------------
+                                                 <spontaneous>
+[24]     0.6    0.02    0.00                 arm270(unsigned int) [24]
+-----------------------------------------------
+                0.01    0.01  637528/637528      armExecute() [6]
+[25]     0.6    0.01    0.01  637528         arm1FD(unsigned int) [25]
+                0.01    0.00  637528/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00    7592/4214266     thumbBD(unsigned int) [102]
+                0.00    0.00  245214/4214266     thumbC8(unsigned int) [39]
+                0.01    0.00 3961460/4214266     thumbBC(unsigned int) [7]
+[26]     0.5    0.02    0.00 4214266         CPUReadMemory(unsigned int) [26]
+-----------------------------------------------
+                0.02    0.00 2603001/2603001     thumbExecute() [2]
+[27]     0.5    0.02    0.00 2603001         thumb28(unsigned int) [27]
+-----------------------------------------------
+                0.02    0.00 2334331/2334331     thumbExecute() [2]
+[28]     0.5    0.02    0.00 2334331         thumb40_0(unsigned int) [28]
+-----------------------------------------------
+                0.02    0.00 1101590/1101590     thumbExecute() [2]
+[29]     0.5    0.02    0.00 1101590         thumb48(unsigned int) [29]
+-----------------------------------------------
+                0.02    0.00  944894/944894      thumbExecute() [2]
+[30]     0.5    0.02    0.00  944894         thumb46_2(unsigned int) [30]
+-----------------------------------------------
+                0.02    0.00  686721/686721      thumbExecute() [2]
+[31]     0.5    0.02    0.00  686721         thumb23(unsigned int) [31]
+-----------------------------------------------
+                0.02    0.00  528978/528978      thumbExecute() [2]
+[32]     0.5    0.02    0.00  528978         thumb24(unsigned int) [32]
+-----------------------------------------------
+                0.02    0.00  215153/215153      thumbExecute() [2]
+[33]     0.5    0.02    0.00  215153         thumb08_10(unsigned int) [33]
+-----------------------------------------------
+                0.02    0.00  119602/119602      thumbExecute() [2]
+[34]     0.5    0.02    0.00  119602         thumb18_3(unsigned int) [34]
+-----------------------------------------------
+                0.00    0.01  416009/416009      CPULoop(int) [1]
+[35]     0.4    0.00    0.01  416009         soundTimerOverflow(int) [35]
+                0.01    0.00  416009/1218358     soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+-----------------------------------------------
+                0.00    0.00       1/3788        soundReset() [104]
+                0.00    0.00       8/3788        thumb60(unsigned int) [95]
+                0.00    0.00      16/3788        CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00      24/3788        soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.01    3739/3788        soundEvent(unsigned int, unsigned char) [37]
+[36]     0.4    0.00    0.01    3788         Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.01    1405/5367        Gb_Apu::run_until_(int) [11]
+                0.00    0.00      48/144         Gb_Wave::access(unsigned int) const [379]
+                0.00    0.00      24/24          Gb_Apu::silence_osc(Gb_Osc&) [387]
+                0.00    0.00       6/25          Blip_Synth_::volume_unit(double) [386]
+                0.00    0.00       5/8           Gb_Apu::reset_regs() [396]
+-----------------------------------------------
+                0.00    0.00       1/3741        CPUReset() [99]
+                0.00    0.00       3/3741        thumb80(unsigned int) [13]
+                0.00    0.00       4/3741        CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00       5/3741        CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.01    3728/3741        thumb70(unsigned int) [38]
+[37]     0.4    0.00    0.01    3741         soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.01    3739/3788        Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00    3211/3211        Gb_Apu::write_osc(int, int, int, int) [332]
+                0.00    0.00     520/520         Gb_Apu::apply_stereo() [371]
+                0.00    0.00       5/18          Gba_Pcm::apply_control(int) [390]
+                0.00    0.00       1/25          Blip_Synth_::volume_unit(double) [386]
+-----------------------------------------------
+                0.00    0.01  214314/214314      thumbExecute() [2]
+[38]     0.4    0.00    0.01  214314         thumb70(unsigned int) [38]
+                0.00    0.01    3728/3741        soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.00       2/1218358     soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.00       2/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+-----------------------------------------------
+                0.01    0.00  245206/245206      thumbExecute() [2]
+[39]     0.4    0.01    0.00  245206         thumbC8(unsigned int) [39]
+                0.00    0.00  245214/4214266     CPUReadMemory(unsigned int) [26]
+-----------------------------------------------
+                              416032             CPUCheckDMA(int, int) <cycle 1> [18]
+                0.00    0.00       1/1218358     thumb80(unsigned int) [13]
+                0.00    0.00       2/1218358     thumb70(unsigned int) [38]
+                0.00    0.00       8/1218358     thumb60(unsigned int) [95]
+                0.00    0.00      18/1218358     CPUWriteByte(unsigned int, unsigned char) [100]
+                0.01    0.00  416009/1218358     soundTimerOverflow(int) [35]
+                0.01    0.00  416009/1218358     CPULoop(int) [1]
+[40]     0.3    0.01    0.00 1248079         soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.00      24/3788        Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00       4/4           Gba_Pcm_Fifo::write_control(int) [410]
+                               52004             CPUCheckDMA(int, int) <cycle 1> [18]
+-----------------------------------------------
+                0.00    0.00  298723/2722370     thumbB4(unsigned int) [90]
+                0.00    0.00  448280/2722370     thumbC0(unsigned int) [88]
+                0.01    0.00 1975367/2722370     thumbB5(unsigned int) [12]
+[41]     0.3    0.01    0.00 2722370         CPUWriteMemory(unsigned int, unsigned int) [41]
+-----------------------------------------------
+                0.01    0.00 2339684/2339684     thumbExecute() [2]
+[42]     0.3    0.01    0.00 2339684         thumbD0(unsigned int) [42]
+-----------------------------------------------
+                0.01    0.00 1370627/1370627     armExecute() [6]
+[43]     0.3    0.01    0.00 1370627         arm080(unsigned int) [43]
+-----------------------------------------------
+                0.01    0.00 1118631/1118631     thumbExecute() [2]
+[44]     0.3    0.01    0.00 1118631         thumbF4(unsigned int) [44]
+-----------------------------------------------
+                0.01    0.00  682061/682061      thumbExecute() [2]
+[45]     0.3    0.01    0.00  682061         thumb98(unsigned int) [45]
+-----------------------------------------------
+                0.01    0.00  637623/637623      armExecute() [6]
+[46]     0.3    0.01    0.00  637623         arm040(unsigned int) [46]
+-----------------------------------------------
+                0.01    0.00  569717/569717      thumbExecute() [2]
+[47]     0.3    0.01    0.00  569717         thumbDD(unsigned int) [47]
+-----------------------------------------------
+                0.01    0.00  554474/554474      thumbExecute() [2]
+[48]     0.3    0.01    0.00  554474         thumbDC(unsigned int) [48]
+-----------------------------------------------
+                0.01    0.00  550877/550877      thumbExecute() [2]
+[49]     0.3    0.01    0.00  550877         thumbE0(unsigned int) [49]
+-----------------------------------------------
+                0.01    0.00  479164/479164      thumbExecute() [2]
+[50]     0.3    0.01    0.00  479164         thumb1C_1(unsigned int) [50]
+-----------------------------------------------
+                0.01    0.00  469567/469567      thumbExecute() [2]
+[51]     0.3    0.01    0.00  469567         thumbB0(unsigned int) [51]
+-----------------------------------------------
+                0.01    0.00  400588/400588      thumbExecute() [2]
+[52]     0.3    0.01    0.00  400588         thumb31(unsigned int) [52]
+-----------------------------------------------
+                0.01    0.00  332517/332517      thumbExecute() [2]
+[53]     0.3    0.01    0.00  332517         thumb42_1(unsigned int) [53]
+-----------------------------------------------
+                0.01    0.00  285704/285704      thumbExecute() [2]
+[54]     0.3    0.01    0.00  285704         thumb00_01(unsigned int) [54]
+-----------------------------------------------
+                0.01    0.00   81506/81506       thumbExecute() [2]
+[55]     0.3    0.01    0.00   81506         thumb43_1(unsigned int) [55]
+-----------------------------------------------
+                0.01    0.00    4730/4730        CPUCheckDMA(int, int) <cycle 1> [18]
+[56]     0.3    0.01    0.00    4730         doDMA(unsigned int&, unsigned int&, unsigned int, unsigned int, unsigned int, int) [56]
+-----------------------------------------------
+                0.01    0.00       2/2           soundShutdown() [58]
+[57]     0.3    0.01    0.00       2         systemOnSoundShutdown() [57]
+-----------------------------------------------
+                0.00    0.01       1/1           systemSoundInit() [59]
+[58]     0.3    0.00    0.01       1         soundShutdown() [58]
+                0.01    0.00       2/2           systemOnSoundShutdown() [57]
+                0.00    0.00       1/1           SoundSDL::~SoundSDL() [496]
+                0.00    0.00       1/1           Stereo_Buffer::~Stereo_Buffer() [484]
+-----------------------------------------------
+                0.00    0.01       1/1           soundInit() [61]
+[59]     0.3    0.00    0.01       1         systemSoundInit() [59]
+                0.00    0.01       1/1           soundShutdown() [58]
+                0.00    0.00       1/1           SoundSDL::SoundSDL() [495]
+-----------------------------------------------
+                                                 <spontaneous>
+[60]     0.3    0.01    0.00                 utilGBAFindSave(int) [60]
+                0.00    0.00       1/2           rtcEnable(bool) [429]
+                0.00    0.00       1/1           rtcEnableRumble(bool) [465]
+-----------------------------------------------
+                                                 <spontaneous>
+[61]     0.3    0.00    0.01                 soundInit() [61]
+                0.00    0.01       1/1           systemSoundInit() [59]
+                0.00    0.00       1/2           SoundSDL::init(long) [445]
+-----------------------------------------------
+                                                 <spontaneous>
+[62]     0.3    0.01    0.00                 arm0DF(unsigned int) [62]
+-----------------------------------------------
+                                                 <spontaneous>
+[63]     0.3    0.01    0.00                 arm360(unsigned int) [63]
+-----------------------------------------------
+                                                 <spontaneous>
+[64]     0.3    0.01    0.00                 arm5B0(unsigned int) [64]
+-----------------------------------------------
+                0.00    0.00    2361/842537      arm550(unsigned int) [101]
+                0.00    0.00   10093/842537      arm1DD(unsigned int) [98]
+                0.00    0.00   10912/842537      arm19D(unsigned int) [97]
+                0.00    0.00   15186/842537      arm5D0(unsigned int) [96]
+                0.00    0.00   71661/842537      arm0DD(unsigned int) [91]
+                0.00    0.00   94796/842537      arm1BD(unsigned int) [89]
+                0.01    0.00  637528/842537      arm1FD(unsigned int) [25]
+[65]     0.3    0.01    0.00  842537         CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.01    9451/9451        armExecute() [6]
+[66]     0.2    0.00    0.01    9451         arm120(unsigned int) [66]
+                0.01    0.00    9451/9451        CPUUpdateFlags() [81]
+                0.00    0.00    9451/18900       CPUSwitchMode(int, bool, bool) [78]
+                0.00    0.00    9451/14179       CPUUpdateCPSR() [283]
+                0.00    0.00    9451/14175       CPUSwitchMode(int, bool) [284]
+-----------------------------------------------
+                0.01    0.00 1808762/1808762     thumbExecute() [2]
+[67]     0.2    0.01    0.00 1808762         thumbF8(unsigned int) [67]
+-----------------------------------------------
+                0.01    0.00 1081617/1081617     thumbExecute() [2]
+[68]     0.2    0.01    0.00 1081617         thumb21(unsigned int) [68]
+-----------------------------------------------
+                0.01    0.00  876249/876249      thumbExecute() [2]
+[69]     0.2    0.01    0.00  876249         thumb00_10(unsigned int) [69]
+-----------------------------------------------
+                0.01    0.00  778266/778266      thumbExecute() [2]
+[70]     0.2    0.01    0.00  778266         thumb22(unsigned int) [70]
+-----------------------------------------------
+                0.01    0.00  539348/539348      thumbExecute() [2]
+[71]     0.2    0.01    0.00  539348         thumb2B(unsigned int) [71]
+-----------------------------------------------
+                0.01    0.00  391001/391001      thumbExecute() [2]
+[72]     0.2    0.01    0.00  391001         thumb2C(unsigned int) [72]
+-----------------------------------------------
+                0.01    0.00  310320/310320      thumbExecute() [2]
+[73]     0.2    0.01    0.00  310320         thumbDB(unsigned int) [73]
+-----------------------------------------------
+                0.01    0.00  252733/252733      thumbExecute() [2]
+[74]     0.2    0.01    0.00  252733         thumb08_0E(unsigned int) [74]
+-----------------------------------------------
+                0.01    0.00  146512/146512      thumbExecute() [2]
+[75]     0.2    0.01    0.00  146512         thumb18_4(unsigned int) [75]
+-----------------------------------------------
+                0.01    0.00  139893/139893      thumbExecute() [2]
+[76]     0.2    0.01    0.00  139893         thumb37(unsigned int) [76]
+-----------------------------------------------
+                0.01    0.00   55213/55213       thumbExecute() [2]
+[77]     0.2    0.01    0.00   55213         thumb38(unsigned int) [77]
+-----------------------------------------------
+                0.00    0.00    2360/18900       arm810(unsigned int) [94]
+                0.00    0.00    2361/18900       CPUSoftwareInterrupt(int) [93]
+                0.00    0.00    2364/18900       CPULoop(int) [1]
+                0.00    0.00    2364/18900       arm250(unsigned int) [92]
+                0.00    0.00    9451/18900       arm120(unsigned int) [66]
+[78]     0.2    0.01    0.00   18900         CPUSwitchMode(int, bool, bool) [78]
+-----------------------------------------------
+                0.01    0.00   12469/12469       thumbExecute() [2]
+[79]     0.2    0.01    0.00   12469         thumb27(unsigned int) [79]
+-----------------------------------------------
+                0.01    0.00   10990/10990       thumbExecute() [2]
+[80]     0.2    0.01    0.00   10990         thumb3F(unsigned int) [80]
+-----------------------------------------------
+                0.01    0.00    9451/9451        arm120(unsigned int) [66]
+[81]     0.2    0.01    0.00    9451         CPUUpdateFlags() [81]
+-----------------------------------------------
+                0.01    0.00     148/148         thumbExecute() [2]
+[82]     0.2    0.01    0.00     148         thumb58(unsigned int) [82]
+-----------------------------------------------
+                                                 <spontaneous>
+[83]     0.2    0.01    0.00                 thumb00_0F(unsigned int) [83]
+-----------------------------------------------
+                                                 <spontaneous>
+[84]     0.2    0.01    0.00                 thumb08_0D(unsigned int) [84]
+-----------------------------------------------
+                                                 <spontaneous>
+[85]     0.2    0.01    0.00                 thumb08_0F(unsigned int) [85]
+-----------------------------------------------
+                                                 <spontaneous>
+[86]     0.2    0.01    0.00                 thumbUnknownInsn(unsigned int) [86]
+-----------------------------------------------
+                                                 <spontaneous>
+[87]     0.2    0.01    0.00                 thumb50(unsigned int) [87]
+-----------------------------------------------
+                0.00    0.00  448200/448200      thumbExecute() [2]
+[88]     0.1    0.00    0.00  448200         thumbC0(unsigned int) [88]
+                0.00    0.00  448280/2722370     CPUWriteMemory(unsigned int, unsigned int) [41]
+-----------------------------------------------
+                0.00    0.00   94796/94796       armExecute() [6]
+[89]     0.0    0.00    0.00   94796         arm1BD(unsigned int) [89]
+                0.00    0.00   94796/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00  140611/140611      thumbExecute() [2]
+[90]     0.0    0.00    0.00  140611         thumbB4(unsigned int) [90]
+                0.00    0.00  298723/2722370     CPUWriteMemory(unsigned int, unsigned int) [41]
+-----------------------------------------------
+                0.00    0.00   71661/71661       armExecute() [6]
+[91]     0.0    0.00    0.00   71661         arm0DD(unsigned int) [91]
+                0.00    0.00   71661/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00  858479/858479      armExecute() [6]
+[92]     0.0    0.00    0.00  858479         arm250(unsigned int) [92]
+                0.00    0.00    2364/18900       CPUSwitchMode(int, bool, bool) [78]
+                0.00    0.00  860843/4586877     codeTicksAccessSeq32(unsigned int) [194]
+                0.00    0.00    2364/14175       CPUSwitchMode(int, bool) [284]
+                0.00    0.00    2364/56512       codeTicksAccess32(unsigned int) [254]
+-----------------------------------------------
+                0.00    0.00    6316/6316        thumbExecute() [2]
+[93]     0.0    0.00    0.00    6316         CPUSoftwareInterrupt(int) [93]
+                0.00    0.00    2361/18900       CPUSwitchMode(int, bool, bool) [78]
+-----------------------------------------------
+                0.00    0.00    2360/2360        armExecute() [6]
+[94]     0.0    0.00    0.00    2360         arm810(unsigned int) [94]
+                0.00    0.00    2360/18900       CPUSwitchMode(int, bool, bool) [78]
+                0.00    0.00    4720/4586877     codeTicksAccessSeq32(unsigned int) [194]
+                0.00    0.00    2360/14175       CPUSwitchMode(int, bool) [284]
+-----------------------------------------------
+                0.00    0.00  447340/447340      thumbExecute() [2]
+[95]     0.0    0.00    0.00  447340         thumb60(unsigned int) [95]
+                0.00    0.00    4730/1218358     CPUCheckDMA(int, int) <cycle 1> [18]
+                0.00    0.00       8/3788        Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00   48384/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00       8/1218358     soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+-----------------------------------------------
+                0.00    0.00   15186/15186       armExecute() [6]
+[96]     0.0    0.00    0.00   15186         arm5D0(unsigned int) [96]
+                0.00    0.00   15186/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00   10912/10912       armExecute() [6]
+[97]     0.0    0.00    0.00   10912         arm19D(unsigned int) [97]
+                0.00    0.00   10912/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00   10093/10093       armExecute() [6]
+[98]     0.0    0.00    0.00   10093         arm1DD(unsigned int) [98]
+                0.00    0.00   10093/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                                                 <spontaneous>
+[99]     0.0    0.00    0.00                 CPUReset() [99]
+                0.00    0.00       1/1           CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00       1/1           soundReset() [104]
+                0.00    0.00       1/3741        soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.00       1/1           BIOS_RegisterRamReset(unsigned int) [107]
+                0.00    0.00       2/18          Gba_Pcm::apply_control(int) [390]
+                0.00    0.00       1/1           CheckEReaderRegion() [467]
+                0.00    0.00       1/1           rtcReset() [473]
+                0.00    0.00       1/6           CPUUpdateRenderBuffers(bool) [400]
+                0.00    0.00       1/1           SetSaveType(int) [455]
+                0.00    0.00       1/40          systemGetClock() [382]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUReset() [99]
+[100]    0.0    0.00    0.00       1         CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00      16/3788        Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00       5/3741        soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.00      18/1218358     soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+                0.00    0.00     127/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00       2/18          Gba_Pcm::apply_control(int) [390]
+                0.00    0.00       1/4734        CPUUpdateRender() [314]
+                0.00    0.00       1/25          Blip_Synth_::volume_unit(double) [386]
+                0.00    0.00       1/3           Gb_Apu::volume(double) [424]
+                0.00    0.00       1/24312       CPUReadHalfWord(unsigned int) [264]
+-----------------------------------------------
+                0.00    0.00    2361/2361        armExecute() [6]
+[101]    0.0    0.00    0.00    2361         arm550(unsigned int) [101]
+                0.00    0.00    2361/842537      CPUReadByte(unsigned int) [65]
+-----------------------------------------------
+                0.00    0.00    3796/3796        thumbExecute() [2]
+[102]    0.0    0.00    0.00    3796         thumbBD(unsigned int) [102]
+                0.00    0.00    7592/4214266     CPUReadMemory(unsigned int) [26]
+-----------------------------------------------
+                0.00    0.00       1/569709      BIOS_RegisterRamReset(unsigned int) [107]
+                0.00    0.00       2/569709      thumb70(unsigned int) [38]
+                0.00    0.00     127/569709      CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00    9442/569709      arm5C0(unsigned int) [106]
+                0.00    0.00   11820/569709      arm1CB(unsigned int) [105]
+                0.00    0.00   48384/569709      thumb60(unsigned int) [95]
+                0.00    0.00   83901/569709      thumb80(unsigned int) [13]
+                0.00    0.00  416032/569709      CPUCheckDMA(int, int) <cycle 1> [18]
+[103]    0.0    0.00    0.00  569709         CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00       4/3741        soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.00    2368/4734        CPUUpdateRender() [314]
+                0.00    0.00       2/18          Gba_Pcm::apply_control(int) [390]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUReset() [99]
+[104]    0.0    0.00    0.00       1         soundReset() [104]
+                0.00    0.00       1/3788        Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00       1/1           remake_stereo_buffer() [478]
+                0.00    0.00       1/1           SoundSDL::reset() [494]
+                0.00    0.00       1/3           Gb_Apu::reset(Gb_Apu::mode_t, bool) [423]
+                0.00    0.00       1/3           Blip_Buffer::clear(int) [416]
+                0.00    0.00       1/1           Stereo_Buffer::clear() [482]
+                0.00    0.00       1/18          Gba_Pcm::apply_control(int) [390]
+-----------------------------------------------
+                0.00    0.00   11820/11820       armExecute() [6]
+[105]    0.0    0.00    0.00   11820         arm1CB(unsigned int) [105]
+                0.00    0.00   11820/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00   11820/14182       CPUWriteHalfWord(unsigned int, unsigned short) [282]
+-----------------------------------------------
+                0.00    0.00   11899/11899       armExecute() [6]
+[106]    0.0    0.00    0.00   11899         arm5C0(unsigned int) [106]
+                0.00    0.00    9442/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00   11899/22811       CPUWriteByte(unsigned int, unsigned char) [266]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUReset() [99]
+[107]    0.0    0.00    0.00       1         BIOS_RegisterRamReset(unsigned int) [107]
+                0.00    0.00       1/569709      CPUUpdateRegister(unsigned int, unsigned short) [103]
+-----------------------------------------------
+[108]    0.0    0.00    0.00       3+2       <cycle 2 as a whole> [108]
+                0.00    0.00       4             Data_Reader::read(void*, int) <cycle 2> [409]
+                0.00    0.00       1             fex_t::read_v(void*, int) <cycle 2> [490]
+-----------------------------------------------
+                0.00    0.00       1/91          ReadPrefString(char const*, char const*) [460]
+                0.00    0.00       2/91          ReadPrefHex(char const*, int) [426]
+                0.00    0.00      15/91          LoadConfigFile() [377]
+                0.00    0.00      73/91          ReadPrefHex(char const*) [392]
+[109]    0.0    0.00    0.00      91         iniparser_getstring [109]
+-----------------------------------------------
+                0.00    0.00      64/64          ReadPref(char const*, int) [381]
+[110]    0.0    0.00    0.00      64         iniparser_getint [110]
+-----------------------------------------------
+                0.00    0.00       4/4           fex_open [116]
+[111]    0.0    0.00    0.00       4         fex_identify_extension [111]
+-----------------------------------------------
+                0.00    0.00       1/2           utilFindType(char const*) [539]
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[112]    0.0    0.00    0.00       2         fex_close [112]
+-----------------------------------------------
+                0.00    0.00       1/2           utilFindType(char const*) [539]
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[113]    0.0    0.00    0.00       2         fex_done [113]
+-----------------------------------------------
+                0.00    0.00       2/2           fex_open [116]
+[114]    0.0    0.00    0.00       2         fex_identify_header [114]
+-----------------------------------------------
+                0.00    0.00       1/2           utilFindType(char const*) [539]
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[115]    0.0    0.00    0.00       2         fex_name [115]
+-----------------------------------------------
+                0.00    0.00       1/2           utilFindType(char const*) [539]
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[116]    0.0    0.00    0.00       2         fex_open [116]
+                0.00    0.00       4/4           fex_identify_extension [111]
+                0.00    0.00       2/3           Std_File_Reader::Std_File_Reader() [421]
+                0.00    0.00       2/3           Std_File_Reader::open(char const*) [419]
+                0.00    0.00       2/3           Data_Reader::read(void*, int) <cycle 2> [409]
+                0.00    0.00       2/2           fex_identify_header [114]
+                0.00    0.00       2/2           Std_File_Reader::~Std_File_Reader() [437]
+                0.00    0.00       2/2           new_binary() [430]
+                0.00    0.00       2/2           fex_t::open(char const*) [440]
+-----------------------------------------------
+                0.00    0.00       1/1           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[117]    0.0    0.00    0.00       1         fex_read [117]
+                0.00    0.00       1/2           fex_t::stat() [441]
+-----------------------------------------------
+                0.00    0.00       1/1           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[118]    0.0    0.00    0.00       1         fex_size [118]
+-----------------------------------------------
+                0.00    0.00       1/1           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[119]    0.0    0.00    0.00       1         fex_stat [119]
+-----------------------------------------------
+                0.00    0.00    3327/4586877     arm090(unsigned int) [331]
+                0.00    0.00    4720/4586877     arm810(unsigned int) [94]
+                0.00    0.00    4721/4586877     arm010(unsigned int) [319]
+                0.00    0.00    5815/4586877     arm350(unsigned int) [307]
+                0.00    0.00   23612/4586877     arm121(unsigned int) [272]
+                0.00    0.00  633317/4586877     arm050(unsigned int) [211]
+                0.00    0.00  860843/4586877     arm250(unsigned int) [92]
+                0.00    0.00  882150/4586877     arm290(unsigned int) [205]
+                0.00    0.00 2168372/4586877     armExecute() [6]
+[194]    0.0    0.00    0.00 4586877         codeTicksAccessSeq32(unsigned int) [194]
+-----------------------------------------------
+                0.00    0.00 2590626/2590626     armExecute() [6]
+[195]    0.0    0.00    0.00 2590626         arm009(unsigned int) [195]
+-----------------------------------------------
+                0.00    0.00 2402208/2402208     armExecute() [6]
+[196]    0.0    0.00    0.00 2402208         arm3C0(unsigned int) [196]
+-----------------------------------------------
+                0.00    0.00 2304579/2304579     thumbExecute() [2]
+[197]    0.0    0.00    0.00 2304579         thumbD1(unsigned int) [197]
+-----------------------------------------------
+                0.00    0.00 1764492/1764492     armExecute() [6]
+[198]    0.0    0.00    0.00 1764492         arm086(unsigned int) [198]
+-----------------------------------------------
+                0.00    0.00 1508678/1508678     CPULoop(int) [1]
+[199]    0.0    0.00    0.00 1508678         rtcIsEnabled() [199]
+-----------------------------------------------
+                0.00    0.00 1315572/1315572     thumbExecute() [2]
+[200]    0.0    0.00    0.00 1315572         thumb00_02(unsigned int) [200]
+-----------------------------------------------
+                0.00    0.00 1147741/1147741     thumbExecute() [2]
+[201]    0.0    0.00    0.00 1147741         thumb43_0(unsigned int) [201]
+-----------------------------------------------
+                0.00    0.00 1113757/1113757     thumbExecute() [2]
+[202]    0.0    0.00    0.00 1113757         thumb18_1(unsigned int) [202]
+-----------------------------------------------
+                0.00    0.00 1084048/1084048     armExecute() [6]
+[203]    0.0    0.00    0.00 1084048         armA00(unsigned int) [203]
+-----------------------------------------------
+                0.00    0.00 1070607/1070607     thumbExecute() [2]
+[204]    0.0    0.00    0.00 1070607         thumb20(unsigned int) [204]
+-----------------------------------------------
+                0.00    0.00  882150/882150      armExecute() [6]
+[205]    0.0    0.00    0.00  882150         arm290(unsigned int) [205]
+                0.00    0.00  882150/4586877     codeTicksAccessSeq32(unsigned int) [194]
+-----------------------------------------------
+                0.00    0.00  816041/816041      armExecute() [6]
+[206]    0.0    0.00    0.00  816041         arm084(unsigned int) [206]
+-----------------------------------------------
+                0.00    0.00  816041/816041      armExecute() [6]
+[207]    0.0    0.00    0.00  816041         arm1B2(unsigned int) [207]
+-----------------------------------------------
+                0.00    0.00  728323/728323      thumbExecute() [2]
+[208]    0.0    0.00    0.00  728323         thumb42_2(unsigned int) [208]
+-----------------------------------------------
+                0.00    0.00  719086/719086      thumbExecute() [2]
+[209]    0.0    0.00    0.00  719086         thumb2A(unsigned int) [209]
+-----------------------------------------------
+                0.00    0.00  690131/690131      thumbExecute() [2]
+[210]    0.0    0.00    0.00  690131         thumbF0(unsigned int) [210]
+-----------------------------------------------
+                0.00    0.00  633317/633317      armExecute() [6]
+[211]    0.0    0.00    0.00  633317         arm050(unsigned int) [211]
+                0.00    0.00  633317/4586877     codeTicksAccessSeq32(unsigned int) [194]
+-----------------------------------------------
+                0.00    0.00  585149/585149      thumbExecute() [2]
+[212]    0.0    0.00    0.00  585149         thumb29(unsigned int) [212]
+-----------------------------------------------
+                0.00    0.00  555314/555314      thumbExecute() [2]
+[213]    0.0    0.00    0.00  555314         thumb30(unsigned int) [213]
+-----------------------------------------------
+                0.00    0.00  542000/542000      CPULoop(int) [1]
+[214]    0.0    0.00    0.00  542000         CPUCompareVCOUNT() [214]
+-----------------------------------------------
+                0.00    0.00    2361/534549      arm790(unsigned int) [357]
+                0.00    0.00    2364/534549      arm510(unsigned int) [353]
+                0.00    0.00   56522/534549      arm8B0(unsigned int) [271]
+                0.00    0.00  473302/534549      arm590(unsigned int) [219]
+[215]    0.0    0.00    0.00  534549         CPUReadMemory(unsigned int) [215]
+-----------------------------------------------
+                0.00    0.00   56530/517403      arm920(unsigned int) [270]
+                0.00    0.00  220621/517403      arm480(unsigned int) [230]
+                0.00    0.00  240252/517403      arm580(unsigned int) [228]
+[216]    0.0    0.00    0.00  517403         CPUWriteMemory(unsigned int, unsigned int) [216]
+-----------------------------------------------
+                0.00    0.00  505429/505429      thumbExecute() [2]
+[217]    0.0    0.00    0.00  505429         thumb90(unsigned int) [217]
+-----------------------------------------------
+                0.00    0.00  494018/494018      thumbExecute() [2]
+[218]    0.0    0.00    0.00  494018         thumb78(unsigned int) [218]
+-----------------------------------------------
+                0.00    0.00  473302/473302      armExecute() [6]
+[219]    0.0    0.00    0.00  473302         arm590(unsigned int) [219]
+                0.00    0.00  473302/534549      CPUReadMemory(unsigned int) [215]
+-----------------------------------------------
+                0.00    0.00  459170/459170      thumbExecute() [2]
+[220]    0.0    0.00    0.00  459170         thumb2D(unsigned int) [220]
+-----------------------------------------------
+                0.00    0.00  380743/380743      thumbExecute() [2]
+[221]    0.0    0.00    0.00  380743         thumb18_2(unsigned int) [221]
+-----------------------------------------------
+                0.00    0.00  354316/354316      thumbExecute() [2]
+[222]    0.0    0.00    0.00  354316         thumb18_0(unsigned int) [222]
+-----------------------------------------------
+                0.00    0.00  325788/325788      thumbExecute() [2]
+[223]    0.0    0.00    0.00  325788         thumbD3(unsigned int) [223]
+-----------------------------------------------
+                0.00    0.00  321405/321405      thumbExecute() [2]
+[224]    0.0    0.00    0.00  321405         thumb00_04(unsigned int) [224]
+-----------------------------------------------
+                0.00    0.00  254355/254355      thumbExecute() [2]
+[225]    0.0    0.00    0.00  254355         thumb00_03(unsigned int) [225]
+-----------------------------------------------
+                0.00    0.00  250053/250053      thumbExecute() [2]
+[226]    0.0    0.00    0.00  250053         thumb33(unsigned int) [226]
+-----------------------------------------------
+                0.00    0.00  248320/248320      thumbExecute() [2]
+[227]    0.0    0.00    0.00  248320         thumb42_3(unsigned int) [227]
+-----------------------------------------------
+                0.00    0.00  240252/240252      armExecute() [6]
+[228]    0.0    0.00    0.00  240252         arm580(unsigned int) [228]
+                0.00    0.00  240252/517403      CPUWriteMemory(unsigned int, unsigned int) [216]
+-----------------------------------------------
+                0.00    0.00  232970/232970      thumbExecute() [2]
+[229]    0.0    0.00    0.00  232970         thumb32(unsigned int) [229]
+-----------------------------------------------
+                0.00    0.00  220621/220621      armExecute() [6]
+[230]    0.0    0.00    0.00  220621         arm480(unsigned int) [230]
+                0.00    0.00  220621/517403      CPUWriteMemory(unsigned int, unsigned int) [216]
+-----------------------------------------------
+                0.00    0.00  164108/164108      thumbExecute() [2]
+[231]    0.0    0.00    0.00  164108         thumb44_2(unsigned int) [231]
+-----------------------------------------------
+                0.00    0.00  147524/147524      thumbExecute() [2]
+[232]    0.0    0.00    0.00  147524         thumb42_0(unsigned int) [232]
+-----------------------------------------------
+                0.00    0.00  137926/137926      thumbExecute() [2]
+[233]    0.0    0.00    0.00  137926         thumb36(unsigned int) [233]
+-----------------------------------------------
+                0.00    0.00  136517/136517      thumbExecute() [2]
+[234]    0.0    0.00    0.00  136517         thumb40_1(unsigned int) [234]
+-----------------------------------------------
+                0.00    0.00  136336/136336      thumbExecute() [2]
+[235]    0.0    0.00    0.00  136336         thumb00_08(unsigned int) [235]
+-----------------------------------------------
+                0.00    0.00  134991/134991      thumbExecute() [2]
+[236]    0.0    0.00    0.00  134991         thumbDA(unsigned int) [236]
+-----------------------------------------------
+                0.00    0.00  130889/130889      thumbExecute() [2]
+[237]    0.0    0.00    0.00  130889         thumb2E(unsigned int) [237]
+-----------------------------------------------
+                0.00    0.00  128517/128517      thumbExecute() [2]
+[238]    0.0    0.00    0.00  128517         thumb10_08(unsigned int) [238]
+-----------------------------------------------
+                0.00    0.00  126366/126366      thumbExecute() [2]
+[239]    0.0    0.00    0.00  126366         thumb10_07(unsigned int) [239]
+-----------------------------------------------
+                0.00    0.00  122268/122268      thumbExecute() [2]
+[240]    0.0    0.00    0.00  122268         thumb10_10(unsigned int) [240]
+-----------------------------------------------
+                0.00    0.00  120655/120655      thumbExecute() [2]
+[241]    0.0    0.00    0.00  120655         thumb44_1(unsigned int) [241]
+-----------------------------------------------
+                0.00    0.00  120604/120604      thumbExecute() [2]
+[242]    0.0    0.00    0.00  120604         thumb25(unsigned int) [242]
+-----------------------------------------------
+                0.00    0.00  108446/108446      thumbExecute() [2]
+[243]    0.0    0.00    0.00  108446         thumb1A_2(unsigned int) [243]
+-----------------------------------------------
+                0.00    0.00  105836/105836      thumbExecute() [2]
+[244]    0.0    0.00    0.00  105836         thumb1E_1(unsigned int) [244]
+-----------------------------------------------
+                0.00    0.00  103359/103359      thumbExecute() [2]
+[245]    0.0    0.00    0.00  103359         thumbD9(unsigned int) [245]
+-----------------------------------------------
+                0.00    0.00  103343/103343      thumbExecute() [2]
+[246]    0.0    0.00    0.00  103343         thumb08_1C(unsigned int) [246]
+-----------------------------------------------
+                0.00    0.00  103343/103343      thumbExecute() [2]
+[247]    0.0    0.00    0.00  103343         thumb08_1F(unsigned int) [247]
+-----------------------------------------------
+                0.00    0.00  102852/102852      thumbExecute() [2]
+[248]    0.0    0.00    0.00  102852         thumb46_3(unsigned int) [248]
+-----------------------------------------------
+                0.00    0.00  102781/102781      thumbExecute() [2]
+[249]    0.0    0.00    0.00  102781         thumb08_02(unsigned int) [249]
+-----------------------------------------------
+                0.00    0.00  102735/102735      thumbExecute() [2]
+[250]    0.0    0.00    0.00  102735         thumb1C_3(unsigned int) [250]
+-----------------------------------------------
+                0.00    0.00   97666/97666       thumbExecute() [2]
+[251]    0.0    0.00    0.00   97666         thumb3A(unsigned int) [251]
+-----------------------------------------------
+                0.00    0.00    4728/75438       arm510(unsigned int) [353]
+                0.00    0.00   35353/75438       arm8B0(unsigned int) [271]
+                0.00    0.00   35357/75438       arm920(unsigned int) [270]
+[252]    0.0    0.00    0.00   75438         dataTicksAccessSeq32(unsigned int) [252]
+-----------------------------------------------
+                0.00    0.00   74611/74611       thumbExecute() [2]
+[253]    0.0    0.00    0.00   74611         thumbD8(unsigned int) [253]
+-----------------------------------------------
+                0.00    0.00    2364/56512       arm250(unsigned int) [92]
+                0.00    0.00   11806/56512       arm121(unsigned int) [272]
+                0.00    0.00   21169/56512       arm8B0(unsigned int) [271]
+                0.00    0.00   21173/56512       arm920(unsigned int) [270]
+[254]    0.0    0.00    0.00   56512         codeTicksAccess32(unsigned int) [254]
+-----------------------------------------------
+                0.00    0.00   51306/51306       Gb_Apu::run_until_(int) [11]
+[255]    0.0    0.00    0.00   51306         Gb_Square::run(int, int) [255]
+-----------------------------------------------
+                0.00    0.00   43044/43044       thumbExecute() [2]
+[256]    0.0    0.00    0.00   43044         thumb39(unsigned int) [256]
+-----------------------------------------------
+                0.00    0.00   42726/42726       thumbExecute() [2]
+[257]    0.0    0.00    0.00   42726         thumb3E(unsigned int) [257]
+-----------------------------------------------
+                0.00    0.00   21169/42342       arm8B0(unsigned int) [271]
+                0.00    0.00   21173/42342       arm920(unsigned int) [270]
+[258]    0.0    0.00    0.00   42342         dataTicksAccess32(unsigned int) [258]
+-----------------------------------------------
+                0.00    0.00   40572/40572       Gb_Apu::run_until_(int) [11]
+[259]    0.0    0.00    0.00   40572         Gb_Osc::clock_length() [259]
+-----------------------------------------------
+                0.00    0.00   36923/36923       thumbExecute() [2]
+[260]    0.0    0.00    0.00   36923         thumb00_05(unsigned int) [260]
+-----------------------------------------------
+                0.00    0.00   36302/36302       thumbExecute() [2]
+[261]    0.0    0.00    0.00   36302         thumb10_05(unsigned int) [261]
+-----------------------------------------------
+                0.00    0.00   32241/32241       thumbExecute() [2]
+[262]    0.0    0.00    0.00   32241         thumb18_6(unsigned int) [262]
+-----------------------------------------------
+                0.00    0.00   25653/25653       Gb_Apu::run_until_(int) [11]
+[263]    0.0    0.00    0.00   25653         Gb_Wave::run(int, int) [263]
+-----------------------------------------------
+                0.00    0.00       1/24312       CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00    4701/24312       BIOS_CpuSet() [388]
+                0.00    0.00   19610/24312       BIOS_BgAffineSet() [326]
+[264]    0.0    0.00    0.00   24312         CPUReadHalfWord(unsigned int) [264]
+-----------------------------------------------
+                0.00    0.00   24240/24240       BIOS_LZ77UnCompVram() [405]
+[265]    0.0    0.00    0.00   24240         CPUWriteHalfWord(unsigned int, unsigned short) [265]
+-----------------------------------------------
+                0.00    0.00    5456/22811       arm4C0(unsigned int) [310]
+                0.00    0.00    5456/22811       arm7C0(unsigned int) [311]
+                0.00    0.00   11899/22811       arm5C0(unsigned int) [106]
+[266]    0.0    0.00    0.00   22811         CPUWriteByte(unsigned int, unsigned char) [266]
+-----------------------------------------------
+                0.00    0.00   22190/22190       thumbExecute() [2]
+[267]    0.0    0.00    0.00   22190         thumb00_18(unsigned int) [267]
+-----------------------------------------------
+                0.00    0.00   21586/21586       armExecute() [6]
+[268]    0.0    0.00    0.00   21586         arm3A0(unsigned int) [268]
+-----------------------------------------------
+                0.00    0.00   21228/21228       armExecute() [6]
+[269]    0.0    0.00    0.00   21228         arm280(unsigned int) [269]
+-----------------------------------------------
+                0.00    0.00   21173/21173       armExecute() [6]
+[270]    0.0    0.00    0.00   21173         arm920(unsigned int) [270]
+                0.00    0.00   56530/517403      CPUWriteMemory(unsigned int, unsigned int) [216]
+                0.00    0.00   35357/75438       dataTicksAccessSeq32(unsigned int) [252]
+                0.00    0.00   21173/42342       dataTicksAccess32(unsigned int) [258]
+                0.00    0.00   21173/56512       codeTicksAccess32(unsigned int) [254]
+-----------------------------------------------
+                0.00    0.00   21169/21169       armExecute() [6]
+[271]    0.0    0.00    0.00   21169         arm8B0(unsigned int) [271]
+                0.00    0.00   56522/534549      CPUReadMemory(unsigned int) [215]
+                0.00    0.00   35353/75438       dataTicksAccessSeq32(unsigned int) [252]
+                0.00    0.00   21169/42342       dataTicksAccess32(unsigned int) [258]
+                0.00    0.00   21169/56512       codeTicksAccess32(unsigned int) [254]
+-----------------------------------------------
+                0.00    0.00   21078/21078       armExecute() [6]
+[272]    0.0    0.00    0.00   21078         arm121(unsigned int) [272]
+                0.00    0.00   23612/4586877     codeTicksAccessSeq32(unsigned int) [194]
+                0.00    0.00   11806/56512       codeTicksAccess32(unsigned int) [254]
+-----------------------------------------------
+                0.00    0.00   19712/19712       BIOS_LZ77UnCompVram() [405]
+[273]    0.0    0.00    0.00   19712         CPUReadByte(unsigned int) [273]
+-----------------------------------------------
+                0.00    0.00   19312/19312       thumbExecute() [2]
+[274]    0.0    0.00    0.00   19312         thumb43_2(unsigned int) [274]
+-----------------------------------------------
+                0.00    0.00   18938/18938       thumbExecute() [2]
+[275]    0.0    0.00    0.00   18938         thumb43_3(unsigned int) [275]
+-----------------------------------------------
+                0.00    0.00   18794/18794       thumbExecute() [2]
+[276]    0.0    0.00    0.00   18794         thumb34(unsigned int) [276]
+-----------------------------------------------
+                0.00    0.00   17133/17133       thumbExecute() [2]
+[277]    0.0    0.00    0.00   17133         thumb56(unsigned int) [277]
+-----------------------------------------------
+                0.00    0.00   15196/15196       thumbExecute() [2]
+[278]    0.0    0.00    0.00   15196         thumb1A_6(unsigned int) [278]
+-----------------------------------------------
+                0.00    0.00   15091/15091       thumbExecute() [2]
+[279]    0.0    0.00    0.00   15091         thumb08_08(unsigned int) [279]
+-----------------------------------------------
+                0.00    0.00   15072/15072       armExecute() [6]
+[280]    0.0    0.00    0.00   15072         arm1A0(unsigned int) [280]
+-----------------------------------------------
+                0.00    0.00   14200/14200       thumbExecute() [2]
+[281]    0.0    0.00    0.00   14200         thumb00_13(unsigned int) [281]
+-----------------------------------------------
+                0.00    0.00    2362/14182       arm14B(unsigned int) [355]
+                0.00    0.00   11820/14182       arm1CB(unsigned int) [105]
+[282]    0.0    0.00    0.00   14182         CPUWriteHalfWord(unsigned int, unsigned short) [282]
+-----------------------------------------------
+                0.00    0.00    4728/14179       arm100(unsigned int) [316]
+                0.00    0.00    9451/14179       arm120(unsigned int) [66]
+[283]    0.0    0.00    0.00   14179         CPUUpdateCPSR() [283]
+-----------------------------------------------
+                0.00    0.00    2360/14175       arm810(unsigned int) [94]
+                0.00    0.00    2364/14175       arm250(unsigned int) [92]
+                0.00    0.00    9451/14175       arm120(unsigned int) [66]
+[284]    0.0    0.00    0.00   14175         CPUSwitchMode(int, bool) [284]
+-----------------------------------------------
+                0.00    0.00   13583/13583       thumbExecute() [2]
+[285]    0.0    0.00    0.00   13583         thumb35(unsigned int) [285]
+-----------------------------------------------
+                0.00    0.00   12387/12387       thumbExecute() [2]
+[286]    0.0    0.00    0.00   12387         thumb1A_1(unsigned int) [286]
+-----------------------------------------------
+                0.00    0.00   11915/11915       armExecute() [6]
+[287]    0.0    0.00    0.00   11915         arm210(unsigned int) [287]
+-----------------------------------------------
+                0.00    0.00   11886/11886       Stereo_Buffer::end_frame(int) [325]
+[288]    0.0    0.00    0.00   11886         Blip_Buffer::end_frame(int) [288]
+-----------------------------------------------
+                0.00    0.00       4/11479       BIOS_LZ77UnCompVram() [405]
+                0.00    0.00    3922/11479       BIOS_BgAffineSet() [326]
+                0.00    0.00    7553/11479       BIOS_CpuFastSet() [399]
+[289]    0.0    0.00    0.00   11479         CPUReadMemory(unsigned int) [289]
+-----------------------------------------------
+                0.00    0.00   10518/10518       armExecute() [6]
+[290]    0.0    0.00    0.00   10518         arm310(unsigned int) [290]
+-----------------------------------------------
+                0.00    0.00    8625/8625        thumbExecute() [2]
+[291]    0.0    0.00    0.00    8625         thumb1A_5(unsigned int) [291]
+-----------------------------------------------
+                0.00    0.00    8448/8448        thumbExecute() [2]
+[292]    0.0    0.00    0.00    8448         thumbD2(unsigned int) [292]
+-----------------------------------------------
+                0.00    0.00    8216/8216        thumbExecute() [2]
+[293]    0.0    0.00    0.00    8216         thumb08_04(unsigned int) [293]
+-----------------------------------------------
+                0.00    0.00    7605/7605        Gb_Apu::run_until_(int) [11]
+[294]    0.0    0.00    0.00    7605         Gb_Env::clock_envelope() [294]
+-----------------------------------------------
+                0.00    0.00    7197/7197        thumbExecute() [2]
+[295]    0.0    0.00    0.00    7197         thumb26(unsigned int) [295]
+-----------------------------------------------
+                0.00    0.00    7096/7096        thumbExecute() [2]
+[296]    0.0    0.00    0.00    7096         thumb00_12(unsigned int) [296]
+-----------------------------------------------
+                0.00    0.00    7093/7093        thumbExecute() [2]
+[297]    0.0    0.00    0.00    7093         thumb08_01(unsigned int) [297]
+-----------------------------------------------
+                0.00    0.00    7089/7089        armExecute() [6]
+[298]    0.0    0.00    0.00    7089         arm380(unsigned int) [298]
+-----------------------------------------------
+                0.00    0.00    2364/7085        arm1DB(unsigned int) [352]
+                0.00    0.00    4721/7085        arm15B(unsigned int) [320]
+[299]    0.0    0.00    0.00    7085         CPUReadHalfWord(unsigned int) [299]
+-----------------------------------------------
+                0.00    0.00    7068/7068        thumbExecute() [2]
+[300]    0.0    0.00    0.00    7068         thumb08_18(unsigned int) [300]
+-----------------------------------------------
+                0.00    0.00    6907/6907        thumbExecute() [2]
+[301]    0.0    0.00    0.00    6907         thumbA0(unsigned int) [301]
+-----------------------------------------------
+                0.00    0.00    6860/6860        Stereo_Buffer::read_samples(short*, long) [338]
+[302]    0.0    0.00    0.00    6860         Blip_Buffer::remove_samples(long) [302]
+-----------------------------------------------
+                0.00    0.00    6682/6682        thumbExecute() [2]
+[303]    0.0    0.00    0.00    6682         thumb10_0E(unsigned int) [303]
+-----------------------------------------------
+                0.00    0.00    6335/6335        flush_samples(Multi_Buffer*) [324]
+[304]    0.0    0.00    0.00    6335         Stereo_Buffer::samples_avail() const [304]
+-----------------------------------------------
+                0.00    0.00    6316/6316        thumbExecute() [2]
+[305]    0.0    0.00    0.00    6316         thumbDF(unsigned int) [305]
+-----------------------------------------------
+                0.00    0.00    6133/6133        thumbExecute() [2]
+[306]    0.0    0.00    0.00    6133         thumb18_5(unsigned int) [306]
+-----------------------------------------------
+                0.00    0.00    5815/5815        armExecute() [6]
+[307]    0.0    0.00    0.00    5815         arm350(unsigned int) [307]
+                0.00    0.00    5815/4586877     codeTicksAccessSeq32(unsigned int) [194]
+-----------------------------------------------
+                0.00    0.00    5611/5611        thumbExecute() [2]
+[308]    0.0    0.00    0.00    5611         thumbD5(unsigned int) [308]
+-----------------------------------------------
+                0.00    0.00    5456/5456        armExecute() [6]
+[309]    0.0    0.00    0.00    5456         arm1A4(unsigned int) [309]
+-----------------------------------------------
+                0.00    0.00    5456/5456        armExecute() [6]
+[310]    0.0    0.00    0.00    5456         arm4C0(unsigned int) [310]
+                0.00    0.00    5456/22811       CPUWriteByte(unsigned int, unsigned char) [266]
+-----------------------------------------------
+                0.00    0.00    5456/5456        armExecute() [6]
+[311]    0.0    0.00    0.00    5456         arm7C0(unsigned int) [311]
+                0.00    0.00    5456/22811       CPUWriteByte(unsigned int, unsigned char) [266]
+-----------------------------------------------
+                0.00    0.00    5456/5456        thumbExecute() [2]
+[312]    0.0    0.00    0.00    5456         thumb3D(unsigned int) [312]
+-----------------------------------------------
+                0.00    0.00    5071/5071        Gb_Apu::run_until_(int) [11]
+[313]    0.0    0.00    0.00    5071         Gb_Sweep_Square::clock_sweep() [313]
+-----------------------------------------------
+                0.00    0.00       1/4734        CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00    2365/4734        thumb80(unsigned int) [13]
+                0.00    0.00    2368/4734        CPUUpdateRegister(unsigned int, unsigned short) [103]
+[314]    0.0    0.00    0.00    4734         CPUUpdateRender() [314]
+-----------------------------------------------
+                0.00    0.00    4731/4731        armExecute() [6]
+[315]    0.0    0.00    0.00    4731         arm240(unsigned int) [315]
+-----------------------------------------------
+                0.00    0.00    4728/4728        armExecute() [6]
+[316]    0.0    0.00    0.00    4728         arm100(unsigned int) [316]
+                0.00    0.00    4728/14179       CPUUpdateCPSR() [283]
+-----------------------------------------------
+                0.00    0.00    4725/4725        armExecute() [6]
+[317]    0.0    0.00    0.00    4725         arm140(unsigned int) [317]
+-----------------------------------------------
+                0.00    0.00    4724/4724        armExecute() [6]
+[318]    0.0    0.00    0.00    4724         arm160(unsigned int) [318]
+-----------------------------------------------
+                0.00    0.00    4721/4721        armExecute() [6]
+[319]    0.0    0.00    0.00    4721         arm010(unsigned int) [319]
+                0.00    0.00    4721/4586877     codeTicksAccessSeq32(unsigned int) [194]
+-----------------------------------------------
+                0.00    0.00    4721/4721        armExecute() [6]
+[320]    0.0    0.00    0.00    4721         arm15B(unsigned int) [320]
+                0.00    0.00    4721/7085        CPUReadHalfWord(unsigned int) [299]
+-----------------------------------------------
+                0.00    0.00    4721/4721        armExecute() [6]
+[321]    0.0    0.00    0.00    4721         armB00(unsigned int) [321]
+-----------------------------------------------
+                0.00    0.00    3988/3988        thumbExecute() [2]
+[322]    0.0    0.00    0.00    3988         thumb10_06(unsigned int) [322]
+-----------------------------------------------
+                0.00    0.00    3978/3978        thumbExecute() [2]
+[323]    0.0    0.00    0.00    3978         thumbA8(unsigned int) [323]
+-----------------------------------------------
+                0.00    0.00    3962/3962        psoundTickfn() [16]
+[324]    0.0    0.00    0.00    3962         flush_samples(Multi_Buffer*) [324]
+                0.00    0.00    6335/6335        Stereo_Buffer::samples_avail() const [304]
+                0.00    0.00    2373/2373        Stereo_Buffer::read_samples(short*, long) [338]
+                0.00    0.00    2373/2373        SoundSDL::write(unsigned short*, int) [339]
+                0.00    0.00    2373/2373        systemOnWriteDataToSoundBuffer(unsigned short const*, int) [336]
+                0.00    0.00       1/2           SoundSDL::resume() [446]
+-----------------------------------------------
+                0.00    0.00    3962/3962        psoundTickfn() [16]
+[325]    0.0    0.00    0.00    3962         Stereo_Buffer::end_frame(int) [325]
+                0.00    0.00   11886/11886       Blip_Buffer::end_frame(int) [288]
+-----------------------------------------------
+                0.00    0.00    3922/3922        thumbExecute() [2]
+[326]    0.0    0.00    0.00    3922         BIOS_BgAffineSet() [326]
+                0.00    0.00   19610/24312       CPUReadHalfWord(unsigned int) [264]
+                0.00    0.00    3922/11479       CPUReadMemory(unsigned int) [289]
+-----------------------------------------------
+                0.00    0.00    3922/3922        thumbExecute() [2]
+[327]    0.0    0.00    0.00    3922         thumb1E_2(unsigned int) [327]
+-----------------------------------------------
+                0.00    0.00    3877/3877        thumbExecute() [2]
+[328]    0.0    0.00    0.00    3877         thumb1A_4(unsigned int) [328]
+-----------------------------------------------
+                0.00    0.00    3797/3797        thumbExecute() [2]
+[329]    0.0    0.00    0.00    3797         thumb1A_0(unsigned int) [329]
+-----------------------------------------------
+                0.00    0.00    3794/3794        thumbExecute() [2]
+[330]    0.0    0.00    0.00    3794         thumb10_03(unsigned int) [330]
+-----------------------------------------------
+                0.00    0.00    3327/3327        armExecute() [6]
+[331]    0.0    0.00    0.00    3327         arm090(unsigned int) [331]
+                0.00    0.00    3327/4586877     codeTicksAccessSeq32(unsigned int) [194]
+-----------------------------------------------
+                0.00    0.00    3211/3211        soundEvent(unsigned int, unsigned char) [37]
+[332]    0.0    0.00    0.00    3211         Gb_Apu::write_osc(int, int, int, int) [332]
+                0.00    0.00    2209/2209        Gb_Env::write_register(int, int, int, int) [360]
+-----------------------------------------------
+                0.00    0.00    2998/2998        armExecute() [6]
+[333]    0.0    0.00    0.00    2998         arm260(unsigned int) [333]
+-----------------------------------------------
+                0.00    0.00    2454/2454        thumbExecute() [2]
+[334]    0.0    0.00    0.00    2454         thumb3C(unsigned int) [334]
+-----------------------------------------------
+                0.00    0.00    2426/2426        thumbExecute() [2]
+[335]    0.0    0.00    0.00    2426         thumb10_04(unsigned int) [335]
+-----------------------------------------------
+                0.00    0.00    2373/2373        flush_samples(Multi_Buffer*) [324]
+[336]    0.0    0.00    0.00    2373         systemOnWriteDataToSoundBuffer(unsigned short const*, int) [336]
+-----------------------------------------------
+                0.00    0.00    2373/2373        thumbExecute() [2]
+[337]    0.0    0.00    0.00    2373         thumb08_03(unsigned int) [337]
+-----------------------------------------------
+                0.00    0.00    2373/2373        flush_samples(Multi_Buffer*) [324]
+[338]    0.0    0.00    0.00    2373         Stereo_Buffer::read_samples(short*, long) [338]
+                0.00    0.00    6860/6860        Blip_Buffer::remove_samples(long) [302]
+                0.00    0.00    2372/2372        Stereo_Mixer::mix_stereo(short*, int) [340]
+-----------------------------------------------
+                0.00    0.00    2373/2373        flush_samples(Multi_Buffer*) [324]
+[339]    0.0    0.00    0.00    2373         SoundSDL::write(unsigned short*, int) [339]
+                0.00    0.00       1/1           soundGetSampleRate() [468]
+                0.00    0.00       1/2           SoundSDL::init(long) [445]
+-----------------------------------------------
+                0.00    0.00    2372/2372        Stereo_Buffer::read_samples(short*, long) [338]
+[340]    0.0    0.00    0.00    2372         Stereo_Mixer::mix_stereo(short*, int) [340]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[341]    0.0    0.00    0.00    2367         systemFrame() [341]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[342]    0.0    0.00    0.00    2367         inputReadJoypad(int) [342]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[343]    0.0    0.00    0.00    2367         systemDrawScreen() [343]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[344]    0.0    0.00    0.00    2367         systemReadJoypad(int) [344]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[345]    0.0    0.00    0.00    2367         systemReadJoypads() [345]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[346]    0.0    0.00    0.00    2367         systemPauseOnFrame() [346]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[347]    0.0    0.00    0.00    2367         inputUpdateMotionSensor() [347]
+-----------------------------------------------
+                0.00    0.00    2367/2367        CPULoop(int) [1]
+[348]    0.0    0.00    0.00    2367         systemUpdateMotionSensor() [348]
+-----------------------------------------------
+                0.00    0.00    2364/2364        armExecute() [6]
+[349]    0.0    0.00    0.00    2364         arm000(unsigned int) [349]
+-----------------------------------------------
+                0.00    0.00    2364/2364        armExecute() [6]
+[350]    0.0    0.00    0.00    2364         arm002(unsigned int) [350]
+-----------------------------------------------
+                0.00    0.00    2364/2364        armExecute() [6]
+[351]    0.0    0.00    0.00    2364         arm1C0(unsigned int) [351]
+-----------------------------------------------
+                0.00    0.00    2364/2364        armExecute() [6]
+[352]    0.0    0.00    0.00    2364         arm1DB(unsigned int) [352]
+                0.00    0.00    2364/7085        CPUReadHalfWord(unsigned int) [299]
+-----------------------------------------------
+                0.00    0.00    2364/2364        armExecute() [6]
+[353]    0.0    0.00    0.00    2364         arm510(unsigned int) [353]
+                0.00    0.00    4728/75438       dataTicksAccessSeq32(unsigned int) [252]
+                0.00    0.00    2364/534549      CPUReadMemory(unsigned int) [215]
+-----------------------------------------------
+                0.00    0.00    2362/2362        armExecute() [6]
+[354]    0.0    0.00    0.00    2362         arm020(unsigned int) [354]
+-----------------------------------------------
+                0.00    0.00    2362/2362        armExecute() [6]
+[355]    0.0    0.00    0.00    2362         arm14B(unsigned int) [355]
+                0.00    0.00    2362/14182       CPUWriteHalfWord(unsigned int, unsigned short) [282]
+-----------------------------------------------
+                0.00    0.00    2361/2361        armExecute() [6]
+[356]    0.0    0.00    0.00    2361         arm200(unsigned int) [356]
+-----------------------------------------------
+                0.00    0.00    2361/2361        armExecute() [6]
+[357]    0.0    0.00    0.00    2361         arm790(unsigned int) [357]
+                0.00    0.00    2361/534549      CPUReadMemory(unsigned int) [215]
+-----------------------------------------------
+                0.00    0.00    2360/2360        armExecute() [6]
+[358]    0.0    0.00    0.00    2360         arm1B0(unsigned int) [358]
+-----------------------------------------------
+                0.00    0.00    2360/2360        thumbExecute() [2]
+[359]    0.0    0.00    0.00    2360         thumb45_1(unsigned int) [359]
+-----------------------------------------------
+                0.00    0.00    2209/2209        Gb_Apu::write_osc(int, int, int, int) [332]
+[360]    0.0    0.00    0.00    2209         Gb_Env::write_register(int, int, int, int) [360]
+-----------------------------------------------
+                0.00    0.00    2101/2101        thumbExecute() [2]
+[361]    0.0    0.00    0.00    2101         thumb1A_7(unsigned int) [361]
+-----------------------------------------------
+                0.00    0.00    2038/2038        thumbExecute() [2]
+[362]    0.0    0.00    0.00    2038         thumb10_18(unsigned int) [362]
+-----------------------------------------------
+                0.00    0.00    1928/1928        thumbExecute() [2]
+[363]    0.0    0.00    0.00    1928         thumb08_05(unsigned int) [363]
+-----------------------------------------------
+                0.00    0.00    1814/1814        armExecute() [6]
+[364]    0.0    0.00    0.00    1814         arm089(unsigned int) [364]
+-----------------------------------------------
+                0.00    0.00    1814/1814        thumbExecute() [2]
+[365]    0.0    0.00    0.00    1814         thumb40_3(unsigned int) [365]
+-----------------------------------------------
+                0.00    0.00    1417/1417        thumbExecute() [2]
+[366]    0.0    0.00    0.00    1417         thumb08_19(unsigned int) [366]
+-----------------------------------------------
+                0.00    0.00    1248/1248        FindConfigFile(char const*) [374]
+[367]    0.0    0.00    0.00    1248         FileExists(char const*) [367]
+-----------------------------------------------
+                0.00    0.00    1182/1182        thumbExecute() [2]
+[368]    0.0    0.00    0.00    1182         thumb41_0(unsigned int) [368]
+-----------------------------------------------
+                0.00    0.00     738/738         thumbExecute() [2]
+[369]    0.0    0.00    0.00     738         thumb3B(unsigned int) [369]
+-----------------------------------------------
+                0.00    0.00     532/532         thumbExecute() [2]
+[370]    0.0    0.00    0.00     532         thumb00_07(unsigned int) [370]
+-----------------------------------------------
+                0.00    0.00     520/520         soundEvent(unsigned int, unsigned char) [37]
+[371]    0.0    0.00    0.00     520         Gb_Apu::apply_stereo() [371]
+-----------------------------------------------
+                0.00    0.00     448/448         thumbExecute() [2]
+[372]    0.0    0.00    0.00     448         thumb10_02(unsigned int) [372]
+-----------------------------------------------
+                0.00    0.00     392/392         thumbExecute() [2]
+[373]    0.0    0.00    0.00     392         thumb00_06(unsigned int) [373]
+-----------------------------------------------
+                0.00    0.00       2/312         SaveConfigFile() [580]
+                0.00    0.00     310/312         LoadConfigFile() [377]
+[374]    0.0    0.00    0.00     312         FindConfigFile(char const*) [374]
+                0.00    0.00    1248/1248        FileExists(char const*) [367]
+-----------------------------------------------
+                0.00    0.00     236/236         CPULoop(int) [1]
+[375]    0.0    0.00    0.00     236         system10Frames(int) [375]
+-----------------------------------------------
+                0.00    0.00     192/192         armExecute() [6]
+[376]    0.0    0.00    0.00     192         arm1A7(unsigned int) [376]
+-----------------------------------------------
+                                  15             LoadConfigFile() [377]
+                0.00    0.00       1/155         ReadPrefString(char const*, char const*) [460]
+                0.00    0.00       2/155         ReadPrefHex(char const*, int) [426]
+                0.00    0.00      15/155         LoadConfig() [499]
+                0.00    0.00      64/155         ReadPref(char const*, int) [381]
+                0.00    0.00      73/155         ReadPrefHex(char const*) [392]
+[377]    0.0    0.00    0.00     155+15      LoadConfigFile() [377]
+                0.00    0.00     310/312         FindConfigFile(char const*) [374]
+                0.00    0.00      15/91          iniparser_getstring [109]
+                                  15             LoadConfigFile() [377]
+-----------------------------------------------
+                0.00    0.00     151/151         thumbExecute() [2]
+[378]    0.0    0.00    0.00     151         thumb2F(unsigned int) [378]
+-----------------------------------------------
+                0.00    0.00      48/144         Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00      96/144         Gb_Apu::reset(Gb_Apu::mode_t, bool) [423]
+[379]    0.0    0.00    0.00     144         Gb_Wave::access(unsigned int) const [379]
+-----------------------------------------------
+                0.00    0.00      96/96          armExecute() [6]
+[380]    0.0    0.00    0.00      96         arm1A2(unsigned int) [380]
+-----------------------------------------------
+                0.00    0.00      64/64          LoadConfig() [499]
+[381]    0.0    0.00    0.00      64         ReadPref(char const*, int) [381]
+                0.00    0.00      64/155         LoadConfigFile() [377]
+                0.00    0.00      64/64          iniparser_getint [110]
+-----------------------------------------------
+                0.00    0.00       1/40          CPUReset() [99]
+                0.00    0.00      39/40          CPULoop(int) [1]
+[382]    0.0    0.00    0.00      40         systemGetClock() [382]
+-----------------------------------------------
+                0.00    0.00      39/39          CPULoop(int) [1]
+[383]    0.0    0.00    0.00      39         systemShowSpeed(int) [383]
+-----------------------------------------------
+                0.00    0.00      32/32          Gb_Apu::reset_regs() [396]
+[384]    0.0    0.00    0.00      32         Gb_Osc::reset() [384]
+-----------------------------------------------
+                0.00    0.00      31/31          thumbExecute() [2]
+[385]    0.0    0.00    0.00      31         thumb08_0B(unsigned int) [385]
+-----------------------------------------------
+                0.00    0.00       1/25          soundEvent(unsigned int, unsigned char) [37]
+                0.00    0.00       1/25          CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00       2/25          Gb_Apu::volume(double) [424]
+                0.00    0.00       3/25          Gb_Apu::reset(Gb_Apu::mode_t, bool) [423]
+                0.00    0.00       4/25          remake_stereo_buffer() [478]
+                0.00    0.00       6/25          Gb_Apu::write_register(int, unsigned int, int) [36]
+                0.00    0.00       8/25          Gb_Apu::reset_regs() [396]
+[386]    0.0    0.00    0.00      25         Blip_Synth_::volume_unit(double) [386]
+                0.00    0.00       2/5           Blip_Synth_::treble_eq(blip_eq_t const&) [402]
+-----------------------------------------------
+                0.00    0.00      24/24          Gb_Apu::write_register(int, unsigned int, int) [36]
+[387]    0.0    0.00    0.00      24         Gb_Apu::silence_osc(Gb_Osc&) [387]
+-----------------------------------------------
+                0.00    0.00      23/23          thumbExecute() [2]
+[388]    0.0    0.00    0.00      23         BIOS_CpuSet() [388]
+                0.00    0.00    4701/24312       CPUReadHalfWord(unsigned int) [264]
+-----------------------------------------------
+                0.00    0.00      19/19          thumbExecute() [2]
+[389]    0.0    0.00    0.00      19         thumb00_0B(unsigned int) [389]
+-----------------------------------------------
+                0.00    0.00       1/18          soundReset() [104]
+                0.00    0.00       2/18          apply_muting() [477]
+                0.00    0.00       2/18          CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00       2/18          CPUUpdateRegister(unsigned int, unsigned short) [103]
+                0.00    0.00       2/18          CPUReset() [99]
+                0.00    0.00       4/18          Gba_Pcm_Fifo::write_control(int) [410]
+                0.00    0.00       5/18          soundEvent(unsigned int, unsigned char) [37]
+[390]    0.0    0.00    0.00      18         Gba_Pcm::apply_control(int) [390]
+-----------------------------------------------
+                0.00    0.00       2/16          fex_t::~fex_t() [444]
+                0.00    0.00       2/16          Binary_Extractor::~Binary_Extractor() [439]
+                0.00    0.00       4/16          fex_t::fex_t(fex_type_t_ const*) [443]
+                0.00    0.00       4/16          fex_t::open(char const*) [440]
+                0.00    0.00       4/16          fex_t::close() [442]
+[391]    0.0    0.00    0.00      16         blargg_vector_::clear() [391]
+-----------------------------------------------
+                0.00    0.00      11/11          LoadConfig() [499]
+[392]    0.0    0.00    0.00      11         ReadPrefHex(char const*) [392]
+                0.00    0.00      73/155         LoadConfigFile() [377]
+                0.00    0.00      73/91          iniparser_getstring [109]
+-----------------------------------------------
+                0.00    0.00      10/10          thumbExecute() [2]
+[393]    0.0    0.00    0.00      10         thumb1C_6(unsigned int) [393]
+-----------------------------------------------
+                0.00    0.00       8/8           thumbExecute() [2]
+[394]    0.0    0.00    0.00       8         thumb00_1C(unsigned int) [394]
+-----------------------------------------------
+                0.00    0.00       8/8           thumbExecute() [2]
+[395]    0.0    0.00    0.00       8         thumb1C_4(unsigned int) [395]
+-----------------------------------------------
+                0.00    0.00       3/8           Gb_Apu::reset(Gb_Apu::mode_t, bool) [423]
+                0.00    0.00       5/8           Gb_Apu::write_register(int, unsigned int, int) [36]
+[396]    0.0    0.00    0.00       8         Gb_Apu::reset_regs() [396]
+                0.00    0.00      32/32          Gb_Osc::reset() [384]
+                0.00    0.00       8/25          Blip_Synth_::volume_unit(double) [386]
+-----------------------------------------------
+                0.00    0.00       7/7           thumbExecute() [2]
+[397]    0.0    0.00    0.00       7         thumb00_0C(unsigned int) [397]
+-----------------------------------------------
+                0.00    0.00       2/6           thumb80(unsigned int) [13]
+                0.00    0.00       4/6           applyTimer() [404]
+[398]    0.0    0.00    0.00       6         interp_rate() [398]
+-----------------------------------------------
+                0.00    0.00       6/6           thumbExecute() [2]
+[399]    0.0    0.00    0.00       6         BIOS_CpuFastSet() [399]
+                0.00    0.00    7553/11479       CPUReadMemory(unsigned int) [289]
+-----------------------------------------------
+                0.00    0.00       1/6           CPULoadRom(char const*) [498]
+                0.00    0.00       1/6           CPUReset() [99]
+                0.00    0.00       4/6           thumb80(unsigned int) [13]
+[400]    0.0    0.00    0.00       6         CPUUpdateRenderBuffers(bool) [400]
+-----------------------------------------------
+                0.00    0.00       5/5           thumbExecute() [2]
+[401]    0.0    0.00    0.00       5         thumb00_09(unsigned int) [401]
+-----------------------------------------------
+                0.00    0.00       2/5           Blip_Synth_::volume_unit(double) [386]
+                0.00    0.00       3/5           remake_stereo_buffer() [478]
+[402]    0.0    0.00    0.00       5         Blip_Synth_::treble_eq(blip_eq_t const&) [402]
+                0.00    0.00       5/5           blip_eq_t::generate(float*, int) const [403]
+-----------------------------------------------
+                0.00    0.00       5/5           Blip_Synth_::treble_eq(blip_eq_t const&) [402]
+[403]    0.0    0.00    0.00       5         blip_eq_t::generate(float*, int) const [403]
+-----------------------------------------------
+                0.00    0.00       4/4           CPULoop(int) [1]
+[404]    0.0    0.00    0.00       4         applyTimer() [404]
+                0.00    0.00       4/6           interp_rate() [398]
+-----------------------------------------------
+                0.00    0.00       4/4           thumbExecute() [2]
+[405]    0.0    0.00    0.00       4         BIOS_LZ77UnCompVram() [405]
+                0.00    0.00   24240/24240       CPUWriteHalfWord(unsigned int, unsigned short) [265]
+                0.00    0.00   19712/19712       CPUReadByte(unsigned int) [273]
+                0.00    0.00       4/11479       CPUReadMemory(unsigned int) [289]
+-----------------------------------------------
+                0.00    0.00       4/4           thumbExecute() [2]
+[406]    0.0    0.00    0.00       4         thumb00_0E(unsigned int) [406]
+-----------------------------------------------
+                0.00    0.00       4/4           thumbExecute() [2]
+[407]    0.0    0.00    0.00       4         thumb00_11(unsigned int) [407]
+-----------------------------------------------
+                0.00    0.00       4/4           thumbExecute() [2]
+[408]    0.0    0.00    0.00       4         thumb1A_3(unsigned int) [408]
+-----------------------------------------------
+                                   1             fex_t::read_v(void*, int) <cycle 2> [490]
+                0.00    0.00       1/3           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+                0.00    0.00       2/3           fex_open [116]
+[409]    0.0    0.00    0.00       4         Data_Reader::read(void*, int) <cycle 2> [409]
+                0.00    0.00       3/3           Std_File_Reader::read_v(void*, int) [420]
+                                   1             fex_t::read_v(void*, int) <cycle 2> [490]
+-----------------------------------------------
+                0.00    0.00       4/4           soundEvent(unsigned int, unsigned short) <cycle 1> [40]
+[410]    0.0    0.00    0.00       4         Gba_Pcm_Fifo::write_control(int) [410]
+                0.00    0.00       4/18          Gba_Pcm::apply_control(int) [390]
+-----------------------------------------------
+                0.00    0.00       4/4           fex_t::fex_t(fex_type_t_ const*) [443]
+[411]    0.0    0.00    0.00       4         blargg_vector_::init() [411]
+-----------------------------------------------
+                0.00    0.00       2/4           fex_t::open(char const*) [440]
+                0.00    0.00       2/4           fex_t::close() [442]
+[412]    0.0    0.00    0.00       4         Binary_Extractor::close_v() [412]
+-----------------------------------------------
+                0.00    0.00       4/4           apply_muting() [477]
+[413]    0.0    0.00    0.00       4         Gb_Apu::set_output(Blip_Buffer*, Blip_Buffer*, Blip_Buffer*, int) [413]
+-----------------------------------------------
+                0.00    0.00       1/3           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+                0.00    0.00       2/3           utilFindType(char const*) [539]
+[414]    0.0    0.00    0.00       3         applyPatch(char const*, unsigned char**, int*) [414]
+-----------------------------------------------
+                0.00    0.00       3/3           Stereo_Buffer::set_sample_rate(long, int) [481]
+[415]    0.0    0.00    0.00       3         Blip_Buffer::set_sample_rate(long, int) [415]
+-----------------------------------------------
+                0.00    0.00       1/3           soundReset() [104]
+                0.00    0.00       2/3           Stereo_Buffer::clear() [482]
+[416]    0.0    0.00    0.00       3         Blip_Buffer::clear(int) [416]
+-----------------------------------------------
+                0.00    0.00       3/3           Stereo_Buffer::Stereo_Buffer() [483]
+[417]    0.0    0.00    0.00       3         Blip_Buffer::Blip_Buffer() [417]
+-----------------------------------------------
+                0.00    0.00       3/3           Stereo_Buffer::~Stereo_Buffer() [484]
+[418]    0.0    0.00    0.00       3         Blip_Buffer::~Blip_Buffer() [418]
+-----------------------------------------------
+                0.00    0.00       1/3           fex_t::open_arc_file(bool) [489]
+                0.00    0.00       2/3           fex_open [116]
+[419]    0.0    0.00    0.00       3         Std_File_Reader::open(char const*) [419]
+-----------------------------------------------
+                0.00    0.00       3/3           Data_Reader::read(void*, int) <cycle 2> [409]
+[420]    0.0    0.00    0.00       3         Std_File_Reader::read_v(void*, int) [420]
+-----------------------------------------------
+                0.00    0.00       1/3           fex_t::open_arc_file(bool) [489]
+                0.00    0.00       2/3           fex_open [116]
+[421]    0.0    0.00    0.00       3         Std_File_Reader::Std_File_Reader() [421]
+-----------------------------------------------
+                0.00    0.00       1/3           Binary_Extractor::stat_v() [486]
+                0.00    0.00       2/3           Binary_Extractor::open_path_v() [438]
+[422]    0.0    0.00    0.00       3         fex_t::set_name(char const*, wchar_t const*) [422]
+-----------------------------------------------
+                0.00    0.00       1/3           soundReset() [104]
+                0.00    0.00       2/3           remake_stereo_buffer() [478]
+[423]    0.0    0.00    0.00       3         Gb_Apu::reset(Gb_Apu::mode_t, bool) [423]
+                0.00    0.00      96/144         Gb_Wave::access(unsigned int) const [379]
+                0.00    0.00       3/25          Blip_Synth_::volume_unit(double) [386]
+                0.00    0.00       3/8           Gb_Apu::reset_regs() [396]
+-----------------------------------------------
+                0.00    0.00       1/3           remake_stereo_buffer() [478]
+                0.00    0.00       1/3           CPUWriteByte(unsigned int, unsigned char) [100]
+                0.00    0.00       1/3           thumb80(unsigned int) [13]
+[424]    0.0    0.00    0.00       3         Gb_Apu::volume(double) [424]
+                0.00    0.00       2/25          Blip_Synth_::volume_unit(double) [386]
+-----------------------------------------------
+                0.00    0.00       3/3           Stereo_Buffer::clock_rate(long) [480]
+[425]    0.0    0.00    0.00       3         Blip_Buffer::clock_rate_factor(long) const [425]
+-----------------------------------------------
+                0.00    0.00       2/2           LoadConfig() [499]
+[426]    0.0    0.00    0.00       2         ReadPrefHex(char const*, int) [426]
+                0.00    0.00       2/155         LoadConfigFile() [377]
+                0.00    0.00       2/91          iniparser_getstring [109]
+-----------------------------------------------
+                0.00    0.00       1/2           CPUInit(char const*, bool) [727]
+                0.00    0.00       1/2           LoadConfig() [499]
+[427]    0.0    0.00    0.00       2         agbPrintEnable(bool) [427]
+-----------------------------------------------
+                0.00    0.00       1/2           utilFindType(char const*) [539]
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[428]    0.0    0.00    0.00       2         utilStripDoubleExtension(char const*, char*) [428]
+-----------------------------------------------
+                0.00    0.00       1/2           LoadConfig() [499]
+                0.00    0.00       1/2           utilGBAFindSave(int) [60]
+[429]    0.0    0.00    0.00       2         rtcEnable(bool) [429]
+-----------------------------------------------
+                0.00    0.00       2/2           fex_open [116]
+[430]    0.0    0.00    0.00       2         new_binary() [430]
+                0.00    0.00       2/2           fex_t::fex_t(fex_type_t_ const*) [443]
+-----------------------------------------------
+                0.00    0.00       2/2           thumbExecute() [2]
+[431]    0.0    0.00    0.00       2         thumb00_0A(unsigned int) [431]
+-----------------------------------------------
+                0.00    0.00       2/2           thumbExecute() [2]
+[432]    0.0    0.00    0.00       2         thumb08_06(unsigned int) [432]
+-----------------------------------------------
+                0.00    0.00       2/2           thumbExecute() [2]
+[433]    0.0    0.00    0.00       2         thumb08_07(unsigned int) [433]
+-----------------------------------------------
+                0.00    0.00       2/2           thumbExecute() [2]
+[434]    0.0    0.00    0.00       2         thumb10_01(unsigned int) [434]
+-----------------------------------------------
+                0.00    0.00       2/2           Gb_Apu::Gb_Apu() [492]
+[435]    0.0    0.00    0.00       2         Blip_Synth_::Blip_Synth_(short*, int) [435]
+-----------------------------------------------
+                0.00    0.00       2/2           fex_t::open(char const*) [440]
+[436]    0.0    0.00    0.00       2         blargg_vector_::resize_(unsigned long, unsigned long) [436]
+-----------------------------------------------
+                0.00    0.00       2/2           fex_open [116]
+[437]    0.0    0.00    0.00       2         Std_File_Reader::~Std_File_Reader() [437]
+-----------------------------------------------
+                0.00    0.00       2/2           fex_t::open(char const*) [440]
+[438]    0.0    0.00    0.00       2         Binary_Extractor::open_path_v() [438]
+                0.00    0.00       2/3           fex_t::set_name(char const*, wchar_t const*) [422]
+-----------------------------------------------
+                0.00    0.00       1/2           utilFindType(char const*) [539]
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[439]    0.0    0.00    0.00       2         Binary_Extractor::~Binary_Extractor() [439]
+                0.00    0.00       2/16          blargg_vector_::clear() [391]
+                0.00    0.00       2/2           fex_t::~fex_t() [444]
+                0.00    0.00       2/2           fex_t::close() [442]
+-----------------------------------------------
+                0.00    0.00       2/2           fex_open [116]
+[440]    0.0    0.00    0.00       2         fex_t::open(char const*) [440]
+                0.00    0.00       4/16          blargg_vector_::clear() [391]
+                0.00    0.00       2/2           blargg_vector_::resize_(unsigned long, unsigned long) [436]
+                0.00    0.00       2/4           Binary_Extractor::close_v() [412]
+                0.00    0.00       2/2           Binary_Extractor::open_path_v() [438]
+-----------------------------------------------
+                0.00    0.00       1/2           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+                0.00    0.00       1/2           fex_read [117]
+[441]    0.0    0.00    0.00       2         fex_t::stat() [441]
+                0.00    0.00       1/1           Binary_Extractor::stat_v() [486]
+-----------------------------------------------
+                0.00    0.00       2/2           Binary_Extractor::~Binary_Extractor() [439]
+[442]    0.0    0.00    0.00       2         fex_t::close() [442]
+                0.00    0.00       4/16          blargg_vector_::clear() [391]
+                0.00    0.00       2/4           Binary_Extractor::close_v() [412]
+                0.00    0.00       1/1           Std_File_Reader::~Std_File_Reader() [485]
+-----------------------------------------------
+                0.00    0.00       2/2           new_binary() [430]
+[443]    0.0    0.00    0.00       2         fex_t::fex_t(fex_type_t_ const*) [443]
+                0.00    0.00       4/4           blargg_vector_::init() [411]
+                0.00    0.00       4/16          blargg_vector_::clear() [391]
+-----------------------------------------------
+                0.00    0.00       2/2           Binary_Extractor::~Binary_Extractor() [439]
+[444]    0.0    0.00    0.00       2         fex_t::~fex_t() [444]
+                0.00    0.00       2/16          blargg_vector_::clear() [391]
+-----------------------------------------------
+                0.00    0.00       1/2           soundInit() [61]
+                0.00    0.00       1/2           SoundSDL::write(unsigned short*, int) [339]
+[445]    0.0    0.00    0.00       2         SoundSDL::init(long) [445]
+-----------------------------------------------
+                0.00    0.00       1/2           flush_samples(Multi_Buffer*) [324]
+                0.00    0.00       1/2           sdlPollEvents() [571]
+[446]    0.0    0.00    0.00       2         SoundSDL::resume() [446]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [1391]
+[447]    0.0    0.00    0.00       1         _GLOBAL__sub_I_debugger [447]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [1391]
+[448]    0.0    0.00    0.00       1         _GLOBAL__sub_I_dexp_result [448]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [1391]
+[449]    0.0    0.00    0.00       1         _GLOBAL__sub_I_inBios [449]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [1391]
+[450]    0.0    0.00    0.00       1         _GLOBAL__sub_I_remotePort [450]
+-----------------------------------------------
+                0.00    0.00       1/1           __libc_csu_init [1391]
+[451]    0.0    0.00    0.00       1         _GLOBAL__sub_I_soundDriver [451]
+-----------------------------------------------
+                0.00    0.00       1/1           CPULoadRom(char const*) [498]
+[452]    0.0    0.00    0.00       1         eepromInit() [452]
+-----------------------------------------------
+                0.00    0.00       1/1           SetSaveType(int) [455]
+[453]    0.0    0.00    0.00       1         flashReset() [453]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlPollEvents() [571]
+[454]    0.0    0.00    0.00       1         soundPause() [454]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUReset() [99]
+[455]    0.0    0.00    0.00       1         SetSaveType(int) [455]
+                0.00    0.00       1/1           flashReset() [453]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlApplyPerImagePreferences() [814]
+[456]    0.0    0.00    0.00       1         sdlFindFile(char const*) [456]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlPollEvents() [571]
+[457]    0.0    0.00    0.00       1         soundResume() [457]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[458]    0.0    0.00    0.00       1         flashSetSize(int) [458]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUWriteBatteryFile(char const*) [470]
+[459]    0.0    0.00    0.00       1         systemMessage(int, char const*, ...) [459]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[460]    0.0    0.00    0.00       1         ReadPrefString(char const*, char const*) [460]
+                0.00    0.00       1/155         LoadConfigFile() [377]
+                0.00    0.00       1/91          iniparser_getstring [109]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[461]    0.0    0.00    0.00       1         ValidateConfig() [461]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[462]    0.0    0.00    0.00       1         soundSetEnable(int) [462]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[463]    0.0    0.00    0.00       1         soundSetVolume(float) [463]
+-----------------------------------------------
+                0.00    0.00       1/1           utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+[464]    0.0    0.00    0.00       1         utilIsGBAImage(char const*) [464]
+-----------------------------------------------
+                0.00    0.00       1/1           utilGBAFindSave(int) [60]
+[465]    0.0    0.00    0.00       1         rtcEnableRumble(bool) [465]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlReadBattery() [594]
+[466]    0.0    0.00    0.00       1         CPUReadBatteryFile(char const*) [466]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUReset() [99]
+[467]    0.0    0.00    0.00       1         CheckEReaderRegion() [467]
+-----------------------------------------------
+                0.00    0.00       1/1           SoundSDL::write(unsigned short*, int) [339]
+[468]    0.0    0.00    0.00       1         soundGetSampleRate() [468]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[469]    0.0    0.00    0.00       1         soundSetSampleRate(long) [469]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlWriteBattery() [619]
+[470]    0.0    0.00    0.00       1         CPUWriteBatteryFile(char const*) [470]
+                0.00    0.00       1/1           systemMessage(int, char const*, ...) [459]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlWriteBattery() [619]
+[471]    0.0    0.00    0.00       1         systemScreenMessage(char const*) [471]
+-----------------------------------------------
+                0.00    0.00       1/1           LoadConfig() [499]
+[472]    0.0    0.00    0.00       1         gbSoundSetDeclicking(bool) [472]
+-----------------------------------------------
+                0.00    0.00       1/1           CPUReset() [99]
+[473]    0.0    0.00    0.00       1         rtcReset() [473]
+-----------------------------------------------
+                0.00    0.00       1/1           CPULoadRom(char const*) [498]
+[474]    0.0    0.00    0.00       1         utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [474]
+                0.00    0.00       1/2           fex_open [116]
+                0.00    0.00       1/2           fex_name [115]
+                0.00    0.00       1/2           utilStripDoubleExtension(char const*, char*) [428]
+                0.00    0.00       1/3           applyPatch(char const*, unsigned char**, int*) [414]
+                0.00    0.00       1/1           utilIsGBAImage(char const*) [464]
+                0.00    0.00       1/2           fex_done [113]
+                0.00    0.00       1/1           fex_size [118]
+                0.00    0.00       1/2           fex_t::stat() [441]
+                0.00    0.00       1/1           fex_stat [119]
+                0.00    0.00       1/3           Data_Reader::read(void*, int) <cycle 2> [409]
+                0.00    0.00       1/1           fex_read [117]
+                0.00    0.00       1/2           Binary_Extractor::~Binary_Extractor() [439]
+                0.00    0.00       1/2           fex_close [112]
+-----------------------------------------------
+                0.00    0.00       1/1           CPULoadRom(char const*) [498]
+[475]    0.0    0.00    0.00       1         flashInit() [475]
+-----------------------------------------------
+                0.00    0.00       1/1           thumbExecute() [2]
+[476]    0.0    0.00    0.00       1         thumb08_0C(unsigned int) [476]
+-----------------------------------------------
+                0.00    0.00       1/1           remake_stereo_buffer() [478]
+[477]    0.0    0.00    0.00       1         apply_muting() [477]
+                0.00    0.00       4/4           Gb_Apu::set_output(Blip_Buffer*, Blip_Buffer*, Blip_Buffer*, int) [413]
+                0.00    0.00       2/18          Gba_Pcm::apply_control(int) [390]
+-----------------------------------------------
+                0.00    0.00       1/1           soundReset() [104]
+[478]    0.0    0.00    0.00       1         remake_stereo_buffer() [478]
+                0.00    0.00       4/25          Blip_Synth_::volume_unit(double) [386]
+                0.00    0.00       3/5           Blip_Synth_::treble_eq(blip_eq_t const&) [402]
+                0.00    0.00       2/3           Gb_Apu::reset(Gb_Apu::mode_t, bool) [423]
+                0.00    0.00       1/1           Stereo_Buffer::Stereo_Buffer() [483]
+                0.00    0.00       1/1           Stereo_Buffer::set_sample_rate(long, int) [481]
+                0.00    0.00       1/1           Stereo_Buffer::clock_rate(long) [480]
+                0.00    0.00       1/1           apply_muting() [477]
+                0.00    0.00       1/3           Gb_Apu::volume(double) [424]
+                0.00    0.00       1/1           Gb_Apu::Gb_Apu() [492]
+-----------------------------------------------
+                0.00    0.00       1/1           Binary_Extractor::stat_v() [486]
+[479]    0.0    0.00    0.00       1         File_Reader::seek(int) [479]
+-----------------------------------------------
+                0.00    0.00       1/1           remake_stereo_buffer() [478]
+[480]    0.0    0.00    0.00       1         Stereo_Buffer::clock_rate(long) [480]
+                0.00    0.00       3/3           Blip_Buffer::clock_rate_factor(long) const [425]
+-----------------------------------------------
+                0.00    0.00       1/1           remake_stereo_buffer() [478]
+[481]    0.0    0.00    0.00       1         Stereo_Buffer::set_sample_rate(long, int) [481]
+                0.00    0.00       3/3           Blip_Buffer::set_sample_rate(long, int) [415]
+-----------------------------------------------
+                0.00    0.00       1/1           soundReset() [104]
+[482]    0.0    0.00    0.00       1         Stereo_Buffer::clear() [482]
+                0.00    0.00       2/3           Blip_Buffer::clear(int) [416]
+-----------------------------------------------
+                0.00    0.00       1/1           remake_stereo_buffer() [478]
+[483]    0.0    0.00    0.00       1         Stereo_Buffer::Stereo_Buffer() [483]
+                0.00    0.00       3/3           Blip_Buffer::Blip_Buffer() [417]
+-----------------------------------------------
+                0.00    0.00       1/1           soundShutdown() [58]
+[484]    0.0    0.00    0.00       1         Stereo_Buffer::~Stereo_Buffer() [484]
+                0.00    0.00       3/3           Blip_Buffer::~Blip_Buffer() [418]
+-----------------------------------------------
+                0.00    0.00       1/1           fex_t::close() [442]
+[485]    0.0    0.00    0.00       1         Std_File_Reader::~Std_File_Reader() [485]
+-----------------------------------------------
+                0.00    0.00       1/1           fex_t::stat() [441]
+[486]    0.0    0.00    0.00       1         Binary_Extractor::stat_v() [486]
+                0.00    0.00       1/1           fex_t::open_arc_file(bool) [489]
+                0.00    0.00       1/1           File_Reader::seek(int) [479]
+                0.00    0.00       1/3           fex_t::set_name(char const*, wchar_t const*) [422]
+                0.00    0.00       1/1           fex_t::set_info(int, unsigned int, unsigned int) [491]
+-----------------------------------------------
+                0.00    0.00       1/1           fex_t::read_v(void*, int) <cycle 2> [490]
+[487]    0.0    0.00    0.00       1         Binary_Extractor::extract_v(void*, int) [487]
+-----------------------------------------------
+                0.00    0.00       1/1           SoundSDL::SoundSDL() [495]
+[488]    0.0    0.00    0.00       1         Array<unsigned short>::Array(unsigned long) [488]
+-----------------------------------------------
+                0.00    0.00       1/1           Binary_Extractor::stat_v() [486]
+[489]    0.0    0.00    0.00       1         fex_t::open_arc_file(bool) [489]
+                0.00    0.00       1/3           Std_File_Reader::Std_File_Reader() [421]
+                0.00    0.00       1/3           Std_File_Reader::open(char const*) [419]
+-----------------------------------------------
+                                   1             Data_Reader::read(void*, int) <cycle 2> [409]
+[490]    0.0    0.00    0.00       1         fex_t::read_v(void*, int) <cycle 2> [490]
+                0.00    0.00       1/1           Binary_Extractor::extract_v(void*, int) [487]
+                                   1             Data_Reader::read(void*, int) <cycle 2> [409]
+-----------------------------------------------
+                0.00    0.00       1/1           Binary_Extractor::stat_v() [486]
+[491]    0.0    0.00    0.00       1         fex_t::set_info(int, unsigned int, unsigned int) [491]
+-----------------------------------------------
+                0.00    0.00       1/1           remake_stereo_buffer() [478]
+[492]    0.0    0.00    0.00       1         Gb_Apu::Gb_Apu() [492]
+                0.00    0.00       2/2           Blip_Synth_::Blip_Synth_(short*, int) [435]
+-----------------------------------------------
+                0.00    0.00       1/1           sdlPollEvents() [571]
+[493]    0.0    0.00    0.00       1         SoundSDL::pause() [493]
+-----------------------------------------------
+                0.00    0.00       1/1           soundReset() [104]
+[494]    0.0    0.00    0.00       1         SoundSDL::reset() [494]
+-----------------------------------------------
+                0.00    0.00       1/1           systemSoundInit() [59]
+[495]    0.0    0.00    0.00       1         SoundSDL::SoundSDL() [495]
+                0.00    0.00       1/1           Array<unsigned short>::Array(unsigned long) [488]
+-----------------------------------------------
+                0.00    0.00       1/1           soundShutdown() [58]
+[496]    0.0    0.00    0.00       1         SoundSDL::~SoundSDL() [496]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+ [447] _GLOBAL__sub_I_debugger [362] thumb10_18(unsigned int) [223] thumbD3(unsigned int)
+ [448] _GLOBAL__sub_I_dexp_result [273] CPUReadByte(unsigned int) [308] thumbD5(unsigned int)
+ [449] _GLOBAL__sub_I_inBios  [65] CPUReadByte(unsigned int) [253] thumbD8(unsigned int)
+ [450] _GLOBAL__sub_I_remotePort [100] CPUWriteByte(unsigned int, unsigned char) [245] thumbD9(unsigned int)
+ [451] _GLOBAL__sub_I_soundDriver [266] CPUWriteByte(unsigned int, unsigned char) [236] thumbDA(unsigned int)
+ [367] FileExists(char const*) [477] apply_muting()       [73] thumbDB(unsigned int)
+ [414] applyPatch(char const*, unsigned char**, int*) [289] CPUReadMemory(unsigned int) [48] thumbDC(unsigned int)
+ [404] applyTimer()           [26] CPUReadMemory(unsigned int) [47] thumbDD(unsigned int)
+   [6] armExecute()          [215] CPUReadMemory(unsigned int) [305] thumbDF(unsigned int)
+ [452] eepromInit()           [41] CPUWriteMemory(unsigned int, unsigned int) [49] thumbE0(unsigned int)
+ [453] flashReset()          [216] CPUWriteMemory(unsigned int, unsigned int) [210] thumbF0(unsigned int)
+  [37] soundEvent(unsigned int, unsigned char) [264] CPUReadHalfWord(unsigned int) [44] thumbF4(unsigned int)
+  [40] soundEvent(unsigned int, unsigned short) [299] CPUReadHalfWord(unsigned int) [67] thumbF8(unsigned int)
+ [454] soundPause()          [265] CPUWriteHalfWord(unsigned int, unsigned short) [222] thumb18_0(unsigned int)
+ [104] soundReset()          [282] CPUWriteHalfWord(unsigned int, unsigned short) [202] thumb18_1(unsigned int)
+ [388] BIOS_CpuSet()          [86] thumbUnknownInsn(unsigned int) [221] thumb18_2(unsigned int)
+  [18] CPUCheckDMA(int, int) [478] remake_stereo_buffer() [34] thumb18_3(unsigned int)
+ [392] ReadPrefHex(char const*) [349] arm000(unsigned int) [75] thumb18_4(unsigned int)
+ [426] ReadPrefHex(char const*, int) [350] arm002(unsigned int) [306] thumb18_5(unsigned int)
+ [455] SetSaveType(int)      [195] arm009(unsigned int)  [262] thumb18_6(unsigned int)
+ [398] interp_rate()         [319] arm010(unsigned int)  [329] thumb1A_0(unsigned int)
+   [4] rtcReadGame(gzFile_s*) [354] arm020(unsigned int) [286] thumb1A_1(unsigned int)
+ [456] sdlFindFile(char const*) [46] arm040(unsigned int) [243] thumb1A_2(unsigned int)
+ [457] soundResume()         [211] arm050(unsigned int)  [408] thumb1A_3(unsigned int)
+ [341] systemFrame()          [43] arm080(unsigned int)  [328] thumb1A_4(unsigned int)
+ [458] flashSetSize(int)     [206] arm084(unsigned int)  [291] thumb1A_5(unsigned int)
+  [16] psoundTickfn()        [198] arm086(unsigned int)  [278] thumb1A_6(unsigned int)
+ [199] rtcIsEnabled()        [364] arm089(unsigned int)  [361] thumb1A_7(unsigned int)
+   [2] thumbExecute()        [331] arm090(unsigned int)   [20] thumb1C_0(unsigned int)
+ [284] CPUSwitchMode(int, bool) [91] arm0DD(unsigned int) [50] thumb1C_1(unsigned int)
+  [78] CPUSwitchMode(int, bool, bool) [62] arm0DF(unsigned int) [250] thumb1C_3(unsigned int)
+ [283] CPUUpdateCPSR()       [316] arm100(unsigned int)  [395] thumb1C_4(unsigned int)
+ [324] flush_samples(Multi_Buffer*) [66] arm120(unsigned int) [393] thumb1C_6(unsigned int)
+  [58] soundShutdown()       [272] arm121(unsigned int)  [244] thumb1E_1(unsigned int)
+ [459] systemMessage(int, char const*, ...) [317] arm140(unsigned int) [327] thumb1E_2(unsigned int)
+  [81] CPUUpdateFlags()      [355] arm14B(unsigned int)   [28] thumb40_0(unsigned int)
+ [374] FindConfigFile(char const*) [320] arm15B(unsigned int) [234] thumb40_1(unsigned int)
+ [377] LoadConfigFile()      [318] arm160(unsigned int)  [365] thumb40_3(unsigned int)
+ [460] ReadPrefString(char const*, char const*) [97] arm19D(unsigned int) [368] thumb41_0(unsigned int)
+ [461] ValidateConfig()      [280] arm1A0(unsigned int)  [232] thumb42_0(unsigned int)
+ [427] agbPrintEnable(bool)  [380] arm1A2(unsigned int)   [53] thumb42_1(unsigned int)
+ [462] soundSetEnable(int)   [309] arm1A4(unsigned int)  [208] thumb42_2(unsigned int)
+ [463] soundSetVolume(float) [376] arm1A7(unsigned int)  [227] thumb42_3(unsigned int)
+ [375] system10Frames(int)   [358] arm1B0(unsigned int)  [201] thumb43_0(unsigned int)
+ [382] systemGetClock()      [207] arm1B2(unsigned int)   [55] thumb43_1(unsigned int)
+ [464] utilIsGBAImage(char const*) [89] arm1BD(unsigned int) [274] thumb43_2(unsigned int)
+ [399] BIOS_CpuFastSet()     [351] arm1C0(unsigned int)  [275] thumb43_3(unsigned int)
+ [314] CPUUpdateRender()     [105] arm1CB(unsigned int)  [241] thumb44_1(unsigned int)
+ [342] inputReadJoypad(int)  [352] arm1DB(unsigned int)  [231] thumb44_2(unsigned int)
+   [5] mode0RenderLine()      [98] arm1DD(unsigned int)  [359] thumb45_1(unsigned int)
+   [3] mode2RenderLine()      [25] arm1FD(unsigned int)   [21] thumb46_1(unsigned int)
+ [465] rtcEnableRumble(bool) [356] arm200(unsigned int)   [30] thumb46_2(unsigned int)
+ [383] systemShowSpeed(int)  [287] arm210(unsigned int)  [248] thumb46_3(unsigned int)
+  [59] systemSoundInit()     [315] arm240(unsigned int)  [302] Blip_Buffer::remove_samples(long)
+  [60] utilGBAFindSave(int)   [92] arm250(unsigned int)  [415] Blip_Buffer::set_sample_rate(long, int)
+ [326] BIOS_BgAffineSet()    [333] arm260(unsigned int)  [416] Blip_Buffer::clear(int)
+ [214] CPUCompareVCOUNT()     [24] arm270(unsigned int)  [288] Blip_Buffer::end_frame(int)
+ [343] systemDrawScreen()    [269] arm280(unsigned int)  [417] Blip_Buffer::Blip_Buffer()
+ [344] systemReadJoypad(int) [205] arm290(unsigned int)  [418] Blip_Buffer::~Blip_Buffer()
+ [103] CPUUpdateRegister(unsigned int, unsigned short) [290] arm310(unsigned int) [386] Blip_Synth_::volume_unit(double)
+ [254] codeTicksAccess32(unsigned int) [307] arm350(unsigned int) [402] Blip_Synth_::treble_eq(blip_eq_t const&)
+ [258] dataTicksAccess32(unsigned int) [63] arm360(unsigned int) [435] Blip_Synth_::Blip_Synth_(short*, int)
+  [15] flashDelayedWrite(unsigned int, unsigned char) [298] arm380(unsigned int) [409] Data_Reader::read(void*, int)
+ [345] systemReadJoypads()   [268] arm3A0(unsigned int)  [479] File_Reader::seek(int)
+ [466] CPUReadBatteryFile(char const*) [196] arm3C0(unsigned int) [410] Gba_Pcm_Fifo::write_control(int)
+ [467] CheckEReaderRegion()  [230] arm480(unsigned int)  [340] Stereo_Mixer::mix_stereo(short*, int)
+ [468] soundGetSampleRate()  [310] arm4C0(unsigned int)  [480] Stereo_Buffer::clock_rate(long)
+ [469] soundSetSampleRate(long) [353] arm510(unsigned int) [338] Stereo_Buffer::read_samples(short*, long)
+  [35] soundTimerOverflow(int) [101] arm550(unsigned int) [481] Stereo_Buffer::set_sample_rate(long, int)
+ [346] systemPauseOnFrame()  [228] arm580(unsigned int)  [482] Stereo_Buffer::clear()
+ [405] BIOS_LZ77UnCompVram() [219] arm590(unsigned int)  [325] Stereo_Buffer::end_frame(int)
+ [470] CPUWriteBatteryFile(char const*) [64] arm5B0(unsigned int) [483] Stereo_Buffer::Stereo_Buffer()
+ [471] systemScreenMessage(char const*) [106] arm5C0(unsigned int) [484] Stereo_Buffer::~Stereo_Buffer()
+  [93] CPUSoftwareInterrupt(int) [96] arm5D0(unsigned int) [411] blargg_vector_::init()
+ [194] codeTicksAccessSeq32(unsigned int) [357] arm790(unsigned int) [391] blargg_vector_::clear()
+ [252] dataTicksAccessSeq32(unsigned int) [311] arm7C0(unsigned int) [436] blargg_vector_::resize_(unsigned long, unsigned long)
+ [472] gbSoundSetDeclicking(bool) [94] arm810(unsigned int) [313] Gb_Sweep_Square::clock_sweep()
+ [107] BIOS_RegisterRamReset(unsigned int) [271] arm8B0(unsigned int) [419] Std_File_Reader::open(char const*)
+  [57] systemOnSoundShutdown() [270] arm920(unsigned int) [420] Std_File_Reader::read_v(void*, int)
+ [400] CPUUpdateRenderBuffers(bool) [203] armA00(unsigned int) [421] Std_File_Reader::Std_File_Reader()
+ [347] inputUpdateMotionSensor() [321] armB00(unsigned int) [485] Std_File_Reader::~Std_File_Reader()
+ [348] systemUpdateMotionSensor() [204] thumb20(unsigned int) [437] Std_File_Reader::~Std_File_Reader()
+ [428] utilStripDoubleExtension(char const*, char*) [68] thumb21(unsigned int) [438] Binary_Extractor::open_path_v()
+ [336] systemOnWriteDataToSoundBuffer(unsigned short const*, int) [70] thumb22(unsigned int) [486] Binary_Extractor::stat_v()
+  [56] doDMA(unsigned int&, unsigned int&, unsigned int, unsigned int, unsigned int, int) [31] thumb23(unsigned int) [412] Binary_Extractor::close_v()
+   [1] CPULoop(int)           [32] thumb24(unsigned int) [487] Binary_Extractor::extract_v(void*, int)
+ [381] ReadPref(char const*, int) [242] thumb25(unsigned int) [439] Binary_Extractor::~Binary_Extractor()
+ [473] rtcReset()            [295] thumb26(unsigned int) [488] Array<unsigned short>::Array(unsigned long)
+ [474] utilLoad(char const*, bool (*)(char const*), unsigned char*, int&) [79] thumb27(unsigned int) [489] fex_t::open_arc_file(bool)
+ [475] flashInit()            [27] thumb28(unsigned int) [440] fex_t::open(char const*)
+ [429] rtcEnable(bool)       [212] thumb29(unsigned int) [441] fex_t::stat()
+ [430] new_binary()          [209] thumb2A(unsigned int) [442] fex_t::close()
+  [54] thumb00_01(unsigned int) [71] thumb2B(unsigned int) [490] fex_t::read_v(void*, int)
+ [200] thumb00_02(unsigned int) [72] thumb2C(unsigned int) [491] fex_t::set_info(int, unsigned int, unsigned int)
+ [225] thumb00_03(unsigned int) [220] thumb2D(unsigned int) [422] fex_t::set_name(char const*, wchar_t const*)
+ [224] thumb00_04(unsigned int) [237] thumb2E(unsigned int) [443] fex_t::fex_t(fex_type_t_ const*)
+ [260] thumb00_05(unsigned int) [378] thumb2F(unsigned int) [444] fex_t::~fex_t()
+ [373] thumb00_06(unsigned int) [213] thumb30(unsigned int) [396] Gb_Apu::reset_regs()
+ [370] thumb00_07(unsigned int) [52] thumb31(unsigned int) [11] Gb_Apu::run_until_(int)
+ [235] thumb00_08(unsigned int) [229] thumb32(unsigned int) [413] Gb_Apu::set_output(Blip_Buffer*, Blip_Buffer*, Blip_Buffer*, int)
+ [401] thumb00_09(unsigned int) [226] thumb33(unsigned int) [387] Gb_Apu::silence_osc(Gb_Osc&)
+ [431] thumb00_0A(unsigned int) [276] thumb34(unsigned int) [371] Gb_Apu::apply_stereo()
+ [389] thumb00_0B(unsigned int) [285] thumb35(unsigned int) [36] Gb_Apu::write_register(int, unsigned int, int)
+ [397] thumb00_0C(unsigned int) [233] thumb36(unsigned int) [423] Gb_Apu::reset(Gb_Apu::mode_t, bool)
+ [406] thumb00_0E(unsigned int) [76] thumb37(unsigned int) [424] Gb_Apu::volume(double)
+  [83] thumb00_0F(unsigned int) [77] thumb38(unsigned int) [17] Gb_Apu::end_frame(int)
+  [69] thumb00_10(unsigned int) [256] thumb39(unsigned int) [332] Gb_Apu::write_osc(int, int, int, int)
+ [407] thumb00_11(unsigned int) [251] thumb3A(unsigned int) [492] Gb_Apu::Gb_Apu()
+ [296] thumb00_12(unsigned int) [369] thumb3B(unsigned int) [294] Gb_Env::clock_envelope()
+ [281] thumb00_13(unsigned int) [334] thumb3C(unsigned int) [360] Gb_Env::write_register(int, int, int, int)
+ [267] thumb00_18(unsigned int) [312] thumb3D(unsigned int) [259] Gb_Osc::clock_length()
+ [394] thumb00_1C(unsigned int) [257] thumb3E(unsigned int) [384] Gb_Osc::reset()
+ [297] thumb08_01(unsigned int) [80] thumb3F(unsigned int) [263] Gb_Wave::run(int, int)
+ [249] thumb08_02(unsigned int) [22] thumb47(unsigned int) [390] Gba_Pcm::apply_control(int)
+ [337] thumb08_03(unsigned int) [29] thumb48(unsigned int) [10] Gb_Noise::run(int, int)
+ [293] thumb08_04(unsigned int) [87] thumb50(unsigned int) [445] SoundSDL::init(long)
+ [363] thumb08_05(unsigned int) [277] thumb56(unsigned int) [493] SoundSDL::pause()
+ [432] thumb08_06(unsigned int) [82] thumb58(unsigned int) [494] SoundSDL::reset()
+ [433] thumb08_07(unsigned int) [19] thumb5A(unsigned int) [339] SoundSDL::write(unsigned short*, int)
+ [279] thumb08_08(unsigned int) [23] thumb5E(unsigned int) [446] SoundSDL::resume()
+ [385] thumb08_0B(unsigned int) [95] thumb60(unsigned int) [495] SoundSDL::SoundSDL()
+ [476] thumb08_0C(unsigned int) [9] thumb68(unsigned int) [496] SoundSDL::~SoundSDL()
+  [84] thumb08_0D(unsigned int) [38] thumb70(unsigned int) [255] Gb_Square::run(int, int)
+  [74] thumb08_0E(unsigned int) [218] thumb78(unsigned int) [425] Blip_Buffer::clock_rate_factor(long) const
+  [85] thumb08_0F(unsigned int) [13] thumb80(unsigned int) [304] Stereo_Buffer::samples_avail() const
+  [33] thumb08_10(unsigned int) [8] thumb88(unsigned int) [379] Gb_Wave::access(unsigned int) const
+ [300] thumb08_18(unsigned int) [217] thumb90(unsigned int) [403] blip_eq_t::generate(float*, int) const
+ [366] thumb08_19(unsigned int) [45] thumb98(unsigned int) [112] fex_close
+ [246] thumb08_1C(unsigned int) [301] thumbA0(unsigned int) [113] fex_done
+ [247] thumb08_1F(unsigned int) [323] thumbA8(unsigned int) [111] fex_identify_extension
+ [434] thumb10_01(unsigned int) [51] thumbB0(unsigned int) [114] fex_identify_header
+ [372] thumb10_02(unsigned int) [90] thumbB4(unsigned int) [115] fex_name
+ [330] thumb10_03(unsigned int) [12] thumbB5(unsigned int) [116] fex_open
+ [335] thumb10_04(unsigned int) [7] thumbBC(unsigned int) [117] fex_read
+ [261] thumb10_05(unsigned int) [102] thumbBD(unsigned int) [118] fex_size
+ [322] thumb10_06(unsigned int) [88] thumbC0(unsigned int) [119] fex_stat
+ [239] thumb10_07(unsigned int) [39] thumbC8(unsigned int) [110] iniparser_getint
+ [238] thumb10_08(unsigned int) [42] thumbD0(unsigned int) [109] iniparser_getstring
+ [303] thumb10_0E(unsigned int) [197] thumbD1(unsigned int) [14] <cycle 1>
+ [240] thumb10_10(unsigned int) [292] thumbD2(unsigned int) [108] <cycle 2>

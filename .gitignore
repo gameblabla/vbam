@@ -21,3 +21,6 @@ dependencies/*
 *.nro
 *.nso
 *.pfs0
+*.gcda
+*.gba
+*.out

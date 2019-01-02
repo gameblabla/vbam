@@ -52,10 +52,6 @@ static INSN_REGPARM void armUnknownInsn(uint32_t opcode)
 #ifdef BKPT_SUPPORT
 static INSN_REGPARM void armBreakpoint(uint32_t opcode)
 {
-    reg[15].I -= 4;
-    armNextPC -= 4;
-    dbgSignal(5, (opcode & 0x0f) | ((opcode >> 4) & 0xfff0));
-    clockTicks = -1;
 }
 #endif
 
