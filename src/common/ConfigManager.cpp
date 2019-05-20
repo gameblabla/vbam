@@ -22,23 +22,12 @@ extern "C" {
 #include "../gba/GBA.h"
 #include "../gba/agbprint.h"
 #include "../gba/Flash.h"
-#include "../gba/Cheats.h"
 #include "../gba/remote.h"
 #include "../gba/RTC.h"
 #include "../gba/Sound.h"
-#include "../gb/gb.h"
-#include "../gb/gbGlobals.h"
-#include "../gb/gbCheats.h"
-#include "../gb/gbSound.h"
 #include "../Util.h"
 
-#ifndef _WIN32
 #define GETCWD getcwd
-#else // _WIN32
-#include <direct.h>
-#define GETCWD _getcwd
-#define snprintf sprintf
-#endif // _WIN32
 
 #ifndef __GNUC__
 #define HAVE_DECL_GETOPT 0
@@ -125,7 +114,7 @@ bool parseDebug = true;
 bool speedHack = false;
 bool speedup = false;
 const char* aviRecordDir;
-const char* batteryDir;
+char* batteryDir;
 const char* biosFileNameGB;
 const char* biosFileNameGBA;
 const char* biosFileNameGBC;
@@ -137,7 +126,7 @@ char* rewindMemory = NULL;
 const char* romDirGB;
 const char* romDirGBA;
 const char* romDirGBC;
-const char* saveDir;
+char* saveDir;
 const char* screenShotDir;
 const char* soundRecordDir;
 int active = 1;
@@ -145,13 +134,13 @@ int agbPrint;
 int autoFire;
 int autoFireMaxCount = 1;
 int autoFireToggle;
-int autoFrameSkip = 0;
+int autoFrameSkip = 1;
 int autoLoadMostRecent;
 int autoPatch;
 int autoSaveLoadCheatList;
 int aviRecording;
 int captureFormat = 0;
-int cheatsEnabled = true;
+int cheatsEnabled = false;
 int cpuDisableSfx = false;
 int cpuSaveType = 0;
 int disableMMX;
@@ -276,12 +265,9 @@ struct option argOptions[] = {
 	{ "bios-file-name-gb", required_argument, 0, OPT_BIOS_FILE_NAME_GB },
 	{ "bios-file-name-gba", required_argument, 0, OPT_BIOS_FILE_NAME_GBA },
 	{ "bios-file-name-gbc", required_argument, 0, OPT_BIOS_FILE_NAME_GBC },
-	{ "border-automatic", no_argument, &gbBorderAutomatic, 1 },
-	{ "border-on", no_argument, &gbBorderOn, 1 },
 	{ "capture-format", required_argument, 0, OPT_CAPTURE_FORMAT },
 	{ "cheat", required_argument, 0, OPT_CHEAT },
 	{ "cheats-enabled", no_argument, &cheatsEnabled, 1 },
-	{ "color-option", no_argument, &gbColorOption, 1 },
 	{ "config", required_argument, 0, 'c' },
 	{ "cpu-disable-sfx", no_argument, &cpuDisableSfx, 1 },
 	{ "cpu-save-type", required_argument, 0, OPT_CPU_SAVE_TYPE },
@@ -306,9 +292,6 @@ struct option argOptions[] = {
 	{ "fs-width", required_argument, 0, OPT_FS_WIDTH },
 	{ "full-screen", no_argument, &fullScreen, 1 },
 	{ "full-screen-stretch", no_argument, &fullScreenStretch, 1 },
-	{ "gb-border-automatic", no_argument, &gbBorderAutomatic, 1 },
-	{ "gb-border-on", no_argument, &gbBorderOn, 1 },
-	{ "gb-color-option", no_argument, &gbColorOption, 1 },
 	{ "gb-emulator-type", required_argument, 0, OPT_GB_EMULATOR_TYPE },
 	{ "gb-frame-skip", required_argument, 0, OPT_GB_FRAME_SKIP },
 	{ "gb-palette-option", required_argument, 0, OPT_GB_PALETTE_OPTION },
@@ -422,12 +405,8 @@ void OpenPreferences(const char *name)
 
 void ValidateConfig()
 {
-	if (gbEmulatorType < 0 || gbEmulatorType > 5)
-		gbEmulatorType = 1;
 	if (frameSkip < 0 || frameSkip > 9)
 		frameSkip = 2;
-	if (gbFrameSkip < 0 || gbFrameSkip > 9)
-		gbFrameSkip = 0;
 	if (filter < kStretch1x || filter >= kInvalidFilter)
 		filter = kStretch2x;
 
@@ -479,17 +458,6 @@ void LoadConfig()
 	fsWidth = ReadPref("fsWidth", 800);
 	fullScreen = ReadPrefHex("fullScreen");
 	fullScreenStretch = ReadPref("stretch", 0);
-	gbBorderAutomatic = ReadPref("borderAutomatic", 0);
-	gbBorderOn = ReadPrefHex("borderOn");
-	gbColorOption = ReadPref("colorOption", 0);
-	gbEmulatorType = ReadPref("emulatorType", 1);
-	gbFrameSkip = ReadPref("gbFrameSkip", 0);
-	gbPaletteOption = ReadPref("gbPaletteOption", 0);
-	gbSoundSetDeclicking(ReadPref("gbSoundDeclicking", 1));
-	gb_effects_config.echo = (float)ReadPref("gbSoundEffectsEcho", 20) / 100.0f;
-	gb_effects_config.enabled = ReadPref("gbSoundEffectsEnabled", 0);
-	gb_effects_config.stereo = (float)ReadPref("gbSoundEffectsStereo", 15) / 100.0f;
-	gb_effects_config.surround = ReadPref("gbSoundEffectsSurround", 0);
 	gdbBreakOnLoad = ReadPref("gdbBreakOnLoad", 0);
 	gdbPort = ReadPref("gdbPort", 55555);
 	glFilter = ReadPref("glFilter", 1);
@@ -559,16 +527,6 @@ void LoadConfig()
 	soundSetVolume(volume_percent);
 
 	soundSetEnable((ReadPrefHex("soundEnable", 0x30f)) & 0x30f);
-	if ((ReadPrefHex("soundStereo"))) {
-		gb_effects_config.enabled = true;
-	}
-	if ((ReadPrefHex("soundEcho"))) {
-		gb_effects_config.enabled = true;
-	}
-	if ((ReadPrefHex("soundSurround"))) {
-		gb_effects_config.surround = true;
-		gb_effects_config.enabled = true;
-	}
 
 	if (optFlashSize == 0)
 		flashSetSize(0x10000);
@@ -975,13 +933,11 @@ int ReadOpts(int argc, char ** argv)
 			if (optarg) {
 				int a = atoi(optarg);
 				if (a >= 0 && a <= 9) {
-					gbFrameSkip = a;
 					frameSkip = a;
 				}
 			}
 			else {
 				frameSkip = 2;
-				gbFrameSkip = 0;
 			}
 			break;
 		case 't':
@@ -1058,13 +1014,6 @@ int ReadOpts(int argc, char ** argv)
 			// --language-option
 			if (optarg) {
 				languageOption = atoi(optarg);
-			}
-			break;
-
-		case OPT_GB_FRAME_SKIP:
-			// --gb-frame-skip
-			if (optarg) {
-				gbFrameSkip = atoi(optarg);
 			}
 			break;
 
@@ -1145,24 +1094,10 @@ int ReadOpts(int argc, char ** argv)
 			}
 			break;
 
-		case OPT_GB_EMULATOR_TYPE:
-			// --gb-emulator-type
-			if (optarg) {
-				gbEmulatorType = atoi(optarg);
-			}
-			break;
-
 		case OPT_THREAD_PRIORITY:
 			// --thread-priority
 			if (optarg) {
 				threadPriority = atoi(optarg);
-			}
-			break;
-
-		case OPT_GB_PALETTE_OPTION:
-			// --gb-palette-option
-			if (optarg) {
-				gbPaletteOption = atoi(optarg);
 			}
 			break;
 

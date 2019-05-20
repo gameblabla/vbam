@@ -61,9 +61,9 @@ static uint32_t joypad[5][SDLBUTTONS_NUM] = {
   { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
   { SDLK_LEFT,  SDLK_RIGHT,
     SDLK_UP,    SDLK_DOWN,
-    SDLK_z,     SDLK_x,
-    SDLK_RETURN,SDLK_BACKSPACE,
-    SDLK_a,     SDLK_s,
+    SDLK_LCTRL,     SDLK_LALT,
+    SDLK_RETURN,SDLK_ESCAPE,
+    SDLK_TAB,     SDLK_BACKSPACE,
     SDLK_SPACE, SDLK_F12,
     SDLK_q,     SDLK_w,
   }

@@ -11,7 +11,6 @@
 #include "../System.h"
 #include "../Util.h"
 #include "../common/ConfigManager.h"
-#include "Cheats.h"
 #include "EEprom.h"
 #include "Flash.h"
 #include "GBA.h"
@@ -2115,10 +2114,6 @@ static insnfunc_t thumbInsnTable[1024] = {
 int thumbExecute()
 {
     do {
-        if (cheatsEnabled) {
-            cpuMasterCodeCheck();
-        }
-
         //if ((armNextPC & 0x0803FFFF) == 0x08020000)
         //    busPrefetchCount=0x100;
 

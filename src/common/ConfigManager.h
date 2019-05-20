@@ -154,8 +154,8 @@ extern IFBFilterFunc ifbFunction;
 
 extern char *homeDir;
 extern const char *screenShotDir;
-extern const char *saveDir;
-extern const char *batteryDir;
+extern char *saveDir;
+extern char *batteryDir;
 
 // Directory within homedir to use for default save location.
 #define DOT_DIR ".vbam"

@@ -156,7 +156,6 @@ extern struct EmulatedSystem GBASystem;
 #define WORK_RAM_SIZE 0x40000
 #define ROM_SIZE      0x2000000
 
-#include "Cheats.h"
 #include "EEprom.h"
 #include "Flash.h"
 #include "Globals.h"

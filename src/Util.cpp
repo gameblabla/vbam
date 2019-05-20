@@ -34,7 +34,6 @@ extern "C" {
 #include "common/memgzio.h"
 }
 
-#include "gb/gbGlobals.h"
 #include "gba/gbafilter.h"
 
 #ifndef _MSC_VER

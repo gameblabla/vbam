@@ -230,7 +230,6 @@ inline void cpuMasterCodeCheck()
         if (systemReadJoypads())
             joy = systemReadJoypad(-1);
         uint32_t ext = (joy >> 10);
-        cpuTotalTicks += cheatsCheckKeys(P1 ^ 0x3FF, ext);
     }
 }
 

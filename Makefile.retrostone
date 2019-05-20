@@ -1,0 +1,37 @@
+PRGNAME     = vbam.elf
+
+# define regarding OS, which compiler to use
+CC			= /opt/retrostone-toolchain/bin/arm-buildroot-linux-musleabihf-gcc
+CXX			= /opt/retrostone-toolchain/bin/arm-buildroot-linux-musleabihf-g++
+
+# change compilation / linking flag options
+CFLAGS		= -DSDL -DFINAL_VERSION -DNO_FILTERS -DC_CORE -DNO_ASM -DNDEBUG -DNO_FFMPEG -DHAVE_NETINET_IN_H -DHAVE_ARPA_INET_H -DHAVE_ZLIB_H -DFINAL_VERSION -DNO_LINK -DNO_DEBUGGER -DLOW_END
+CFLAGS 		+= -DPACKAGE="" -I/usr/include/SDL -DSYSCONF_INSTALL_DIR=\"/switch\" -DPKGDATADIR=\"/switch/vbam\"
+CFLAGS		+= -DUSE_TWEAK_SPEEDHACK
+CFLAGS		+= -O2 -flto
+CFLAGS		+= -I./src/apu -I./src/art -I./src/gb -I./src/gba -I./src/sdl -I./src -I. -Isrc/common -I. -Ifex
+CXXFLAGS	= $(CFLAGS) -fpermissive
+
+LDFLAGS     = -lSDL -lasound -lm -lstdc++ -lpng16 -lz -flto
+
+# Files to be compiled
+SRCDIR    = ./src/apu ./src/art ./src/gba ./src/sdl ./src/common ./src ./fex/fex ./fex/7z_C
+VPATH     = $(SRCDIR)
+SRC_C   = $(foreach dir, $(SRCDIR), $(wildcard $(dir)/*.c))
+SRC_CP   = $(foreach dir, $(SRCDIR), $(wildcard $(dir)/*.cpp))
+OBJ_C   = $(notdir $(patsubst %.c, %.o, $(SRC_C)))
+OBJ_CP   = $(notdir $(patsubst %.cpp, %.o, $(SRC_CP)))
+OBJS     = $(OBJ_C) $(OBJ_CP)
+
+# Rules to make executable
+$(PRGNAME): $(OBJS)  
+	$(CC) $(CFLAGS) -o $(PRGNAME) $^ $(LDFLAGS)
+
+$(OBJ_C) : %.o : %.c
+	$(CC) $(CFLAGS) -c -o $@ $<
+
+$(OBJ_CP) : %.o : %.cpp
+	$(CXX) $(CXXFLAGS) -c -o $@ $<
+
+clean:
+	rm -f $(PRGNAME)$(EXESUFFIX) *.o

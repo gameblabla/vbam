@@ -9,6 +9,8 @@
 #include <string.h>
 #include <time.h>
 
+extern int rtcEnabled;
+
 enum RTCSTATE {
     IDLE = 0,
     COMMAND,

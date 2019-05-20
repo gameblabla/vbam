@@ -16,12 +16,6 @@
 // along with this program; if not, write to the Free Software Foundation,
 // Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 
-//OpenGL library
-#if (defined _MSC_VER)
-#pragma comment( lib, "OpenGL32" )
-#include <windows.h>
-#endif
-
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
@@ -29,49 +23,29 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <cmath>
-#ifdef __APPLE__
-    #include <OpenGL/glu.h>
-    #include <OpenGL/glext.h>
-#else
-    #include <GL/glu.h>
-    #include <GL/glext.h>
-#endif
 
 #include <time.h>
 
 #include "../AutoBuild.h"
 #include "../version.h"
 
-#include <SDL.h>
+#include <SDL/SDL.h>
 
 #include "../common/Patch.h"
 #include "../common/ConfigManager.h"
 #include "../gba/GBA.h"
 #include "../gba/agbprint.h"
 #include "../gba/Flash.h"
-#include "../gba/Cheats.h"
 #include "../gba/RTC.h"
 #include "../gba/Sound.h"
-#include "../gb/gb.h"
-#include "../gb/gbGlobals.h"
-#include "../gb/gbCheats.h"
-#include "../gb/gbSound.h"
+
 #include "../Util.h"
-#ifndef NO_FILTERS
-#include "filters.h"
-#endif
 #include "text.h"
 #include "inputSDL.h"
 #include "../common/SoundSDL.h"
 
-#ifndef _WIN32
 # include <unistd.h>
 # define GETCWD getcwd
-#else // _WIN32
-# include <direct.h>
-# define GETCWD _getcwd
-# define snprintf sprintf
-#endif // _WIN32
 
 #ifndef __GNUC__
 # define HAVE_DECL_GETOPT 0
@@ -82,18 +56,6 @@
 # include <getopt.h>
 #endif // ! __GNUC__
 
-#if WITH_LIRC
-#include <sys/poll.h>
-#include <lirc/lirc_client.h>
-#endif
-
-extern void remoteInit();
-extern void remoteCleanUp();
-extern void remoteStubMain();
-extern void remoteStubSignal(int,int);
-extern void remoteOutput(const char *, uint32_t);
-extern void remoteSetProtocol(int);
-extern void remoteSetPort(int);
 
 struct EmulatedSystem emulator = {
   NULL,
@@ -130,18 +92,7 @@ int destHeight = 0;
 int desktopWidth = 0;
 int desktopHeight = 0;
 
-uint8_t *delta = NULL;
-static const int delta_size = 322*242*4;
-
 int filter_enlarge = 1;
-
-int cartridgeType = 3;
-
-int textureSize = 256;
-GLuint screenTexture = 0;
-#ifndef NO_FILTERS
-uint8_t *filterPix = 0;
-#endif
 
 int emulating = 0;
 int RGB_LOW_BITS_MASK=0x821;
@@ -150,8 +101,6 @@ uint16_t systemColorMap16[0x10000];
 uint16_t systemGbPalette[24];
 
 char filename[2048];
-
-static int rewindSerial = 0;
 
 static int sdlSaveKeysSwitch = 0;
 // if 0, then SHIFT+F# saves, F# loads (old VBA, ...)
@@ -200,6 +149,32 @@ uint32_t  screenMessageTime = 0;
 #define SOUND_ECHO       0.2
 #define SOUND_STEREO     0.15
 
+static void Create_Config_Folder()
+{
+	extern char *saveDir;
+	extern char *batteryDir;
+	
+	homeDir = malloc(2048);
+	batteryDir = malloc(2048);
+	saveDir = malloc(2048);
+	
+	sprintf(homeDir, "%s/.vbam", getenv("HOME"));
+	sprintf(batteryDir, "%s/saves", homeDir);
+	sprintf(saveDir, "%s/states", homeDir);
+	
+	mkdir(homeDir, 0755);
+	mkdir(batteryDir, 0755);
+	mkdir(saveDir, 0755);
+}
+
+static void Free_config()
+{
+	if (!homeDir) free(homeDir);
+	if (!batteryDir) free(batteryDir);
+	if (!saveDir) free(saveDir);
+}
+
+
 static void sdlChangeVolume(float d)
 {
 	float oldVolume = soundGetVolume();
@@ -214,87 +189,6 @@ static void sdlChangeVolume(float d)
 		systemScreenMessage(tmp);
 		soundSetVolume(newVolume);
 	}
-}
-
-#if WITH_LIRC
-//LIRC code
-bool LIRCEnabled = false;
-int  LIRCfd = 0;
-static struct lirc_config *LIRCConfigInfo;
-
-void StartLirc(void)
-{
-  fprintf(stdout, "Trying to start LIRC: ");
-  //init LIRC and Record output
-  LIRCfd = lirc_init( "vbam",1 );
-  if( LIRCfd == -1 ) {
-    //it failed
-    fprintf(stdout, "Failed\n");
-  } else {
-    fprintf(stdout, "Success\n");
-    //read the config file
-    char LIRCConfigLoc[2048];
-    sprintf(LIRCConfigLoc, "%s/%s/%s", homeDir, DOT_DIR, "lircrc");
-    fprintf(stdout, "LIRC Config file:");
-    if( lirc_readconfig(LIRCConfigLoc,&LIRCConfigInfo,NULL) == 0 ) {
-      //check vbam dir for lircrc
-      fprintf(stdout, "Loaded (%s)\n", LIRCConfigLoc );
-    } else if( lirc_readconfig(NULL,&LIRCConfigInfo,NULL) == 0 ) {
-      //check default lircrc location
-      fprintf(stdout, "Loaded\n");
-    } else {
-      //it all failed
-      fprintf(stdout, "Failed\n");
-      LIRCEnabled = false;
-    }
-    LIRCEnabled = true;
-  }
-}
-
-void StopLirc(void)
-{
-  //did we actually get lirc working at the start
-  if(LIRCEnabled) {
-    //if so free the config and deinit lirc
-    fprintf(stdout, "Shuting down LIRC\n");
-    lirc_freeconfig(LIRCConfigInfo);
-    lirc_deinit();
-    //set lirc enabled to false
-    LIRCEnabled = false;
-  }
-}
-#endif
-
-
-#ifdef __MSC__
-#define stat _stat
-#define S_IFDIR _S_IFDIR
-#endif
-
-void sdlCheckDirectory(char *dir)
-{
-	if (!dir)
-	{
-		return;
-	}
-
-  struct stat buf;
-
-  int len = strlen(dir);
-
-  char *p = dir + len - 1;
-
-  if(*p == '/' ||
-     *p == '\\')
-    *p = 0;
-
-  if(stat(dir, &buf) == 0) {
-    if(!(buf.st_mode & S_IFDIR)) {
-      fprintf(stderr, "Error: %s is not a directory\n", dir);
-    }
-  } else {
-    fprintf(stderr, "Error: %s does not exist\n", dir);
-  }
 }
 
 char *sdlGetFilename(char *name)
@@ -324,20 +218,15 @@ char *sdlGetFilename(char *name)
   return filebuffer;
 }
 
+
 FILE *sdlFindFile(const char *name)
 {
-  char buffer[4096];
-  char path[2048];
+	char buffer[4096];
+	char path[2048];
 
-#ifdef _WIN32
-#define PATH_SEP ";"
-#define FILE_SEP '\\'
-#define EXE_NAME "vbam.exe"
-#else // ! _WIN32
-#define PATH_SEP ":"
-#define FILE_SEP '/'
-#define EXE_NAME "vbam"
-#endif // ! _WIN32
+	#define PATH_SEP ":"
+	#define FILE_SEP '/'
+	#define EXE_NAME "vbam"
 
   fprintf(stdout, "Searching for file %s\n", name);
 
@@ -358,56 +247,6 @@ FILE *sdlFindFile(const char *name)
       return f;
   }
 
-#ifdef _WIN32
-  char *home = getenv("USERPROFILE");
-  if(home != NULL) {
-    fprintf(stdout, "Searching user profile directory: %s\n", home);
-    sprintf(path, "%s%c%s", home, FILE_SEP, name);
-    f = fopen(path, "r");
-    if(f != NULL)
-      return f;
-  }
-
-  if (!strchr(home, '/') &&
-	  !strchr(home, '\\')) {
-    char *path = getenv("PATH");
-
-    if(path != NULL) {
-      fprintf(stdout, "Searching PATH\n");
-      strncpy(buffer, path, 4096);
-      buffer[4095] = 0;
-      char *tok = strtok(buffer, PATH_SEP);
-
-      while(tok) {
-        sprintf(path, "%s%c%s", tok, FILE_SEP, EXE_NAME);
-        f = fopen(path, "r");
-        if(f != NULL) {
-          char path2[2048];
-          fclose(f);
-          sprintf(path2, "%s%c%s", tok, FILE_SEP, name);
-          f = fopen(path2, "r");
-          if(f != NULL) {
-            fprintf(stdout, "Found at %s\n", path2);
-            return f;
-          }
-        }
-        tok = strtok(NULL, PATH_SEP);
-      }
-    }
-  } else {
-    // executable is relative to some directory
-    fprintf(stdout, "Searching executable directory\n");
-	strcpy(buffer, home);
-    char *p = strrchr(buffer, FILE_SEP);
-    if(p) {
-      *p = 0;
-      sprintf(path, "%s%c%s", buffer, FILE_SEP, name);
-      f = fopen(path, "r");
-      if(f != NULL)
-        return f;
-    }
-  }
-#else // ! _WIN32
   fprintf(stdout, "Searching data directory: %s\n", PKGDATADIR);
   sprintf(path, "%s%c%s", PKGDATADIR, FILE_SEP, name);
   f = fopen(path, "r");
@@ -419,67 +258,9 @@ FILE *sdlFindFile(const char *name)
   f = fopen(path, "r");
   if(f != NULL)
     return f;*/
-#endif // ! _WIN32
 
   return NULL;
 }
-
-#ifdef OPENGL_ENABLED
-void sdlOpenGLInit(int w, int h)
-{
-  float screenAspect = (float) sizeX / sizeY,
-        windowAspect = (float) w / h;
-
-  if(glIsTexture(screenTexture))
-  glDeleteTextures(1, &screenTexture);
-
-  glDisable(GL_CULL_FACE);
-  glEnable(GL_TEXTURE_2D);
-
-  if(windowAspect == screenAspect)
-    glViewport(0, 0, w, h);
-  else if (windowAspect < screenAspect) {
-    int height = (int)(w / screenAspect);
-    glViewport(0, (h - height) / 2, w, height);
-  } else {
-    int width = (int)(h * screenAspect);
-    glViewport((w - width) / 2, 0, width, h);
-  }
-
-  glMatrixMode(GL_PROJECTION);
-  glLoadIdentity();
-
-  glOrtho(0.0, 1.0, 1.0, 0.0, 0.0, 1.0);
-
-  glMatrixMode(GL_MODELVIEW);
-  glLoadIdentity();
-
-  glGenTextures(1, &screenTexture);
-  glBindTexture(GL_TEXTURE_2D, screenTexture);
-
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,
-                  openGL == 2 ? GL_LINEAR : GL_NEAREST);
-  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,
-                  openGL == 2 ? GL_LINEAR : GL_NEAREST);
-
-  // Calculate texture size as a the smallest working power of two
-  float n1 = log10((float)destWidth ) / log10( 2.0f);
-  float n2 = log10((float)destHeight ) / log10( 2.0f);
-  float n = (n1 > n2)? n1 : n2;
-
-    // round up
-  if (((float)((int)n)) != n)
-    n = ((float)((int)n)) + 1.0f;
-
-  textureSize = (int)pow(2.0f, n);
-
-  glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureSize, textureSize, 0,
-               GL_BGRA, GL_UNSIGNED_BYTE, NULL);
-
-  glClearColor(0.0,0.0,0.0,1.0);
-  glClear( GL_COLOR_BUFFER_BIT );
-}
-#endif
 
 static void sdlApplyPerImagePreferences()
 {
@@ -733,138 +514,54 @@ void sdlReadDesktopVideoMode() {
   desktopHeight = vInfo->current_h;
 }
 
+SDL_Surface* real_video;
+
 void sdlInitVideo() {
-  int flags;
-  int screenWidth;
-  int screenHeight;
-#ifndef NO_FILTERS
-  filter_enlarge = getFilterEnlargeFactor(filter);
-#else
-	filter_enlarge = 1;
-#endif
-  destWidth = filter_enlarge * sizeX;
-  destHeight = filter_enlarge * sizeY;
+	int screenWidth;
+	int screenHeight;
+	uint32_t rmask, gmask, bmask;
+	
+	destWidth = sizeX;
+	destHeight = sizeY;
 
-  flags = SDL_ANYFORMAT | (fullScreen ? SDL_FULLSCREEN : 0);
-  if(openGL) {
-    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1);
-    flags |= SDL_OPENGL | SDL_RESIZABLE;
-  } else
-    flags |= SDL_HWSURFACE | SDL_DOUBLEBUF;
-
-  if (fullScreen && openGL) {
-    screenWidth = desktopWidth;
-    screenHeight = desktopHeight;
-  } else {
-    screenWidth = destWidth;
+	screenWidth = destWidth;
     screenHeight = destHeight;
-  }
 
-  surface = SDL_SetVideoMode(241, 162, 16, flags);
-  /*surface = SDL_SetVideoMode(screenWidth, screenHeight, 16, flags);*/
-  
-  if(surface == NULL) {
-    systemMessage(0, "Failed to set video mode");
-    SDL_Quit();
-    exit(-1);
-  }
+	real_video = SDL_SetVideoMode(0, 0, 16, SDL_HWSURFACE);
+	
+	SDL_FillRect(real_video, NULL, 0);
+	SDL_Flip(real_video);
+	
+	if (real_video == NULL) 
+	{
+		systemMessage(0, "Failed to set video mode");
+		SDL_Quit();
+		exit(-1);
+	}
+	
+	rmask = real_video->format->Rmask;
+	gmask = real_video->format->Gmask;
+	bmask = real_video->format->Bmask;
+	systemRedShift = sdlCalculateShift(rmask);
+	systemGreenShift = sdlCalculateShift(gmask);
+	systemBlueShift = sdlCalculateShift(bmask);
 
-  uint32_t rmask, gmask, bmask;
+	systemColorDepth = real_video->format->BitsPerPixel;
 
-  if(openGL) {
-    #if SDL_BYTEORDER == SDL_LIL_ENDIAN /* OpenGL RGBA masks */
-      rmask = 0x000000FF;
-      gmask = 0x0000FF00;
-      bmask = 0x00FF0000;
-    #else
-      rmask = 0xFF000000;
-      gmask = 0x00FF0000;
-      bmask = 0x0000FF00;
-    #endif
-  } else {
-      rmask = surface->format->Rmask;
-      gmask = surface->format->Gmask;
-      bmask = surface->format->Bmask;
-  }
-
-  systemRedShift = sdlCalculateShift(rmask);
-  systemGreenShift = sdlCalculateShift(gmask);
-  systemBlueShift = sdlCalculateShift(bmask);
-
-  if(openGL) {
-      // Align to BGRA instead of ABGR
-      systemRedShift += 8;
-      systemGreenShift += 8;
-      systemBlueShift += 8;
-  }
-
-  systemColorDepth = surface->format->BitsPerPixel;
-
-  if(systemColorDepth == 16) {
-    srcPitch = sizeX*2 + 4;
-  } else {
-    if(systemColorDepth == 32)
-      srcPitch = sizeX*4 + 4;
-    else
-      srcPitch = sizeX*3;
-  }
-
-#ifdef OPENGL_ENABLED
-  if(openGL) {
-    int scaledWidth = screenWidth * sdlOpenglScale;
-    int scaledHeight = screenHeight * sdlOpenglScale;
-
-    free(filterPix);
-    filterPix = (uint8_t *)calloc(1, (systemColorDepth >> 3) * destWidth * destHeight);
-    sdlOpenGLInit(screenWidth, screenHeight);
-
-    if (	(!fullScreen)
-	&&	sdlOpenglScale	> 1
-	&&	scaledWidth	< desktopWidth
-	&&	scaledHeight	< desktopHeight
-    ) {
-        /*SDL_SetVideoMode(scaledWidth, scaledHeight, 0,
-                       SDL_OPENGL | SDL_RESIZABLE |
-                       (fullScreen ? SDL_FULLSCREEN : 0));*/
-        sdlOpenGLInit(scaledWidth, scaledHeight);
-	/* xKiv: it would seem that SDL_RESIZABLE causes the *previous* dimensions to be immediately
-	 * reported back via the SDL_VIDEORESIZE event
-	 */
-	ignore_first_resize_event	= 1;
-    }
-  }
-#endif
+	if(systemColorDepth == 16) {
+	srcPitch = sizeX*2 + 4;
+	} else {
+		if(systemColorDepth == 32)
+			srcPitch = sizeX*4 + 4;
+		else
+		srcPitch = sizeX*3;
+	}
 }
 
 #define MOD_KEYS    (KMOD_CTRL|KMOD_SHIFT|KMOD_ALT|KMOD_META)
 #define MOD_NOCTRL  (KMOD_SHIFT|KMOD_ALT|KMOD_META)
 #define MOD_NOALT   (KMOD_CTRL|KMOD_SHIFT|KMOD_META)
 #define MOD_NOSHIFT (KMOD_CTRL|KMOD_ALT|KMOD_META)
-
-
-/*
- * 04.02.2008 (xKiv): factored out from sdlPollEvents
- *
- */
-void change_rewind(int howmuch)
-{
-	if(	emulating && emulator.emuReadMemState && rewindMemory
-	&&	rewindCount
-	) {
-		rewindPos = (rewindPos + rewindCount + howmuch) % rewindCount;
-		emulator.emuReadMemState(
-				&rewindMemory[REWIND_SIZE*rewindPos],
-				REWIND_SIZE
-		);
-		rewindCounter = 0;
-		{
-			char rewindMsgBuffer[50];
-			sprintf(rewindMsgBuffer, "Rewind to %1d [%d]", rewindPos+1, rewindSerials[rewindPos]);
-			rewindMsgBuffer[49]	= 0;
-			systemConsoleMessage(rewindMsgBuffer);
-		}
-	}
-}
 
 /*
  * handle the F* keys (for savestates)
@@ -974,49 +671,6 @@ void sdlPollEvents()
     case SDL_QUIT:
       emulating = 0;
       break;
-    case SDL_VIDEORESIZE:
-      if (ignore_first_resize_event)
-      {
-	      ignore_first_resize_event	= 0;
-	      break;
-      }
-      #ifdef OPENGL_ENABLED
-      if (openGL)
-      {
-        /*SDL_SetVideoMode(event.resize.w, event.resize.h, 0,
-                       SDL_OPENGL | SDL_RESIZABLE |
-					   (fullScreen ? SDL_FULLSCREEN : 0));*/
-        sdlOpenGLInit(event.resize.w, event.resize.h);
-      }
-      #endif
-      break;
-    case SDL_ACTIVEEVENT:
-      if(pauseWhenInactive && (event.active.state & SDL_APPINPUTFOCUS)) {
-        active = event.active.gain;
-        if(active) {
-          if(!paused) {
-            if(emulating)
-              soundResume();
-          }
-        } else {
-          wasPaused = true;
-          if(pauseWhenInactive) {
-            if(emulating)
-              soundPause();
-          }
-
-          memset(delta,255,delta_size);
-        }
-      }
-      break;
-    case SDL_MOUSEMOTION:
-    case SDL_MOUSEBUTTONUP:
-    case SDL_MOUSEBUTTONDOWN:
-      if(fullScreen) {
-        SDL_ShowCursor(SDL_ENABLE);
-        mouseCounter = 120;
-      }
-      break;
     case SDL_JOYHATMOTION:
     case SDL_JOYBUTTONDOWN:
     case SDL_JOYBUTTONUP:
@@ -1036,34 +690,6 @@ void sdlPollEvents()
           }
         }
         break;
-      case SDLK_b:
-        if(!(event.key.keysym.mod & MOD_NOCTRL) &&
-           (event.key.keysym.mod & KMOD_CTRL))
-		change_rewind(-1);
-	break;
-      case SDLK_v:
-        if(!(event.key.keysym.mod & MOD_NOCTRL) &&
-           (event.key.keysym.mod & KMOD_CTRL))
-		change_rewind(+1);
-	break;
-      case SDLK_h:
-        if(!(event.key.keysym.mod & MOD_NOCTRL) &&
-           (event.key.keysym.mod & KMOD_CTRL))
-		change_rewind(0);
-	break;
-      case SDLK_j:
-        if(!(event.key.keysym.mod & MOD_NOCTRL) &&
-           (event.key.keysym.mod & KMOD_CTRL))
-		change_rewind( (rewindTopPos - rewindPos) * ((rewindTopPos>rewindPos) ? +1:-1) );
-	break;
-      case SDLK_e:
-        if(!(event.key.keysym.mod & MOD_NOCTRL) &&
-           (event.key.keysym.mod & KMOD_CTRL)) {
-		cheatsEnabled = !cheatsEnabled;
-		systemConsoleMessage(cheatsEnabled?"Cheats on":"Cheats off");
-	}
-	break;
-
       case SDLK_s:
         if(!(event.key.keysym.mod & MOD_NOCTRL) &&
            (event.key.keysym.mod & KMOD_CTRL)
@@ -1089,46 +715,6 @@ void sdlPollEvents()
       case SDLK_KP_MULTIPLY:
         sdlChangeVolume(0.1);
         break;
-      case SDLK_KP_MINUS:
-        if (gb_effects_config.stereo > 0.0) {
-          gb_effects_config.stereo = 0.0;
-          if (gb_effects_config.echo == 0.0 && !gb_effects_config.surround) {
-            gb_effects_config.enabled = 0;
-          }
-          systemScreenMessage("Stereo off");
-        } else {
-          gb_effects_config.stereo = SOUND_STEREO;
-          gb_effects_config.enabled = true;
-          systemScreenMessage("Stereo on");
-        }
-        break;
-      case SDLK_KP_PLUS:
-        if (gb_effects_config.echo > 0.0) {
-          gb_effects_config.echo = 0.0;
-          if (gb_effects_config.stereo == 0.0 && !gb_effects_config.surround) {
-            gb_effects_config.enabled = false;
-          }
-          systemScreenMessage("Echo off");
-        } else {
-          gb_effects_config.echo = SOUND_ECHO;
-          gb_effects_config.enabled = true;
-          systemScreenMessage("Echo on");
-        }
-        break;
-      case SDLK_KP_ENTER:
-        if (gb_effects_config.surround) {
-          gb_effects_config.surround = false;
-          if (gb_effects_config.stereo == 0.0 && gb_effects_config.echo == 0.0) {
-            gb_effects_config.enabled = false;
-          }
-          systemScreenMessage("Surround off");
-        } else {
-          gb_effects_config.surround =true;
-          gb_effects_config.enabled = true;
-          systemScreenMessage("Surround on");
-        }
-        break;
-
       case SDLK_p:
         if(!(event.key.keysym.mod & MOD_NOCTRL) &&
            (event.key.keysym.mod & KMOD_CTRL)) {
@@ -1139,7 +725,8 @@ void sdlPollEvents()
 	  systemConsoleMessage(paused?"Pause on":"Pause off");
         }
         break;
-      case SDLK_ESCAPE:
+      case SDLK_3:
+	  case SDLK_END:
         emulating = 0;
         break;
       case SDLK_f:
@@ -1148,22 +735,6 @@ void sdlPollEvents()
           fullScreen = !fullScreen;
           sdlInitVideo();
         }
-        break;
-      case SDLK_g:
-      #ifndef NO_FILTERS
-        if(!(event.key.keysym.mod & MOD_NOCTRL) &&
-           (event.key.keysym.mod & KMOD_CTRL)) {
-		      filterFunction = 0;
-		      while (!filterFunction)
-		      {
-			      filter = (Filter)((filter + 1) % kInvalidFilter);
-		        filterFunction = initFilter(filter, systemColorDepth, sizeX);
-		      }
-		      if (getFilterEnlargeFactor(filter) != filter_enlarge)
-		        sdlInitVideo();
-		      systemScreenMessage(getFilterName(filter));
-        }
-		#endif
         break;
       case SDLK_F11:
           if(armState) {
@@ -1206,7 +777,7 @@ void sdlPollEvents()
         break;
       case SDLK_1:
       case SDLK_2:
-      case SDLK_3:
+      //case SDLK_3:
       case SDLK_4:
         if(!(event.key.keysym.mod & MOD_NOALT) &&
            (event.key.keysym.mod & KMOD_ALT)) {
@@ -1272,102 +843,6 @@ void sdlPollEvents()
   }
 }
 
-#if WITH_LIRC
-void lircCheckInput(void)
-{
-  if(LIRCEnabled) {
-    //setup a poll (poll.h)
-    struct pollfd pollLIRC;
-    //values fd is the pointer gotten from lircinit and events is what way
-    pollLIRC.fd = LIRCfd;
-    pollLIRC.events = POLLIN;
-    //run the poll
-    if( poll( &pollLIRC, 1, 0 ) > 0 ) {
-      //poll retrieved something
-      char *CodeLIRC;
-      char *CmdLIRC;
-      int ret; //dunno???
-      if( lirc_nextcode(&CodeLIRC) == 0 && CodeLIRC != NULL ) {
-        //retrieve the commands
-        while( ( ret = lirc_code2char( LIRCConfigInfo, CodeLIRC, &CmdLIRC ) ) == 0 && CmdLIRC != NULL ) {
-          //change the text to uppercase
-          char *CmdLIRC_Pointer = CmdLIRC;
-          while(*CmdLIRC_Pointer != '\0') {
-            *CmdLIRC_Pointer = toupper(*CmdLIRC_Pointer);
-            CmdLIRC_Pointer++;
-          }
-
-          if( strcmp( CmdLIRC, "QUIT" ) == 0 ) {
-            emulating = 0;
-          } else if( strcmp( CmdLIRC, "PAUSE" ) == 0 ) {
-            paused = !paused;
-            SDL_PauseAudio(paused);
-            if(paused) wasPaused = true;
-            systemConsoleMessage( paused?"Pause on":"Pause off" );
-            systemScreenMessage( paused?"Pause on":"Pause off" );
-          } else if( strcmp( CmdLIRC, "RESET" ) == 0 ) {
-            if(emulating) {
-              emulator.emuReset();
-              systemScreenMessage("Reset");
-            }
-         } else if( strcmp( CmdLIRC, "MUTE" ) == 0 ) {
-            if (sdlSoundToggledOff) { // was off
-              // restore saved state
-              soundSetEnable( sdlSoundToggledOff );
-              sdlSoundToggledOff = 0;
-              systemConsoleMessage("Sound toggled on");
-            } else { // was on
-              sdlSoundToggledOff = soundGetEnable();
-              soundSetEnable( 0 );
-              systemConsoleMessage("Sound toggled off");
-              if (!sdlSoundToggledOff) {
-                sdlSoundToggledOff = 0x3ff;
-              }
-            }
-          } else if( strcmp( CmdLIRC, "VOLUP" ) == 0 ) {
-            sdlChangeVolume(0.1);
-          } else if( strcmp( CmdLIRC, "VOLDOWN" ) == 0 ) {
-            sdlChangeVolume(-0.1);
-          } else if( strcmp( CmdLIRC, "LOADSTATE" ) == 0 ) {
-            sdlReadState(saveSlotPosition);
-          } else if( strcmp( CmdLIRC, "SAVESTATE" ) == 0 ) {
-            sdlWriteState(saveSlotPosition);
-          } else if( strcmp( CmdLIRC, "1" ) == 0 ) {
-            saveSlotPosition = 0;
-            systemScreenMessage("Selected State 1");
-          } else if( strcmp( CmdLIRC, "2" ) == 0 ) {
-            saveSlotPosition = 1;
-            systemScreenMessage("Selected State 2");
-          } else if( strcmp( CmdLIRC, "3" ) == 0 ) {
-            saveSlotPosition = 2;
-            systemScreenMessage("Selected State 3");
-          } else if( strcmp( CmdLIRC, "4" ) == 0 ) {
-            saveSlotPosition = 3;
-            systemScreenMessage("Selected State 4");
-          } else if( strcmp( CmdLIRC, "5" ) == 0 ) {
-            saveSlotPosition = 4;
-            systemScreenMessage("Selected State 5");
-          } else if( strcmp( CmdLIRC, "6" ) == 0 ) {
-            saveSlotPosition = 5;
-           systemScreenMessage("Selected State 6");
-          } else if( strcmp( CmdLIRC, "7" ) == 0 ) {
-           saveSlotPosition = 6;
-            systemScreenMessage("Selected State 7");
-          } else if( strcmp( CmdLIRC, "8" ) == 0 ) {
-            saveSlotPosition = 7;
-            systemScreenMessage("Selected State 8");
-          } else {
-            //do nothing
-          }
-        }
-        //we dont need this code nomore
-        free(CodeLIRC);
-      }
-    }
-  }
-}
-#endif
-
 void usage(char *cmd)
 {
   printf("%s [option ...] file\n", cmd);
@@ -1385,10 +860,6 @@ Options:\n\
                                 pipe     - use pipe transport\n\
   -I, --ifb-filter=FILTER      Select interframe blending filter:\n\
 ");
-	#ifndef NO_FILTERS
-  for (int i  = 0; i < (int)kInvalidIFBFilter; i++)
-	  printf("                                %d - %s\n", i, getIFBFilterName((IFBFilter)i));
-	 #endif
   printf("\
   -N, --no-debug               Don't parse debug information\n\
   -S, --flash-size=SIZE        Set the Flash size\n\
@@ -1399,10 +870,6 @@ Options:\n\
   -c, --config=FILE            Read the given configuration file\n\
   -f, --filter=FILTER          Select filter:\n\
 ");
-	#ifndef NO_FILTERS
-  for (int i  = 0; i < (int)kInvalidFilter; i++)
-	  printf("                                %d - %s\n", i, getFilterName((Filter)i));
-	 #endif
   printf("\
   -h, --help                   Print this help\n\
   -i, --patch=PATCH            Apply given patch\n\
@@ -1445,46 +912,6 @@ Long options only:\n\
 ");
 }
 
-/*
- * 04.02.2008 (xKiv) factored out, reformatted, more usefuler rewinds browsing scheme
- */
-void handleRewinds()
-{
-	int curSavePos; // where we are saving today [1]
-
-	rewindCount++;  // how many rewinds will be stored after this store
-	if(rewindCount > REWIND_NUM)
-		rewindCount = REWIND_NUM;
-
-	curSavePos	= (rewindTopPos + 1) % rewindCount; // [1] depends on previous
-	long resize;
-	if(
-			emulator.emuWriteMemState
-		&&
-			emulator.emuWriteMemState(
-				&rewindMemory[curSavePos*REWIND_SIZE],
-				REWIND_SIZE, /* available*/
-				resize /* actual size */
-			)
-	) {
-		char rewMsgBuf[100];
-		sprintf(rewMsgBuf, "Remembered rewind %1d (of %1d), serial %d.", curSavePos+1, rewindCount, rewindSerial);
-		rewMsgBuf[99]	= 0;
-		systemConsoleMessage(rewMsgBuf);
-		rewindSerials[curSavePos]	= rewindSerial;
-
-		// set up next rewind save
-		// - don't clobber the current rewind position, unless it is the original top
-		if (rewindPos == rewindTopPos) {
-			rewindPos = curSavePos;
-		}
-		// - new identification and top
-		rewindSerial++;
-		rewindTopPos = curSavePos;
-		// for the rest of the code, rewindTopPos will be where the newest rewind got stored
-	}
-}
-
 int main(int argc, char **argv)
 {
 #ifndef FINAL_BUILD
@@ -1497,14 +924,8 @@ int main(int argc, char **argv)
   SetHome(home);
 
   frameSkip = 2;
-  gbBorderOn = 0;
 
   parseDebug = true;
-
-  gb_effects_config.stereo = 0.0;
-  gb_effects_config.echo = 0.0;
-  gb_effects_config.surround = false;
-  gb_effects_config.enabled = false;
 
   inputSetKeymap(PAD_1, KEY_LEFT, ReadPrefHex("Joy0_Left"));
   inputSetKeymap(PAD_1, KEY_RIGHT, ReadPrefHex("Joy0_Right"));
@@ -1518,50 +939,6 @@ int main(int argc, char **argv)
   inputSetKeymap(PAD_1, KEY_BUTTON_SELECT, ReadPrefHex("Joy0_Select"));
   inputSetKeymap(PAD_1, KEY_BUTTON_SPEED, ReadPrefHex("Joy0_Speed"));
   inputSetKeymap(PAD_1, KEY_BUTTON_CAPTURE, ReadPrefHex("Joy0_Capture"));
-  inputSetKeymap(PAD_2, KEY_LEFT, ReadPrefHex("Joy1_Left"));
-  inputSetKeymap(PAD_2, KEY_RIGHT, ReadPrefHex("Joy1_Right"));
-  inputSetKeymap(PAD_2, KEY_UP, ReadPrefHex("Joy1_Up"));
-  inputSetKeymap(PAD_2, KEY_DOWN, ReadPrefHex("Joy1_Down"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_A, ReadPrefHex("Joy1_A"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_B, ReadPrefHex("Joy1_B"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_L, ReadPrefHex("Joy1_L"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_R, ReadPrefHex("Joy1_R"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_START, ReadPrefHex("Joy1_Start"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_SELECT, ReadPrefHex("Joy1_Select"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_SPEED, ReadPrefHex("Joy1_Speed"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_CAPTURE, ReadPrefHex("Joy1_Capture"));
-  inputSetKeymap(PAD_3, KEY_LEFT, ReadPrefHex("Joy2_Left"));
-  inputSetKeymap(PAD_3, KEY_RIGHT, ReadPrefHex("Joy2_Right"));
-  inputSetKeymap(PAD_3, KEY_UP, ReadPrefHex("Joy2_Up"));
-  inputSetKeymap(PAD_3, KEY_DOWN, ReadPrefHex("Joy2_Down"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_A, ReadPrefHex("Joy2_A"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_B, ReadPrefHex("Joy2_B"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_L, ReadPrefHex("Joy2_L"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_R, ReadPrefHex("Joy2_R"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_START, ReadPrefHex("Joy2_Start"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_SELECT, ReadPrefHex("Joy2_Select"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_SPEED, ReadPrefHex("Joy2_Speed"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_CAPTURE, ReadPrefHex("Joy2_Capture"));
-  inputSetKeymap(PAD_4, KEY_LEFT, ReadPrefHex("Joy3_Left"));
-  inputSetKeymap(PAD_4, KEY_RIGHT, ReadPrefHex("Joy3_Right"));
-  inputSetKeymap(PAD_4, KEY_UP, ReadPrefHex("Joy3_Up"));
-  inputSetKeymap(PAD_4, KEY_DOWN, ReadPrefHex("Joy3_Down"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_A, ReadPrefHex("Joy3_A"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_B, ReadPrefHex("Joy3_B"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_L, ReadPrefHex("Joy3_L"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_R, ReadPrefHex("Joy3_R"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_START, ReadPrefHex("Joy3_Start"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_SELECT, ReadPrefHex("Joy3_Select"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_SPEED, ReadPrefHex("Joy3_Speed"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_CAPTURE, ReadPrefHex("Joy3_Capture"));
-  inputSetKeymap(PAD_1, KEY_BUTTON_AUTO_A, ReadPrefHex("Joy0_AutoA"));
-  inputSetKeymap(PAD_1, KEY_BUTTON_AUTO_B, ReadPrefHex("Joy0_AutoB"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_AUTO_A, ReadPrefHex("Joy1_AutoA"));
-  inputSetKeymap(PAD_2, KEY_BUTTON_AUTO_B, ReadPrefHex("Joy1_AutoB"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_AUTO_A, ReadPrefHex("Joy2_AutoA"));
-  inputSetKeymap(PAD_3, KEY_BUTTON_AUTO_B, ReadPrefHex("Joy2_AutoB"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_AUTO_A, ReadPrefHex("Joy3_AutoA"));
-  inputSetKeymap(PAD_4, KEY_BUTTON_AUTO_B, ReadPrefHex("Joy3_AutoB"));
   inputSetMotionKeymap(KEY_LEFT, ReadPrefHex("Motion_Left"));
   inputSetMotionKeymap(KEY_RIGHT, ReadPrefHex("Motion_Right"));
   inputSetMotionKeymap(KEY_UP, ReadPrefHex("Motion_Up"));
@@ -1569,20 +946,16 @@ int main(int argc, char **argv)
 
   LoadConfig(); // Parse command line arguments (overrides ini)
   ReadOpts(argc, argv);
-
-  sdlCheckDirectory(screenShotDir);
-  sdlCheckDirectory(saveDir);
-  sdlCheckDirectory(batteryDir);
+  
+  Create_Config_Folder();
 
   sdlSaveKeysSwitch = (ReadPrefHex("saveKeysSwitch"));
   sdlOpenglScale = (ReadPrefHex("openGLscale"));
-
 
   if(optPrintUsage) {
     usage(argv[0]);
     exit(-1);
   }
-
 
   if(optind < argc) {
     char *szFile = argv[optind];
@@ -1625,45 +998,20 @@ int main(int argc, char **argv)
       systemMessage(0, "Unknown file type %s", szFile);
       exit(-1);
     }
-    cartridgeType = (int)type;
 
-    if(type == IMAGE_GB) {
-      failed = !gbLoadRom(szFile);
-      if(!failed) {
-        gbGetHardwareType();
-
-        // used for the handling of the gb Boot Rom
-        if (gbHardware & 7)
-          gbCPUInit(biosFileNameGB, useBios);
-
-        cartridgeType = IMAGE_GB;
-        emulator = GBSystem;
-        int size = gbRomSize, patchnum;
-        for (patchnum = 0; patchnum < patchNum; patchnum++) {
-          fprintf(stdout, "Trying patch %s%s\n", patchNames[patchnum],
-            applyPatch(patchNames[patchnum], &gbRom, &size) ? " [success]" : "");
-        }
-        if(size != gbRomSize) {
-          extern bool gbUpdateSizes();
-          gbUpdateSizes();
-          gbReset();
-        }
-        gbReset();
-      }
-    } else if(type == IMAGE_GBA) {
-      int size = CPULoadRom(szFile);
-      failed = (size == 0);
-      if(!failed) {
-		  if (cpuSaveType == 0)
-			  utilGBAFindSave(size);
-		  else
-			  saveType = cpuSaveType;
+	int size = CPULoadRom(szFile);
+	failed = (size == 0);
+	if(!failed) 
+	{
+		if (cpuSaveType == 0)
+			utilGBAFindSave(size);
+		else
+			saveType = cpuSaveType;
 
         sdlApplyPerImagePreferences();
 
         doMirroring(mirroringEnable);
 
-        cartridgeType = 0;
         emulator = GBASystem;
 
         CPUInit(biosFileNameGBA, useBios);
@@ -1673,8 +1021,7 @@ int main(int argc, char **argv)
             applyPatch(patchNames[patchnum], &rom, &size) ? " [success]" : "");
         }
         CPUReset();
-      }
-    }
+	}
 
     if(failed) {
       systemMessage(0, "Failed to load file %s", szFile);
@@ -1682,7 +1029,6 @@ int main(int argc, char **argv)
     }
   } else {
     soundInit();
-    cartridgeType = 0;
     strcpy(filename, "gnu_stub");
     rom = (uint8_t *)malloc(0x2000000);
     workRAM = (uint8_t *)calloc(1, 0x40000);
@@ -1691,7 +1037,7 @@ int main(int argc, char **argv)
     paletteRAM = (uint8_t *)calloc(1,0x400);
     vram = (uint8_t *)calloc(1, 0x20000);
     oam = (uint8_t *)calloc(1, 0x400);
-    pix = (uint8_t *)calloc(1, 4 * 241 * 162);
+    pix = (uint8_t *)calloc(1, 2 * 240 * 160);
     ioMem = (uint8_t *)calloc(1, 0x400);
 
     emulator = GBASystem;
@@ -1703,8 +1049,7 @@ int main(int argc, char **argv)
   sdlReadBattery();
 
 
-  int flags = SDL_INIT_VIDEO|SDL_INIT_AUDIO|
-    SDL_INIT_TIMER|SDL_INIT_NOPARACHUTE;
+  int flags = SDL_INIT_VIDEO|SDL_INIT_AUDIO;
 
   if(SDL_Init(flags)) {
     systemMessage(0, "Failed to init SDL: %s", SDL_GetError());
@@ -1715,50 +1060,18 @@ int main(int argc, char **argv)
     systemMessage(0, "Failed to init joystick support: %s", SDL_GetError());
   }
 
-#if WITH_LIRC
-  StartLirc();
-#endif
   inputInitJoysticks();
 
-  if (cartridgeType == IMAGE_GBA) {
-    sizeX = 240;
-    sizeY = 160;
-    systemFrameSkip = frameSkip;
-  }
-  else if (cartridgeType == IMAGE_GB) {
-    if(gbBorderOn) {
-      sizeX = 256;
-      sizeY = 224;
-      gbBorderLineSkip = 256;
-      gbBorderColumnSkip = 48;
-      gbBorderRowSkip = 40;
-    } else {
-      sizeX = 160;
-      sizeY = 144;
-      gbBorderLineSkip = 160;
-      gbBorderColumnSkip = 0;
-      gbBorderRowSkip = 0;
-    }
-    systemFrameSkip = gbFrameSkip;
-  } else {
-    sizeX = 320;
-    sizeY = 240;
-  }
+	sizeX = 240;
+	sizeY = 160;
+	systemFrameSkip = frameSkip;
 
-  sdlReadDesktopVideoMode();
+	sdlReadDesktopVideoMode();
 
-  sdlInitVideo();
+	sdlInitVideo();
 
-  #ifndef NO_FILTERS
-  filterFunction = initFilter(filter, systemColorDepth, sizeX);
-  if (!filterFunction) {
-    fprintf(stderr,"Unable to init filter '%s'\n", getFilterName(filter));
-    exit(-1);
-  }
-  #endif
-
-  if(systemColorDepth == 15)
-    systemColorDepth = 16;
+	if(systemColorDepth == 15)
+		systemColorDepth = 16;
 
   if(systemColorDepth != 16 && systemColorDepth != 24 &&
      systemColorDepth != 32) {
@@ -1767,17 +1080,8 @@ int main(int argc, char **argv)
   }
 
   fprintf(stdout,"Color depth: %d\n", systemColorDepth);
-
+  
   utilUpdateSystemColorMaps();
-
-  if(delta == NULL) {
-    delta = (uint8_t*)malloc(delta_size);
-    memset(delta, 255, delta_size);
-  }
-
-  #ifndef NO_FILTERS
-  ifbFunction = initIFBFilter(ifbType, systemColorDepth);
-  #endif
 
   emulating = 1;
   renderedFrames = 0;
@@ -1786,82 +1090,31 @@ int main(int argc, char **argv)
 
   SDL_WM_SetCaption("VBA-M", NULL);
 
-  // now we can enable cheats?
-  {
-	int i;
-	for (i=0; i<preparedCheats; i++) {
-		const char *p;
-		int	l;
-		p	= preparedCheatCodes[i];
-		l	= strlen(p);
-		if (l == 17 && p[8] == ':') {
-			fprintf(stdout,"Adding cheat code %s\n", p);
-			cheatsAddCheatCode(p, p);
-		} else if (l == 13 && p[8] == ' ') {
-			fprintf(stdout,"Adding CBA cheat code %s\n", p);
-			cheatsAddCBACode(p, p);
-		} else if (l == 8) {
-			fprintf(stdout,"Adding GB(GS) cheat code %s\n", p);
-			gbAddGsCheat(p, p);
-		} else {
-			fprintf(stderr,"Unknown format for cheat code %s\n", p);
-		}
-	}
-  }
-
-
   while(emulating) 
   {
-    if(!paused && active) 
-    {
-        emulator.emuMain(emulator.emuCount);
-        if(rewindSaveNeeded && rewindMemory && emulator.emuWriteMemState) {
-		handleRewinds();
-        }
-
-        rewindSaveNeeded = false;
-	}
+    emulator.emuMain(emulator.emuCount);
     sdlPollEvents();
-    #if WITH_LIRC
-   lircCheckInput();
-   #endif
-    if(mouseCounter) {
-      mouseCounter--;
-      if(mouseCounter == 0)
-        SDL_ShowCursor(SDL_DISABLE);
-    }
   }
 
   emulating = 0;
   fprintf(stdout,"Shutting down\n");
   soundShutdown();
 
-  if(gbRom != NULL || rom != NULL) {
+  if(rom != NULL) {
     sdlWriteBattery();
     emulator.emuCleanUp();
   }
 
-  if(delta) {
-    free(delta);
-    delta = NULL;
-  }
-#ifndef NO_FILTERS
-  if(filterPix) {
-    free(filterPix);
-    filterPix = NULL;
- }
-#endif
   for (int i = 0; i < patchNum; i++) {
     free(patchNames[i]);
   }
 
-#if WITH_LIRC
-  StopLirc();
-#endif
-
   SaveConfigFile();
   CloseConfig();
+  Free_config();
+  SDL_FreeSurface(real_video);
   SDL_Quit();
+  
   return 0;
 }
 
@@ -1878,9 +1131,6 @@ void systemMessage(int num, const char *msg, ...)
 void drawScreenMessage(uint8_t *screen, int pitch, int x, int y, unsigned int duration)
 {
   if(screenMessage) {
-    if(cartridgeType == 1 && gbBorderOn) {
-      gbSgbRenderBorder();
-    }
     if(((systemGetClock() - screenMessageTime) < duration) &&
        !disableStatusMessages) {
       drawText(screen, pitch, x, y,
@@ -1904,76 +1154,56 @@ void drawSpeed(uint8_t *screen, int pitch, int x, int y)
   drawText(screen, pitch, x, y, buffer, showSpeedTransparent);
 }
 
+static void bitmap_scale(uint32_t startx, uint32_t starty, uint32_t viswidth, uint32_t visheight, uint32_t newwidth, uint32_t newheight,uint32_t pitchsrc,uint32_t pitchdest, uint16_t* src, uint16_t* dst)
+{
+    uint32_t W,H,ix,iy,x,y;
+    x=startx<<16;
+    y=starty<<16;
+    W=newwidth;
+    H=newheight;
+    ix=(viswidth<<16)/W;
+    iy=(visheight<<16)/H;
+
+    do 
+    {
+        uint16_t* buffer_mem=&src[(y>>16)*pitchsrc];
+        W=newwidth; x=startx<<16;
+        do 
+        {
+            *dst++=buffer_mem[x>>16];
+            x+=ix;
+        } while (--W);
+        dst+=pitchdest;
+        y+=iy;
+    } while (--H);
+}
+
 void systemDrawScreen()
 {
-  unsigned int destPitch = destWidth * (systemColorDepth >> 3);
-  uint8_t *screen;
-
-  renderedFrames++;
-#ifdef OPENGL_ENABLE
-  if (openGL)
-    screen = filterPix;
-  else
-#endif
-  {
-    screen = (uint8_t*)surface->pixels;
-    SDL_LockSurface(surface);
-  }
-
-  #ifndef NO_FILTERS
-  if (ifbFunction)
-    ifbFunction(pix + srcPitch, srcPitch, sizeX, sizeY);
-  #endif
-
-  #ifndef LOW_END
-  #ifndef NO_FILTERS
-  filterFunction(pix + srcPitch, srcPitch, delta, screen,
-                 destPitch, sizeX, sizeY);
-  #endif
-  
-  drawScreenMessage(screen, destPitch, 10, destHeight - 20, 3000);
-
-  if (showSpeed && fullScreen)
-    drawSpeed(screen, destPitch, 10, 20);
-  #else
-  memmove(screen, pix + srcPitch, (241*162)*4);
-  #endif
-
-#ifdef OPENGL_ENABLE
-  if (openGL) {
-    glClear( GL_COLOR_BUFFER_BIT );
-    glPixelStorei(GL_UNPACK_ROW_LENGTH, destWidth);
-    if (systemColorDepth == 16)
-      glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, destWidth, destHeight,
-                      GL_RGB, GL_UNSIGNED_SHORT_5_6_5, screen);
-    else
-      glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, destWidth, destHeight,
-                      GL_BGRA, GL_UNSIGNED_INT_8_8_8_8, screen);
-
-    glBegin(GL_TRIANGLE_STRIP);
-      glTexCoord2f(0.0f, 0.0f);
-      glVertex3i(0, 0, 0);
-      glTexCoord2f(destWidth / (GLfloat) textureSize, 0.0f);
-	  glVertex3i(1, 0, 0);
-      glTexCoord2f(0.0f, destHeight / (GLfloat) textureSize);
-	  glVertex3i(0, 1, 0);
-      glTexCoord2f(destWidth / (GLfloat) textureSize,
-                  destHeight / (GLfloat) textureSize);
-	  glVertex3i(1, 1, 0);
-    glEnd();
-    SDL_GL_SwapBuffers();
-  } else 
-#endif
-  {
-    SDL_UnlockSurface(surface);
-    SDL_Flip(surface);
-  }
-
+	uint16_t __restrict__ *src, *dst;
+	uint32_t pitch, y;
+	renderedFrames++;
+	
+	bitmap_scale(0, 0, 240, 160, real_video->w, real_video->h, 240, 0, (uint16_t*)pix, (uint16_t*)real_video->pixels);
+/*
+	pitch = 320;
+	src = (uint16_t* __restrict__)pix;
+	dst = (uint16_t* __restrict__)real_video->pixels
+		+ ((320 - 240) / 4) * sizeof(uint16_t)
+		+ ((240 - 160) / 2) * pitch;
+	for (y = 0; y < 160; y++)
+	{
+		memmove(dst, src, 240 * sizeof(uint16_t));
+		src += 240;
+		dst += pitch;
+	}
+*/
+	SDL_Flip(real_video);
 }
 
 void systemSetTitle(const char *title)
 {
-  SDL_WM_SetCaption(title, NULL);
+	SDL_WM_SetCaption(title, NULL);
 }
 
 void systemShowSpeed(int speed)
@@ -2031,13 +1261,6 @@ void system10Frames(int rate)
       }
     }
   }
-  if(rewindMemory) {
-    if(++rewindCounter >= rewindTimer) {
-      rewindSaveNeeded = true;
-      rewindCounter = 0;
-    }
-  }
-
   if(systemSaveUpdateCounter) {
     if(--systemSaveUpdateCounter <= SYSTEM_SAVE_NOT_UPDATED) {
       sdlWriteBattery();
@@ -2142,20 +1365,6 @@ bool systemPauseOnFrame()
 		return true;
 	}
 	return false;
-}
-
-void systemGbBorderOn()
-{
-	sizeX = 256;
-	sizeY = 224;
-	gbBorderLineSkip = 256;
-	gbBorderColumnSkip = 48;
-	gbBorderRowSkip = 40;
-
-	sdlInitVideo();
-	#ifndef NO_FILTERS
-	filterFunction = initFilter(filter, systemColorDepth, sizeX);
-	#endif
 }
 
 bool systemReadJoypads()

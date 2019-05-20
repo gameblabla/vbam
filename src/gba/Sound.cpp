@@ -156,8 +156,8 @@ void Gba_Pcm::update(int dac)
         blip_time_t time = blip_time();
 
         dac = (int8_t)dac >> shift;
-        int delta = dac - last_amp;
-        if (delta) {
+        int delta_snd = dac - last_amp;
+        if (delta_snd) {
             last_amp = dac;
 
             int filter = 0;
@@ -173,7 +173,7 @@ void Gba_Pcm::update(int dac)
                 filter = filters[idx];
             }
 
-            pcm_synth[filter].offset(time, delta, output);
+            pcm_synth[filter].offset(time, delta_snd, output);
         }
         last_time = time;
     }

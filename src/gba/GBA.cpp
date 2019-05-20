@@ -12,7 +12,6 @@
 #include "../Util.h"
 #include "../common/ConfigManager.h"
 #include "../common/Port.h"
-#include "Cheats.h"
 #include "EEprom.h"
 #include "Flash.h"
 #include "GBA.h"
@@ -713,15 +712,13 @@ static bool CPUWriteState(gzFile gzFile)
     utilGzWrite(gzFile, workRAM, WORK_RAM_SIZE);
     utilGzWrite(gzFile, vram, 0x20000);
     utilGzWrite(gzFile, oam, 0x400);
-    utilGzWrite(gzFile, pix, 4 * 241 * 162);
+    utilGzWrite(gzFile, pix, 2 * 240 * 160);
     utilGzWrite(gzFile, ioMem, 0x400);
 
     eepromSaveGame(gzFile);
     flashSaveGame(gzFile);
     soundSaveGame(gzFile);
-
-    cheatsSaveGame(gzFile);
-
+    
     // version 1.5
     rtcSaveGame(gzFile);
 
@@ -827,10 +824,7 @@ static bool CPUReadState(gzFile gzFile)
     utilGzRead(gzFile, workRAM, WORK_RAM_SIZE);
     utilGzRead(gzFile, vram, 0x20000);
     utilGzRead(gzFile, oam, 0x400);
-    if (version < SAVE_GAME_VERSION_6)
-        utilGzRead(gzFile, pix, 4 * 240 * 160);
-    else
-        utilGzRead(gzFile, pix, 4 * 241 * 162);
+    utilGzRead(gzFile, pix, 2 * 240 * 160);
     utilGzRead(gzFile, ioMem, 0x400);
 
     if (skipSaveGameBattery) {
@@ -844,14 +838,6 @@ static bool CPUReadState(gzFile gzFile)
     }
     soundReadGame(gzFile, version);
 
-    if (version > SAVE_GAME_VERSION_1) {
-        if (skipSaveGameCheats) {
-            // skip cheats list data
-            cheatsReadGameSkip(gzFile, version);
-        } else {
-            cheatsReadGame(gzFile, version);
-        }
-    }
     if (version > SAVE_GAME_VERSION_6) {
         rtcReadGame(gzFile);
     }
@@ -1568,7 +1554,7 @@ int CPULoadRom(const char* szFile)
         return 0;
     }
     
-    pix = (uint8_t*)calloc(1, 4 * 241 * 162);
+    pix = (uint8_t*)calloc(1, 2 * (240 * 160));
     if (pix == NULL) {
         systemMessage(MSG_OUT_OF_MEMORY, N_("Failed to allocate memory for %s"),
             "PIX");
@@ -3390,7 +3376,7 @@ void CPUReset()
     // clean palette
     memset(paletteRAM, 0, 0x400);
     // clean picture
-    memset(pix, 0, 4 * 160 * 240);
+    memset(pix, 0, 2 * (240 * 160));
     // clean vram
     memset(vram, 0, 0x20000);
     // clean io memory
@@ -3772,9 +3758,7 @@ void CPULoop(int ticks)
                             }
 
                             uint32_t ext = (joy >> 10);
-                            // If no (m) code is enabled, apply the cheats at each LCDline
-                            if ((cheatsEnabled) && (mastercode == 0))
-                                remainingTicks += cheatsCheckKeys(P1 ^ 0x3FF, ext);
+
                             speedup = (ext & 1) ? true : false;
                             capture = (ext & 2) ? true : false;
 
@@ -3809,11 +3793,7 @@ void CPULoop(int ticks)
                             (*renderLine)();
                             switch (systemColorDepth) {
                             case 16: {
-#ifdef __LIBRETRO__
                                 uint16_t* dest = (uint16_t*)pix + 240 * VCOUNT;
-#else
-                                uint16_t* dest = (uint16_t*)pix + 242 * (VCOUNT + 1);
-#endif
                                 for (int x = 0; x < 240;) {
                                     *dest++ = systemColorMap16[lineMix[x++] & 0xFFFF];
                                     *dest++ = systemColorMap16[lineMix[x++] & 0xFFFF];
@@ -3835,10 +3815,6 @@ void CPULoop(int ticks)
                                     *dest++ = systemColorMap16[lineMix[x++] & 0xFFFF];
                                     *dest++ = systemColorMap16[lineMix[x++] & 0xFFFF];
                                 }
-// for filters that read past the screen
-#ifndef __LIBRETRO__
-                                *dest++ = 0;
-#endif
                             } break;
                             case 24: {
                                 uint8_t* dest = (uint8_t*)pix + 240 * VCOUNT * 3;
@@ -3881,11 +3857,7 @@ void CPULoop(int ticks)
                                 }
                             } break;
                             case 32: {
-#ifdef __LIBRETRO__
                                 uint32_t* dest = (uint32_t*)pix + 240 * VCOUNT;
-#else
-                                uint32_t* dest = (uint32_t*)pix + 241 * (VCOUNT + 1);
-#endif
                                 for (int x = 0; x < 240;) {
                                     *dest++ = systemColorMap32[lineMix[x++] & 0xFFFF];
                                     *dest++ = systemColorMap32[lineMix[x++] & 0xFFFF];
